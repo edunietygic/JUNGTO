@@ -10,7 +10,7 @@ class Main extends CI_Controller{
     
     public function test()
     {
-        echo "aaaa";
+        //echo "aaaa";
         $account = "bolee";
         $oAccountModel = edu_get_instance('Account_model', 'model');
         print_r($oAccountModel->getEduMemInfo($account));
