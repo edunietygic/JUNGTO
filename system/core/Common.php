@@ -39,15 +39,15 @@ date_default_timezone_set('Asia/Seoul');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // dev hostname setting ----------------------------------//
-$sHostURL   = 'http://unote.eduniety.net/~hojunlee/unoteapi';
-$sJHostURL  = 'http://unote.eduniety.net/~hojunlee/unoteapi';
-$sStaticURL = 'http://unote.eduniety.net/~hojunlee/unoteapi/static/AdminLTE-2.3.0'; 
-$sStatic    = 'http://unote.eduniety.net/~hojunlee/unoteapi/static';
-$sCookieDomain = "eduniety.net";
+$sHostURL   = 'http://jungto.eduniety.cc:8090/jungto';
+$sSkinURL   = 'http://jungto.eduniety.cc:8090/skin';
+
+$sCookieDomain = "eduniety.cc";
 
 $sIBricksURL = 'http://210.91.70.136:11000'; 
 
-
+define("HOSTURL", $sHostURL);
+define("SKINURL", $sSkinURL);
 
 /*
 if($_SERVER["SERVER_NAME"] == 'localhost')
@@ -71,16 +71,6 @@ else
   $sIBricksURL = 'http://210.91.70.136:11000'; 
 }
 */
-
-define("HOSTURL", $sHostURL);
-define("JHOSTURL", $sJHostURL);
-define("IMGURL", $sStaticURL);
-define("SURL", $sStatic);
-define("CKDOMAIN", $sCookieDomain);
-
-
-// IBricks 윤문수집 관련 URL
-define("IBRICKS", $sIBricksURL);
 
 // -------------------------------------------------------// 
 
