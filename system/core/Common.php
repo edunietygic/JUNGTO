@@ -39,7 +39,15 @@ date_default_timezone_set('Asia/Seoul');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // dev hostname setting ----------------------------------//
-$sHostURL   = 'http://jungto.eduniety.cc:8090/jungto';
+if($_SERVER["SERVER_NAME"] == 'localhost')
+{
+	$sHostURL    = 'http://localhost'.$_SERVER['CONTEXT_PREFIX'].'/jungto';
+}
+else
+{
+	$sHostURL   = 'http://jungto.eduniety.cc:8090/jungto';
+}
+
 $sSkinURL   = 'http://jungto.eduniety.cc:8090/skin';
 $sImgURL   = 'http://jungto.eduniety.cc:8090/jungto/static/img';
 
