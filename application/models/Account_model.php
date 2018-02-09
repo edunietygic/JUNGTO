@@ -22,8 +22,8 @@ class Account_model extends CI_model{
     public function getAccountInfo($account_id)
     {
         if(!$account_id) return false;
-
-        $aInput = array('account' => $account_id);
+        
+        $aInput = array('mb_id' => $account_id);
         $aAccountInfo = $this->account_dao->getAccountInfo($aInput);
 
         if( is_array($aAccountInfo) && count($aAccountInfo) > 0 )
@@ -32,17 +32,18 @@ class Account_model extends CI_model{
         return false;
     }
 
-    public function setAccountInfo($account_id, $regdate, $site, $accessToken='')
+    public function setAccountInfo($aParam)
     {
-        if (!$account_id || !$regdate || !$site) return false;
+        // chk param
 
-        $aInput = array(
-             'account' => $account_id
-            ,'oauth'   => $site
-            ,'regdate' => $regdate
-            ,'accessToken' => $accessToken
-        );
-        return $this->account_dao->setAccountInfo($aInput);
+        // set db      
+        // $aInput = array(
+        //      'account' => $account_id
+        //     ,'oauth'   => $site
+        //     ,'regdate' => $regdate
+        //     ,'accessToken' => $accessToken
+        // );
+        // return $this->account_dao->setAccountInfo($aInput);
     }
 
     public function getEduMemInfo($account_id)
@@ -53,4 +54,5 @@ class Account_model extends CI_model{
 
         return $aEduMemInfo;
     }
+
 }
