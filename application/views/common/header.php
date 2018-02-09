@@ -13,5 +13,8 @@
 <link href="<?=SKINURL?>/css/style.css" rel="stylesheet">
 <link href="<?=SKINURL?>/css/responsive.css" rel="stylesheet">
 </head>
+<body>
+<!-- Wrapper -->
+<div id="wrapper"> 
 
 

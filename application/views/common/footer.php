@@ -7,4 +7,14 @@
     </div>
   </footer>
   <!-- end: Footer --> 
- 
+</div>
+<!-- end: Wrapper --> 
+
+<!-- Go to top button --> 
+<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a> 
+<!--Plugins--> 
+<script src="<?=SKINURL?>/js/jquery.js"></script> 
+<script src="<?=SKINURL?>/js/plugins.js"></script> 
+<script src="<?=SKINURL?>/js/functions.js"></script>
+</body>
+</html>
