@@ -8,7 +8,6 @@ class Main extends CI_Controller{
         //    $this->load->helper(array('form', 'url')); 
     }
 
-
     public function index()
     {
         $data = array(

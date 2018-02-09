@@ -3,7 +3,7 @@
   <div id="header-wrap">
     <div class="container"> 
       <!--Logo-->
-      <div id="logo"> <a href="index.html" class="logo" data-dark-logo="images/logo-dark.png"> <img src="<?=SKINURL?>/images/logo.png" alt="hihappyschool Logo"> </a> </div>
+      <div id="logo"> <a href="<?=HOSTURL?>/main" class="logo" data-dark-logo="<?=SKINURL?>/images/logo-dark.png"> <img src="<?=SKINURL?>/images/logo.png" alt="hihappyschool Logo"> </a> </div>
       <!--End: Logo--> 
       
       <!--Top Search Form-->
@@ -47,19 +47,19 @@
         <div class="container">
           <nav>
             <ul>
-              <li><a href="#">MY PAGE</a></li>
-              <li class="dropdown"> <a href="#">행복학교</a>
+              <li><a href="<?=HOSTURL?>/mypage">MY PAGE</a></li>
+              <li class="dropdown"> <a href="<?=HOSTURL?>/happyschool">행복학교</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">행복학교 소개</a></li>
-                  <li><a href="#">가치체계<span class="label label-danger">NEW</span></a></li>
-                  <li><a href="#">프로그램 소개</a></li>
+                  <li><a href="<?=HOSTURL?>/happyschool">행복학교 소개</a></li>
+                  <li><a href="<?=HOSTURL?>/happyschool/valuesystem">가치체계<span class="label label-danger">NEW</span></a></li>
+                  <li><a href="<?=HOSTURL?>/happyschool/program">프로그램 소개</a></li>
                 </ul>
               </li>
-              <li><a href="page-map.html">수강신청</a></li>
-              <li><a href="archive-paginav.html">행복학교 소식</a></li>
-              <li><a href="archive-paginav.html">행복캠프</a></li>
-              <li><a href="archive-paginav.html">행복한강연</a></li>
-              <li><a href="archive-paginav.html">생생후기</a></li>
+              <li><a href="<?=HOSTURL?>/course">수강신청</a></li>
+              <li><a href="<?=HOSTURL?>/news">행복학교 소식</a></li>
+              <li><a href="<?=HOSTURL?>/camp">행복캠프</a></li>
+              <li><a href="<?=HOSTURL?>/lecture">행복한강연</a></li>
+              <li><a href="<?=HOSTURL?>/review">생생후기</a></li>
             </ul>
           </nav>
         </div>
