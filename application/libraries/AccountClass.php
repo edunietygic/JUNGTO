@@ -19,7 +19,7 @@ class AccountClass {
 
         $this->oMemberInfo = $this->_getAccountInfo($this->account_id);
     }
-    private function _chkParam($aInput, $aChkParam))
+    private function _chkParam($aInput, $aChkParam)
     {
         $bParam = true;
         foreach($aChkParam as $key=>$val)
