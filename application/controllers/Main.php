@@ -12,9 +12,10 @@ class Main extends CI_Controller{
     public function index()
     {
         $data = array(
+            'container' => 'main/index'
         );
 
-        $this->load->view('main/index', $data);
+        $this->load->view('common/container', $data);
 
         // id check
         //if(! $account_id = $this->_isLogin() )
