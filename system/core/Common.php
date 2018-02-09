@@ -41,6 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // dev hostname setting ----------------------------------//
 $sHostURL   = 'http://jungto.eduniety.cc:8090/jungto';
 $sSkinURL   = 'http://jungto.eduniety.cc:8090/skin';
+$sImgURL   = 'http://jungto.eduniety.cc:8090/jungto/static/img';
 
 $sCookieDomain = "eduniety.cc";
 
@@ -48,6 +49,7 @@ $sIBricksURL = 'http://210.91.70.136:11000';
 
 define("HOSTURL", $sHostURL);
 define("SKINURL", $sSkinURL);
+define("IMGURL",  $sImgURL);
 
 /*
 if($_SERVER["SERVER_NAME"] == 'localhost')
