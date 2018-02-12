@@ -8,7 +8,7 @@ class Account_dao extends Common_dao
         $this->db = $this->load->database('dev', TRUE);
         
         $aQueryInfo = edu_get_config('query', 'query');
-        $this->queryInfoEdu = $aQueryInfo['account'];
+        $this->queryInfoAccount = $aQueryInfo['account'];
     }
 
     public function getAccountInfo($aParam=array())
@@ -16,7 +16,7 @@ class Account_dao extends Common_dao
         $aConfig = $this->queryInfoAccount['getAccountInfo'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-
+/*
     public function setAccountInfo($aParam=array())
     {
         $aConfig = $this->queryInfoAccount['setAccountInfo'];
@@ -31,5 +31,5 @@ class Account_dao extends Common_dao
         //return $this->actModelFucFromDB($aConfig, $aInput, $this->db);
         return $this->actModelFuc($aConfig, $aInput);
     }
-
+ */
 }

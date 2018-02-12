@@ -7,28 +7,19 @@
 $config['query'] = array(
     'account' => array(
         'getAccountInfo' => array(
-            'query' => 'SELECT usn, account, accessToken, oauth, regdate
-                          FROM account
-                         WHERE account = ?'
-            ,'data' => array('account')
-            ,'btype'=> 's'
-            ,'null' => array()
-        )
-        ,'setAccountInfo' => array(
-            'query' => 'INSERT INTO account ( account, oauth, regdate , accessToken)
-                        VALUES (?,?,?,?)'
-            ,'data' => array('account', 'oauth', 'regdate', 'accessToken')
-            ,'btype'=> 'ssss'
-            ,'null' => array('accessToken')
-        )
-        ,'getMemInfo' => array(
-            'query' => 'SELECT mb_id, mb_name, mb_email 
+            'query' => 'SELECT * 
                           FROM edu_member 
-                         WHERE trim(mb_id)= ?'
+                         WHERE trim(mb_id) = ?'
             ,'data' => array('mb_id')
             ,'btype'=> 's'
             ,'null' => array()
         )
-
+        ,'setAccountInfo' => array(
+            'query' => 'INSERT INTO edu_member( mb_id, mb_password, mb_name, mb_email, mb_hp, mb_join_date)
+                        VALUES (?,?,?,?,?,?)'
+            ,'data' => array('mb_id', 'mb_password', 'mb_name', 'mb_email', 'mb_hp', 'mb_join_date')
+            ,'btype'=> 'ssssss'
+            ,'null' => array()
+        )
     )
 );

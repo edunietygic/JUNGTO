@@ -22,7 +22,7 @@ class CookieClass {
         $CI = & get_instance();
         $CI->load->helper('cookie');
     
-        if($jMemberInfo = get_cookie('edu_coupon_MemberInfo'))
+        if($jMemberInfo = get_cookie('jungto_MemberInfo'))
             return $jMemberInfo;
         else
             return false;
@@ -36,7 +36,7 @@ class CookieClass {
             'name'   => 'MemberInfo',
             'value'  => json_encode(array('admin_id'=>$admin_id, 'site'=>$site, 'name'=>$name)),
             'expire' => '86500',
-            'prefix' => 'edu_coupon_',
+            'prefix' => 'jungto_',
             'domain' => 'eduniety.net',
         );
 
@@ -49,7 +49,7 @@ class CookieClass {
         $CI = & get_instance();
         $CI->load->helper('cookie');
          
-        delete_cookie($name, 'eduniety.net', '/', 'edu_coupon_');
+        delete_cookie($name, 'jungto.cc', '/', 'jungto_');
 
         return;
     }
