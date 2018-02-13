@@ -14,6 +14,14 @@ class News extends CI_Controller{
 
         $this->load->view('common/container', $data);
     }
+    public function viewNews()
+    {
+        $data = array(
+            'container' => 'news/viewNews'
+        );
+
+        $this->load->view('common/container', $data);
+    }
 
 
 }
