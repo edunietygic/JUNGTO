@@ -40,6 +40,7 @@ class AccountClass {
         
         $oAccModel = edu_get_instance('account_model', 'model');
         $rtn = $oAccModel->account_model->setAccountInfo($aParam); 
+        
         return $rtn; 
     } 
     private function _getAccountInfo($account_id)
