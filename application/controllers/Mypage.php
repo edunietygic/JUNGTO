@@ -8,8 +8,15 @@ class Mypage extends CI_Controller{
 
     public function index()
     {
+        // test code 
+        $account_id = 'jazzwave14' ;   
+        
+        edu_get_instance('AccountClass');  
+        $oMem = new AccountClass($account_id); 
+        
         $data = array(
             'container' => 'mypage/index'
+            ,'oMem'     => $oMem 
         );
 
         $this->load->view('common/container', $data);

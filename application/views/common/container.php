@@ -3,6 +3,10 @@
 <?php $this->load->view('common/topbar');?>
 <?php $this->load->view('common/gnb');?>
 
-<?php $this->load->view($container); ?>
+<?php 
+$aData = array();
+$this->load->view($container, $aData); 
+
+?>
 
 <?php $this->load->view('common/footer'); ?>

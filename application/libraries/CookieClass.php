@@ -27,17 +27,17 @@ class CookieClass {
         else
             return false;
     }       
-    public static function setCookieInfo($admin_id, $site, $name)
+    public static function setCookieInfo($aMemberInfo=array())
     {
         $CI = & get_instance();
         $CI->load->helper('cookie');
    
         $cookie = array(
             'name'   => 'MemberInfo',
-            'value'  => json_encode(array('admin_id'=>$admin_id, 'site'=>$site, 'name'=>$name)),
+            'value'  => json_encode($aMemberInfo),
             'expire' => '86500',
             'prefix' => 'jungto_',
-            'domain' => 'eduniety.net',
+            'domain' => 'eduniety.cc',
         );
 
         set_cookie($cookie);
@@ -49,7 +49,7 @@ class CookieClass {
         $CI = & get_instance();
         $CI->load->helper('cookie');
          
-        delete_cookie($name, 'jungto.cc', '/', 'jungto_');
+        delete_cookie($name, 'eduniety.cc', '/', 'jungto_');
 
         return;
     }

@@ -13,11 +13,11 @@
               <form>
                 <div class="form-group">
                   <label class="sr-only">ID</label>
-                  <input type="text" placeholder="Username or Email" class="form-control">
+                  <input type="text" id="user_id" placeholder="Username or Email" class="form-control">
                 </div>
                 <div class="form-group">
                   <label class="sr-only">Password</label>
-                  <input type="password" placeholder="Password" class="form-control">
+                  <input type="password" id="user_pwd" placeholder="Password" class="form-control">
                 </div>
                 <div class="form-inline form-group">
                   <div class="checkbox">
@@ -25,7 +25,7 @@
                       <input type="checkbox">
                       <small> Remember me</small> </label>
                   </div>
-                  <button type="button" class="btn btn-primary btn-block">Login</button>
+                  <button type="button" id="bSend" class="btn btn-primary btn-block">Login</button>
                 </div>
               </form>
             </div>
@@ -49,4 +49,28 @@
       </div>
     </div>
   </div>
-  <!-- end: TOPBAR --> 
+  <!-- end: TOPBAR -->
+<script>
+      $(function(){
+        $('#bSend').click(function(){
+            $.post(
+              "/Loginout/rpcLogin"
+              ,{
+                   "user_id" :  $('#user_id').val() 
+                   ,"user_pwd" : $('#user_pwd').val() 
+               }
+              ,function(data, status) {
+                    if (status == "success" && data.code == 1)
+                    {
+                        //window.location.href="<?=HOSTURL?>/Note";
+                        alert('login OK');
+                    }
+                    else
+                    {
+                        alert("올바른 정보로 입력 바랍니다.");
+                    } 
+              }
+            );
+        });
+      });
+    </script>

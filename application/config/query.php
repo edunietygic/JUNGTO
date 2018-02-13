@@ -21,5 +21,17 @@ $config['query'] = array(
             ,'btype'=> 'ssssss'
             ,'null' => array()
         )
+        ,'mkpwdquery1' => array(
+            'query' => 'replace into edu_gtmp (gk,gv,gw) values (md5(?),?,? )'
+            ,'data' => array('mid2', 'out', 'out1')
+            ,'btype'=> 'sss'
+            ,'null' => array()
+        )
+        ,'mkpwdquery2' => array(
+            'query' => 'select gv, gw from edu_gtmp where gk = md5(?)'
+            ,'data' => array('mid2')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
     )
 );

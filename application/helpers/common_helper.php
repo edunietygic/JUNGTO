@@ -152,6 +152,7 @@ function replaceArticleHTML($sText)
 
 function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, $in_str_auto_length=12)
 {
+
     (string)$secuStr = "@!edu-society!@";
     (string)$mid2 = $secuStr.$mid;
     (array)$randStr = array($bound);
@@ -185,6 +186,10 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
         $in_len = $bound;
     }
 
+    
+    $account_model = edu_get_instance('account_model', 'model');  
+    
+    
     if($encode===TRUE) // encode
     {
 	    ## string 변조 참조 키 생성
@@ -223,6 +228,7 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
         $out[0] = implode("|",$randKey);
         $out[1] = implode("",$wasteStr);
         $out[2] = implode("", $randStr).$subfix;
+
         /*
         +-------+--------------+------+-----+-------------------+-----------------------------+
         | Field | Type         | Null | Key | Default           | Extra                       |
@@ -234,7 +240,8 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
         +-------+--------------+------+-----+-------------------+-----------------------------+
         */
         
-        if( sql_query("replace into edu_gtmp (gk,gv,gw) values (md5('{$mid2}'),'{$out[0]}','{$out[1]}')") )
+        //if( sql_query("replace into edu_gtmp (gk,gv,gw) values (md5('{$mid2}'),'{$out[0]}','{$out[1]}')") )
+        if( $account_model->mkpwdquery1($mid2, $out[0], $out[1]) )
         {
             $auth_pw = md5($out[2]);
             
@@ -250,7 +257,9 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
     }
     else // decode
     {
-        $row = sql_fetch("select gv, gw from edu_gtmp where gk = md5('{$mid2}')");
+        //$row = sql_fetch("select gv, gw from edu_gtmp where gk = md5('{$mid2}')");
+        $row = $account_model->mkpwdquery2($mid2);
+
         if( isset($row['gv']) && !empty($row['gv']) )
         {
             $gv = explode("|", $row['gv']);

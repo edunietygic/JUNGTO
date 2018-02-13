@@ -10,6 +10,21 @@ class Account_dao extends Common_dao
         $aQueryInfo = edu_get_config('query', 'query');
         $this->queryInfoAccount = $aQueryInfo['account'];
     }
+    
+    public function mkpwdquery1($aParam=array())
+    {
+        $aConfig = $this->queryInfoAccount['mkpwdquery1'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function mkpwdquery2($aParam=array())
+    {
+        $aConfig = $this->queryInfoAccount['mkpwdquery2'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+
+
+
+
 
     public function getAccountInfo($aParam=array())
     {
