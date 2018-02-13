@@ -71,7 +71,6 @@ $(function(){
         ,function(data, status) {
               if (status == "success" && data.code == 1)
               {
-                  alert('login OK');
                   location.reload();
               }
               else
@@ -90,7 +89,6 @@ $(function(){
         ,function(data, status) {
               if (status == "success" && data.code == 1)
               {
-                  alert('logout OK');
                   location.reload();
               }
               else
