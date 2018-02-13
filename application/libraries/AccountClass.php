@@ -8,7 +8,7 @@ class AccountClass {
         $i = func_num_args();
         if (method_exists($this,$f='__construct'.$i))
         {
-        call_user_func_array(array($this,$f),$a);
+            call_user_func_array(array($this,$f),$a);
         }
     }
     public function  __construct1($account_id)
@@ -16,7 +16,6 @@ class AccountClass {
         if(!$account_id) return false;
         
         $this->account_id = $account_id;
-
         $this->oMemberInfo = $this->_getAccountInfo($this->account_id);
     }
     private function _chkParam($aInput, $aChkParam)
