@@ -6,9 +6,17 @@
           <div class="topbar-dropdown"> <a class="title"><i class="fa fa-caret-down"> manager</i></a>
             <div class="dropdown-list"> <a class="list-entry" href="#">총괄관리자</a> <a class="list-entry" href="#">운영자</a> <a class="list-entry" href="#">학습자</a> <a class="list-entry" href="#">개인정보수정</a> </div>
           </div>
+          
           <div class="topbar-dropdown">
+          <?php if($name) :?> 
+          <div class="title"><i class="fa fa-user">&nbsp;<?=$name?> 님</i></div>
+            <div class="topbar-form">
+                <div class="form-inline form-group">
+                    <label><small><a href="#" id="bLogout">Logout</a></small></label>
+                  </div>
+            </div>
+          <?php else :?> 
             <div class="title"><i class="fa fa-user"></i><a href="#">Login</a></div>
-            <!--div class="title"><i class="fa fa-user"></i><a href="#">Logout</a></div-->
             <div class="topbar-form">
               <form>
                 <div class="form-group">
@@ -29,6 +37,7 @@
                 </div>
               </form>
             </div>
+          <?php endif;?> 
           </div>
         </div>
         <div class="col-sm-6 hidden-xs">
@@ -51,26 +60,49 @@
   </div>
   <!-- end: TOPBAR -->
 <script>
-      $(function(){
-        $('#bSend').click(function(){
-            $.post(
-              "/Loginout/rpcLogin"
-              ,{
-                   "user_id" :  $('#user_id').val() 
-                   ,"user_pwd" : $('#user_pwd').val() 
-               }
-              ,function(data, status) {
-                    if (status == "success" && data.code == 1)
-                    {
-                        //window.location.href="<?=HOSTURL?>/Note";
-                        alert('login OK');
-                    }
-                    else
-                    {
-                        alert("올바른 정보로 입력 바랍니다.");
-                    } 
+$(function(){
+   $('#bSend').click(function(){
+      $.post(
+        "/Loginout/rpcLogin"
+        ,{
+             "user_id" :  $('#user_id').val() 
+             ,"user_pwd" : $('#user_pwd').val() 
+         }
+        ,function(data, status) {
+              if (status == "success" && data.code == 1)
+              {
+                  alert('login OK');
+                  location.reload();
               }
-            );
-        });
-      });
+              else
+              {
+                  alert("올바른 정보로 입력 바랍니다.");
+              } 
+        }
+      );
+  });
+
+  $('#bLogout').click(function(){
+      $.post(
+        "/Loginout/rpcLogout"
+        ,{
+         }
+        ,function(data, status) {
+              if (status == "success" && data.code == 1)
+              {
+                  alert('logout OK');
+                  location.reload();
+              }
+              else
+              {
+                  alert("올바른 정보로 입력 바랍니다.");
+              } 
+        }
+      );
+  });
+
+
+});
+      
+
     </script>
