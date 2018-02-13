@@ -3,8 +3,14 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
-          <div class="topbar-dropdown"> <a class="title"><i class="fa fa-caret-down"> manager</i></a>
-            <div class="dropdown-list"> <a class="list-entry" href="#">총괄관리자</a> <a class="list-entry" href="#">운영자</a> <a class="list-entry" href="#">학습자</a> <a class="list-entry" href="#">개인정보수정</a> </div>
+          <div class="topbar-dropdown">
+              <a class="title"><i class="fa fa-caret-down"> manager</i></a>
+              <div class="dropdown-list">
+                <a class="list-entry" href="#">총괄관리자</a>
+                <a class="list-entry" href="#">운영자</a>
+                <a class="list-entry" href="#">학습자</a>
+                <a class="list-entry" href="#">개인정보수정</a>
+              </div>
           </div>
           
           <div class="topbar-dropdown">
@@ -16,29 +22,32 @@
                   </div>
             </div>
           <?php else :?> 
-            <div class="title"><i class="fa fa-user"></i><a href="#">Login</a></div>
+            <div class="title"><i class="fa fa-user"></i><a href="#">로그인</a></div>
             <div class="topbar-form">
               <form>
                 <div class="form-group">
                   <label class="sr-only">ID</label>
-                  <input type="text" id="user_id" placeholder="Username or Email" class="form-control">
+                  <input type="text" id="user_id" placeholder="아이디" class="form-control">
                 </div>
                 <div class="form-group">
                   <label class="sr-only">Password</label>
-                  <input type="password" id="user_pwd" placeholder="Password" class="form-control">
+                  <input type="password" id="user_pwd" placeholder="비밀번호" class="form-control">
                 </div>
                 <div class="form-inline form-group">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox">
-                      <small> Remember me</small> </label>
+                      <small> 아이디 저장</small> </label>
                   </div>
-                  <button type="button" id="bSend" class="btn btn-primary btn-block">Login</button>
+                  <button type="button" id="bSend" class="btn btn-primary btn-block">로그인</button>
                 </div>
               </form>
             </div>
           <?php endif;?> 
           </div>
+          <div class="topbar-dropdown">
+            <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</div>
+          </div>          
         </div>
         <div class="col-sm-6 hidden-xs">
           <div class="social-icons social-icons-colored-hover">
@@ -59,6 +68,19 @@
     </div>
   </div>
   <!-- end: TOPBAR -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="commonModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">회원가입</h4>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer"></div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
 <script>
 $(function(){
    $('#bSend').click(function(){
@@ -99,8 +121,12 @@ $(function(){
       );
   });
 
+    $("#startAccount").click(function(){
+      $('.modal-body').load('account/signin',function(){
+          $('#commonModal').modal({show:true});
+      });
+    });
 
 });
-      
 
-    </script>
+</script>
