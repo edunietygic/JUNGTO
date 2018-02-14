@@ -6,6 +6,10 @@ if( $sLoginInfo = CookieClass::getCookieInfo() )
 {
     $aLoginInfo = (array)json_decode($sLoginInfo);
 }
+// test code
+echo "<!--";
+print_r($aLoginInfo);
+echo "-->";
 ?>
 
 <?php $this->load->view('common/header');?>

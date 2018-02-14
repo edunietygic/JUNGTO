@@ -32,18 +32,9 @@ class Account_model extends CI_model{
         return false;
     }
 
-    public function setAccountInfo($aParam)
+    public function setAccountInfo($aInput)
     {
-        // chk param
-
-        // set db      
-        // $aInput = array(
-        //      'account' => $account_id
-        //     ,'oauth'   => $site
-        //     ,'regdate' => $regdate
-        //     ,'accessToken' => $accessToken
-        // );
-        // return $this->account_dao->setAccountInfo($aInput);
+        return $this->account_dao->setAccountInfo($aInput);
     }
 
     public function getEduMemInfo($account_id)

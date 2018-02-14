@@ -54,7 +54,7 @@ class Account extends CI_Controller{
         
         return true;
     }
-    private function _chkPWD()
+    private function _chkPWD($aInput)
     {
         if($aInput['mb_password'] != $aInput['mb_password2'])
             return false; 
