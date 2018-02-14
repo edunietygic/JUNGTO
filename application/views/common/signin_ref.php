@@ -67,7 +67,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group text-center">
-				<button class="btn btn-default btn-submit" type="button"> 확인</button>
+				<button class="btn btn-default btn-submit" type="button">가입하기</button>
 			</div>
 		</div>
 	</div>
