@@ -18,8 +18,8 @@
           <div class="title"><i class="fa fa-user">&nbsp;<?=$name?> 님</i></div>
             <div class="topbar-form">
                 <div class="form-inline form-group">
-                    <label><small><a href="#" id="bLogout">Logout</a></small></label>
-                  </div>
+                  <button type="button" id="bLogout" class="btn btn-primary btn-block">로그아웃</button>
+                </div>
             </div>
           <?php else :?> 
             <div class="title"><i class="fa fa-user"></i><a href="#">로그인</a></div>
