@@ -45,9 +45,12 @@
             </div>
           <?php endif;?> 
           </div>
+
+          <?php if(!$name) :?> 
           <div class="topbar-dropdown">
             <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</div>
-          </div>          
+          </div>
+          <?php endif;?>
         </div>
         <div class="col-sm-6 hidden-xs">
           <div class="social-icons social-icons-colored-hover">
