@@ -25,15 +25,6 @@ $controller = $this->uri->segment(1);
             <a id="top-search-trigger" href="#" class="toggle-item"> <i class="fa fa-search"></i> <i class="fa fa-close"></i> </a> 
             <!--end: top search--> 
           </li>
-          <li class="hidden-xs"> 
-            <!--shopping cart -->
-            <div id="shopping-cart">
-              <a href="#">
-                <span class="shopping-cart-items">8</span>
-                  <i class="fa fa-shopping-cart"></i></a>
-            </div>
-            <!--end: shopping cart--> 
-          </li>
         </ul>
       </div>
       <!--end: Header Extras--> 
@@ -49,7 +40,9 @@ $controller = $this->uri->segment(1);
         <div class="container">
           <nav>
             <ul>
+              <?php if($name) :?> 
               <li><a href="<?=HOSTURL?>/mypage">MY PAGE</a></li>
+              <?php endif; ?>
               <li class="dropdown"> <a href="<?=HOSTURL?>/happyschool">행복학교</a>
                 <ul class="dropdown-menu">
                   <li><a href="<?=HOSTURL?>/happyschool">행복학교 소개</a></li>

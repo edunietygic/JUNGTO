@@ -22,7 +22,7 @@
                 </div>
             </div>
           <?php else :?> 
-            <div class="title"><i class="fa fa-user"></i><a href="#">로그인</a></div>
+            <div class="title"><a href="#"><i class="fa fa-user"></i> 로그인</a></div>
             <div class="topbar-form">
               <form>
                 <div class="form-group">
@@ -34,12 +34,16 @@
                   <input type="password" id="user_pwd" placeholder="비밀번호" class="form-control">
                 </div>
                 <div class="form-inline form-group">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      <small> 아이디 저장</small> </label>
-                  </div>
-                  <button type="button" id="bSend" class="btn btn-primary btn-block">로그인</button>
+                   <button type="button" id="bSend" class="btn btn-primary btn-block">로그인</button>
+                </div>
+                <div class="form-inline form-group">
+                   <div class="checkbox">
+                     <label>
+                       <input type="checkbox">
+                       <small> 아이디 저장</small>
+                     </label>
+                   </div>
+                   <div class="text-left" id="findAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="#">아이디/비밀번호 찾기</a></div>
                 </div>
               </form>
             </div>
@@ -48,12 +52,12 @@
 
           <?php if(!$name) :?> 
           <div class="topbar-dropdown">
-            <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</div>
+            <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="#"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
           </div>
           <?php endif;?>
         </div>
         <div class="col-sm-6 hidden-xs">
-          <div class="social-icons social-icons-colored-hover">
+          <!-- <div class="social-icons social-icons-colored-hover">
             <ul>
               <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -65,7 +69,7 @@
               <li class="social-youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
               <li class="social-rss"><a href="#"><i class="fa fa-rss"></i></a></li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
