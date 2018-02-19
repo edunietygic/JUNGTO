@@ -10,38 +10,48 @@
           <!-- end: Page title --> 
           <!-- Portfolio Filter -->
           <nav class="grid-filter gf-outline" data-layout="#blog">
-            <ul>
+            <!-- <ul>
               <li class="active"><a href="#" data-category="*">Show All</a></li>
               <li><a href="#" data-category=".bc-역사">역사</a></li>
               <li><a href="#" data-category=".bc-법륜">법륜</a></li>
               <li><a href="#" data-category=".bc-video">video</a></li>
-            </ul>
+            </ul> -->
             <div class="grid-active-title">Show All</div>
           </nav>
           <!-- end: Portfolio Filter --> 
           <!-- Blog -->
           <div id="blog" class="grid-layout post-thumbnails" data-item="post-item"> 
             <!-- Post item-->
-            <div class="post-item bc-법륜">
+            <div class="post-item">
               <div class="post-item-wrap">
                 <div class="row">
                   <div class="post-image col-md-9"> 
-                    <a href="#"><img alt="" src="http://www.bulgyofocus.net/news/photo/201711/78701_56097_5011.jpg"></a> 
-                    <span class="post-meta-category"><a href="">법륜</a></span> 
+                    <a href="<?=HOSTURL?>/news/viewNews"><img alt="" src="http://www.bulgyofocus.net/news/photo/201711/78701_56097_5011.jpg"></a> 
+                    <!-- <span class="post-meta-category"><a href="">법륜</a></span>  -->
                   </div>
                   <div class="post-item-description col-md-6"> 
-                    <span class="post-meta-date"><i class="fa fa-calendar-o"></i>2017-06-05</span> 
-                    <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
-                    <h2><a href="article-view.html">한반도에 평화를, 세계에 평화를!-2017 대만 국제참여불교네트워크 컨퍼런스-</a></h2>
-                    <p>이11월 22일부터 29일까지 대만 타이베이에서 ‘자비를 통한 갈등 해소_참여불교 향후 10년의 도전’을 주제로 2017 국제참여불교네트워크(INEB) 컨퍼런스가 진행된다. 22일부터 23일까지 대만 불교 탐방, 24일부터 26일까지 주제발표 및 토론, 27일부터 29일까지는 자유 명상 프로그램 등이 이어진다...</p>
-                    <a href="#" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> 
+                    <span class="post-meta-date">
+                      <i class="fa fa-calendar-o"></i>2017-06-05
+                    </span> 
+                    <span class="post-meta-comments">
+                      <a href=""><i class="fa fa-comments-o"></i>33 Comments</a>
+                    </span>
+                    <h2>
+                        <a href="<?=HOSTURL?>/news/viewNews">한반도에 평화를, 세계에 평화를!-2017 대만 국제참여불교네트워크 컨퍼런스-</a>
+                    </h2>
+                    <p>
+                      이11월 22일부터 29일까지 대만 타이베이에서 ‘자비를 통한 갈등 해소_참여불교 향후 10년의 도전’을 주제로 2017 국제참여불교네트워크(INEB) 컨퍼런스가 진행된다. 22일부터 23일까지 대만 불교 탐방, 24일부터 26일까지 주제발표 및 토론, 27일부터 29일까지는 자유 명상 프로그램 등이 이어진다...
+                    </p>
+                    <a href="<?=HOSTURL?>/news/viewNews" class="item-link">Read More 
+                      <i class="fa fa-arrow-right"></i>
+                    </a> 
                   </div>
                 </div>
               </div>
             </div>
             <!-- end: Post item--> 
             <!-- Post item-->
-            <div class="post-item bc-법륜">
+           <!--  <div class="post-item bc-법륜">
               <div class="post-item-wrap">
                 <div class="row">
                   <div class="post-slider col-md-9">
@@ -62,7 +72,31 @@
                     <a href="article-view.html" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
                 </div>
               </div>
-            </div>
+            </div> -->
+            <!-- end: Post item-->
+            <!-- Post item-->
+            <!-- <div class="post-item bc-법륜">
+              <div class="post-item-wrap">
+                <div class="row">
+                  <div class="post-slider col-md-9">
+                    <div class="carousel dots-inside arrows-visible arrows-only" data-items="1" data-loop="true" data-autoplay="true" data-lightbox="gallery"> 
+                      <a href="http://www.bulgyofocus.net/news/photo/201711/78690_56077_5828.jpg" data-lightbox="gallery-item"><img alt="" src="http://www.bulgyofocus.net/news/photo/201711/78690_56077_5828.jpg"></a> 
+                      <a href="http://www.bulgyofocus.net/news/photo/201711/78685_56063_123.JPG" data-lightbox="gallery-item"><img alt="" src="http://www.bulgyofocus.net/news/photo/201711/78685_56063_123.JPG"></a> 
+                    </div>
+                    <span class="post-meta-category"><a href="">법륜</a></span> 
+                  </div>
+                  <div class="post-item-description col-md-6">
+                    <span class="post-meta-date"><i class="fa fa-calendar-o"></i>2017-06-05</span> 
+                    <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span> 
+                    <span class="post-meta-category">근대사</span>
+                    <h2>
+                      <a href="article-view.html">법륜스님, 2017 INEB 컨퍼런스서 ‘동아시아 평화’ 강조</a>
+                    </h2>
+                    <p>평화재단 이사장 법륜스님이 24일 대만 홍치불교대학에서 진행 중인 2017 국제참여불교네트워크(INEB) 컨퍼런스에 참여해 이 같이 말했다. 한국불교를 대표해 ‘자비를 통한 동아시아의 갈등 해소’를 주제로 발제에 나선 스님은 이날 남북문제 및 동아시아 갈등의 원인을 분석한 뒤 한반도 평화 구축을 위해 정토회와 평화재단이 펼쳐온 여러 활동을 소개했다....</p>
+                    <a href="article-view.html" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
+                </div>
+              </div>
+            </div> -->
             <!-- end: Post item--> 
             <!-- Post item Vimeo-->
             <div class="post-item bc-video">
@@ -70,22 +104,22 @@
                 <div class="row">
                   <div class="post-video col-md-9">
                     <iframe src="https://player.vimeo.com/video/126216210?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                    <span class="post-meta-category"><a href="">Video</a></span> 
+                    <!-- <span class="post-meta-category"><a href="">Video</a></span>  -->
                   </div>
                   <div class="post-item-description col-md-6"> 
                     <span class="post-meta-date"><i class="fa fa-calendar-o"></i>2017-06-05</span> 
                     <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span> 
                     <span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>통일신라</a></span>
-                    <h2><a href="article-view.html">[Vimeo]신라 천년의 예술혼, 경주 남산</a></h2>
+                    <h2><a href="<?=HOSTURL?>/news/viewNews">[Vimeo]신라 천년의 예술혼, 경주 남산</a></h2>
                     <p>경주에 참 많은 것이 있지만, 이번 작업은 경주 남산을 대상으로 했습니다.서울 남산 보다도 높고, 넓고, 수많은 문화재들의 보고입니다.유네스코 세계문화유산으로도 지정되어 있지요.남산을 아니 보고 어찌 경주를 보았다 할 것인가? 라는 말도 있을 정도입니다...</p>
-                    <a href="article-view.html" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+                    <a href="<?=HOSTURL?>/news/viewNews" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- end: Post item Vimeo--> 
             <!-- Post item YouTube-->
-            <div class="post-item bc-video">
+            <!-- <div class="post-item bc-video">
               <div class="post-item-wrap">
                 <div class="row">
                   <div class="post-video col-md-9">
@@ -102,10 +136,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- end: Post item YouTube--> 
             <!-- Post item-->
-            <div class="post-item bc-역사">
+            <!-- <div class="post-item bc-역사">
               <div class="post-item-wrap">
                 <div class="row">
                   <div class="post-image col-md-9"> 
@@ -122,10 +156,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- end: Post item--> 
             <!-- Post item HTML5 Audio-->
-            <div class="post-item bc-역사">
+            <!-- <div class="post-item bc-역사">
               <div class="post-item-wrap">
                 <div class="row">
                   <div class="post-audio col-md-9"> 
@@ -145,10 +179,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- end: Post item--> 
             <!-- Post item quote-->
-            <div class="post-item quote">
+            <!-- <div class="post-item quote">
               <div class="post-item-wrap">
                 <div class="post-quote-img"> 
                   <a href="article-view.html"> <img src="images/quote.png"></a> 
@@ -163,10 +197,10 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- end: Post item--> 
             <!-- Post item HTML5 Video-->
-            <div class="post-item bc-video">
+            <!-- <div class="post-item bc-video">
               <div class="post-item-wrap">
                 <div class="row">
                   <div class="post-video col-md-9">
@@ -186,7 +220,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- end: Post item HTML5 Video--> 
           </div>
           <!-- end: Blog --> 
@@ -205,6 +239,8 @@
           <!-- end: Pagination --> 
         </div>
         <!-- end: post content --> 
+        
+
         <!-- Sidebar-->
         <div class="sidebar col-md-3">
           <div class="pinOnScroll">  
@@ -305,13 +341,13 @@
             <!--End: Tabs with Posts--> 
             
             <!-- Twitter widget -->
-            <div class="widget widget-facebook" data-username="akht21" data-limit="2">
+            <!-- <div class="widget widget-facebook" data-username="akht21" data-limit="2">
               <h4 class="widget-title">Recent facebook</h4>
-            </div>
+            </div> -->
             <!-- end: Twitter widget--> 
             
             <!--widget tags -->
-            <div class="widget  widget-tags">
+            <!-- <div class="widget  widget-tags">
               <h4 class="widget-title">Tags</h4>
               <div class="tags"> 
                 <a href="#">video</a> 
@@ -325,11 +361,11 @@
                 <a href="#">행복</a> 
                 <a href="#">중세</a> 
               </div>
-            </div>
+            </div> -->
             <!--end: widget tags --> 
             
             <!--widget newsletter-->
-            <div class="widget  widget-newsletter">
+           <!--  <div class="widget  widget-newsletter">
               <form class="widget-subscribe-form form-inline" action="include/subscribe-form.php" role="form" method="post">
                 <h4 class="widget-title">News letter</h4>
                 <small>뉴스레터를 보내드립니다!</small>
@@ -340,7 +376,7 @@
                   </span> 
                 </div>
               </form>
-            </div>
+            </div> -->
             <!--end: widget newsletter--> 
           </div>
         </div>
@@ -348,4 +384,4 @@
       </div>
     </div>
   </section>
-  <!-- end: Content -->
+  <!-- end: Content

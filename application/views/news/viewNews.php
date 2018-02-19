@@ -22,13 +22,13 @@
 									<div class="post-meta"> 
 										<span class="post-meta-date"><i class="fa fa-calendar-o"></i>2017-05-20</span> 
 										<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span> 
-										<span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>수업나눔, 수업자료실</a></span>
-										<div class="post-meta-share"> 
+										<!-- <span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>수업나눔, 수업자료실</a></span> -->
+										<!-- <div class="post-meta-share"> 
 											<a class="btn btn-xs btn-slide btn-facebook" href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a> 
 											<a class="btn btn-xs btn-slide btn-twitter" href="#" data-width="100"><i class="fa fa-twitter"></i><span>Twitter</span></a> 
 											<a class="btn btn-xs btn-slide btn-instagram" href="#" data-width="118"><i class="fa fa-instagram"></i><span>Instagram</span></a> 
 											<a class="btn btn-xs btn-slide btn-googleplus" href="mailto:#" data-width="80"> <i class="fa fa-envelope"></i> <span>Mail</span></a> 
-										</div>
+										</div> -->
 									</div>
 									<p style="font-family: '맑은 고딕'">기원전 18년, 백제는 위례성을 수도로 하여 나라를 세웠다. 송파구 풍납토성과 몽촌토성 일대가 위례성이 위치했던 곳으로 위례성은 후에 큰 성이란 뜻인 한성 혹은 대성이라는 명칭으로도 불 렸고, 왕이 거주하던 곳이란 뜻으로 왕성이라고도 불렸다. 475년 고구려 장수왕의 공격에 의해 한성이 무너지면서 백제가 공주로 수도를 옮기게 되지만 493년간 백제의 수도였던 탓에 서울 곳곳에서 백제의 흔적을 발견할 수 있는데 송파구 풍납토성이 대표적인 예이다. 송파구 석촌동, 가락동, 방이동에 가면 실제 백제 고분을 확인할 수 있으며 이 근방을 중심으로 백제인들이 사용 한 토기, 기와, 농기구, 유리 제작에 쓰인 거푸집 등 다양한 백제의 유물이 발견되기도 했다.
 									</p>
@@ -50,7 +50,8 @@
 									<p>기원전 18년, 백제는 위례성을 수도로 하여 나라를 세웠다. 송파구 풍납토성과 몽촌토성 일대가 위례성이 위치했던 곳으로 위례성은 후에 큰 성이란 뜻인 한성 혹은 대성이라는 명칭으로도 불 렸고, 왕이 거주하던 곳이란 뜻으로 왕성이라고도 불렸다. 475년 고구려 장수왕의 공격에 의해 한성이 무너지면서 백제가 공주로 수도를 옮기게 되지만 493년간 백제의 수도였던 탓에 서울 곳곳에서 백제의 흔적을 발견할 수 있는데 송파구 풍납토성이 대표적인 예이다. 송파구 석촌동, 가락동, 방이동에 가면 실제 백제 고분을 확인할 수 있으며 이 근방을 중심으로 백제인들이 사용 한 토기, 기와, 농기구, 유리 제작에 쓰인 거푸집 등 다양한 백제의 유물이 발견되기도 했다. 
 									</p>
 								</div>
-								<div class="post-tags"><a href="#">백제</a><a href="#">서울</a><a href="#">유적</a><a href="#">기원전</a></div>
+								<!-- <div class="post-tags"><a href="#">백제</a><a href="#">서울</a><a href="#">유적</a><a href="#">기원전</a></div> -->
+								<!-- page navigation -->
 								<div class="post-navigation"> 
 									<a href="#" class="post-prev">
 										<div class="post-prev-title"><span>이전글</span>서울에는 삼국의 문화유적 다 있다</div>
@@ -60,6 +61,7 @@
 										<div class="post-next-title"><span>다음글</span>서울, 조선의 수도로 거듭나다.</div>
 									</a> 
 								</div>
+								<!-- //page navigation -->
 								<!-- Comments -->
 								<div class="comments" id="comments">
 									<div class="comment_number">Comments<span>(2)</span> </div>
@@ -250,12 +252,12 @@
 						</div>
 						<!--End: Tabs with Posts--> 
 						<!-- Twitter widget -->
-						<div class="widget widget-facebook" data-username="akht21" data-limit="2">
+						<!-- <div class="widget widget-facebook" data-username="akht21" data-limit="2">
 							<h4 class="widget-title">Recent facebook</h4>
-						</div>
+						</div> -->
 						<!-- end: Twitter widget--> 
 						<!--widget tags -->
-						<div class="widget  widget-tags">
+						<!-- <div class="widget  widget-tags">
 							<h4 class="widget-title">Tags</h4>
 							<div class="tags"> 
 								<a href="#">video</a> 
@@ -269,10 +271,10 @@
 								<a href="#">행복</a> 
 								<a href="#">중세</a> 
 							</div>
-						</div>
+						</div> -->
 						<!--end: widget tags --> 
 						<!--widget newsletter-->
-						<div class="widget  widget-newsletter">
+						<!-- <div class="widget  widget-newsletter">
 							<form class="widget-subscribe-form form-inline" action="include/subscribe-form.php" role="form" method="post">
 								<h4 class="widget-title">News letter</h4>
 								<small>뉴스레터를 보내드립니다!</small>
@@ -283,7 +285,7 @@
 									</span> 
 								</div>
 							</form>
-						</div>
+						</div> -->
 						<!--end: widget newsletter--> 
 					</div>
 				</div>
