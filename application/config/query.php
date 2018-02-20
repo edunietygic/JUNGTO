@@ -33,5 +33,14 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
+        ,'findAccountId' => array(
+            'query' => 'SELECT mb_id
+                          FROM edu_member 
+                         WHERE trim(mb_name) = ?
+                           AND ( trim(mb_email) = ? OR trim(mb_hp) = ? )'
+            ,'data' => array('mb_name','mb_email','mb_hp')
+            ,'btype'=> 'sss'
+            ,'null' => array()
+        )
     )
 );

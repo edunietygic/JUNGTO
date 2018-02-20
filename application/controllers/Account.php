@@ -8,8 +8,18 @@ class Account extends CI_Controller{
 
     public function signin()
     {
-        $data = array();
         $this->load->view('common/signin_ref');
+    }
+
+    public function find()
+    {
+        $this->load->view('common/find_ref');
+    }
+
+    public function find_ret($mb_id)
+    {
+        $data = array('mb_id'=>$mb_id);
+        $this->load->view('common/findid_ref', $data);
     }
 
     public function rpcSignin()
@@ -67,5 +77,31 @@ class Account extends CI_Controller{
         $aResult = generalizeCMPW($user_pwd, $user_id, false);
         return $aResult[1];
     }
+
+    public function rpcFindId()
+    {
+        $aInput = array();
+        $aInput['mb_name']      = trim($this->input->post('senderName'));
+        $aInput['mb_email']     = trim($this->input->post('senderInfo'));
+        $aInput['mb_hp']        = trim($this->input->post('senderInfo'));
+
+        if(! $this->_chkJoinParam($aInput) ) 
+        {
+            response_json(array('code'=> 99 , 'msg'=>'Fail')); 
+            die;
+        }
+
+        edu_get_instance('AccountClass');  
+        $oMem = new AccountClass(); 
+        if( $oAccInfo = $oMem->findId($aInput) )
+        {
+            response_json(array('code'=> 1 , 'msg'=>'OK', 'id'=>$oAccInfo->mb_id)); 
+            die;
+        }
+        
+        response_json(array('code'=> 99 , 'msg'=>'존재하지 않는 정보입니다.')); 
+        die;
+    }
+
     
 }

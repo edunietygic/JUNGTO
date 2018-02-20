@@ -56,4 +56,10 @@ class Account_model extends CI_model{
         $aResult = $this->account_dao->mkpwdquery2($aInput);
         return (array)$aResult[0];
     }
+
+    public function findAccountId($aInput)
+    {
+        $oEduMemInfo = $this->account_dao->findAccountId($aInput);
+        return $oEduMemInfo[0];
+    }
 }

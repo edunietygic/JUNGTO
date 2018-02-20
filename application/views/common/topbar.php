@@ -6,10 +6,10 @@
           <div class="topbar-dropdown">
               <a class="title"><i class="fa fa-caret-down"> manager</i></a>
               <div class="dropdown-list">
-                <a class="list-entry" href="#">총괄관리자</a>
-                <a class="list-entry" href="#">운영자</a>
-                <a class="list-entry" href="#">학습자</a>
-                <a class="list-entry" href="#">개인정보수정</a>
+                <a class="list-entry" href="javascript:void(0);">총괄관리자</a>
+                <a class="list-entry" href="javascript:void(0);">운영자</a>
+                <a class="list-entry" href="javascript:void(0);">학습자</a>
+                <a class="list-entry" href="javascript:void(0);">개인정보수정</a>
               </div>
           </div>
           
@@ -18,11 +18,11 @@
           <div class="title"><i class="fa fa-user">&nbsp;<?=$name?> 님</i></div>
             <div class="topbar-form">
                 <div class="form-inline form-group">
-                  <label><a href="#" id="bLogout">로그아웃</a></label>
+                  <label><a href="javascript:void(0);" id="bLogout">로그아웃</a></label>
                 </div>
             </div>
           <?php else :?> 
-            <div class="title"><a href="#"><i class="fa fa-user"></i> 로그인</a></div>
+            <div class="title"><a href="javascript:void(0);"><i class="fa fa-user"></i> 로그인</a></div>
             <div class="topbar-form">
               <form>
                 <div class="form-group">
@@ -43,7 +43,7 @@
                        <small> 아이디 저장</small>
                      </label>
                    </div>
-                   <div class="text-left" id="findAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="#">아이디/비밀번호 찾기</a></div>
+                   <div class="text-left" id="findAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="javascript:void(0);">아이디/비밀번호 찾기</a></div>
                 </div>
               </form>
             </div>
@@ -52,7 +52,7 @@
 
           <?php if(!$name) :?> 
           <div class="topbar-dropdown">
-            <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="#"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
+            <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="javascript:void(0);"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
           </div>
           <?php endif;?>
         </div>
@@ -128,12 +128,17 @@ $(function(){
       );
   });
 
-    $("#startAccount").click(function(){
-      $('.modal-content').load('account/signin',function(){
-          $('#commonModal').modal({show:true});
-      });
+  $("#startAccount").click(function(){
+    $('.modal-content').load('account/signin',function(){
+        $('#commonModal').modal({show:true});
     });
+  });
 
+  $("#findAccount").click(function(){
+    $('.modal-content').load('account/find',function(){
+        $('#commonModal').modal({show:true});
+    });
+  });
 });
 
 </script>

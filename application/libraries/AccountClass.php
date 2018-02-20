@@ -50,5 +50,17 @@ class AccountClass {
 
         return $aAccInfo;
     }
+
+    public function findId($aParam)
+    {
+        $aChkParam = array('mb_name', 'mb_email', 'mb_hp');
+            
+        if(!$this->_chkParam($aParam, $aChkParam))  return false;    
+        
+        $oAccModel = edu_get_instance('account_model', 'model');
+        $oAccInfo = $oAccModel->account_model->findAccountId($aParam); 
+
+        return $oAccInfo; 
+    }
     
 }
