@@ -43,4 +43,14 @@ $config['query'] = array(
             ,'null' => array()
         )
     )
+    ,'course' => array(
+        'getCourseList' => array(
+            'query' => 'SELECT * 
+                          FROM lms_subj 
+                         WHERE isonoff = ?'
+            ,'data' => array('isonoff')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+    )        
 );
