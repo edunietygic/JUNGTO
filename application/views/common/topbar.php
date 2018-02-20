@@ -2,7 +2,8 @@
   <div id="topbar" class="topbar-transparent visible-md visible-lg">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-12">
+          <?php if($name) :?> 
           <div class="topbar-dropdown">
               <a class="title"><i class="fa fa-caret-down"> manager</i></a>
               <div class="dropdown-list">
@@ -12,16 +13,17 @@
                 <a class="list-entry" href="javascript:void(0);">개인정보수정</a>
               </div>
           </div>
-          
           <div class="topbar-dropdown">
-          <?php if($name) :?> 
-          <div class="title"><i class="fa fa-user">&nbsp;<?=$name?> 님</i></div>
+            <div class="title"><i class="fa fa-user">&nbsp;<?=$name?> 님</i></div>
             <div class="topbar-form">
                 <div class="form-inline form-group">
                   <label><a href="javascript:void(0);" id="bLogout">로그아웃</a></label>
                 </div>
             </div>
+          </div>
+
           <?php else :?> 
+          <div class="topbar-dropdown">
             <div class="title"><a href="javascript:void(0);"><i class="fa fa-user"></i> 로그인</a></div>
             <div class="topbar-form">
               <form>
@@ -47,29 +49,12 @@
                 </div>
               </form>
             </div>
-          <?php endif;?> 
           </div>
 
-          <?php if(!$name) :?> 
           <div class="topbar-dropdown">
             <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="javascript:void(0);"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
           </div>
           <?php endif;?>
-        </div>
-        <div class="col-sm-6 hidden-xs">
-          <!-- <div class="social-icons social-icons-colored-hover">
-            <ul>
-              <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li class="social-pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-              <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-              <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li class="social-dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li class="social-youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-              <li class="social-rss"><a href="#"><i class="fa fa-rss"></i></a></li>
-            </ul>
-          </div> -->
         </div>
       </div>
     </div>
