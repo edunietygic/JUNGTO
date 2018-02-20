@@ -45,7 +45,7 @@ $config['query'] = array(
     )
     ,'course' => array(
         'getCourseList' => array(
-            'query' => 'SELECT * 
+            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit 
                           FROM lms_subj 
                          WHERE isonoff = ?'
             ,'data' => array('isonoff')

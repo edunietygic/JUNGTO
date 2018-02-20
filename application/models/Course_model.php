@@ -15,9 +15,6 @@ class Course_model extends CI_model{
         return $aCourseList; 
     }
 
-    public function setAccountInfo($aInput)
-    {
-        return $this->account_dao->setAccountInfo($aInput);
-    }
+    
 
 }
