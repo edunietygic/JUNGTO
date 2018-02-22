@@ -51,6 +51,31 @@ $config['query'] = array(
             ,'data' => array('isonoff')
             ,'btype'=> 's'
             ,'null' => array()
+         )
+         ,'getMyCourseList' => array(
+            'query' => 'SELECT s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit 
+                               , a.mb_id, a.state, a.regdate 
+                          FROM lms_subj s, lms_subj_applicant a  
+                         WHERE s.subj = a.subj 
+                           AND a.mb_id = ?'
+            ,'data' => array('mb_id')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+        ,'getUserListFromCourse' => array(
+            'query' => 'SELECT subj, mb_id, state, regdate 
+                          FROM lms_subj_applicant  
+                         WHERE subj = ?'
+            ,'data' => array('subj')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+        ,'setReqCourseUser' => array(
+            'query' => 'INSERT INTO lms_subj_applicant(subj, mb_id, state, regdate)
+                        VALUES (?,?,?,?)'
+            ,'data' => array('subj', 'mb_id', 'state', 'regdate')
+            ,'btype'=> 'ssss'
+            ,'null' => array()
         )
     )        
 );

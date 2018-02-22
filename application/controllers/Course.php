@@ -14,13 +14,9 @@ class Course extends CI_Controller{
         // get course list
         $aCourseList = $this->_getCourseList();
 
-        // test code
-        echo "<pre>";
-        print_r($aCourseList);
-
-
         $data = array(
             'container' => 'course/index'
+            ,'aData'    => $aCourseList
         );
 
         $this->load->view('common/container', $data);
@@ -36,10 +32,29 @@ class Course extends CI_Controller{
     /*
      * 수강신청 
      * */
-    public function rpcRegCourse()
+    public function rpcReqCourse()
     {
-    
+        $mb_id = trim($this->input->post('mb_id')); 
+        $subj  = trim($this->input->post('subj')); 
+
+        if(!$mb_id || !$subj)
+        {
+            response_json(array('code'=> 99 , 'msg'=>'Fail')); 
+            die;
+        }
+
+        edu_get_instance('CourseClass');  
+        $oCourse = new CourseClass(); 
+        if(!$oCourse->setCourseReqUser($mb_id, $subj) )
+        {
+            response_json(array('code'=> 2 , 'msg'=>'is req')); 
+            die;
+        }
+
+        response_json(array('code'=> 1 , 'msg'=>'OK')); 
+        die;
     }
+
     private function _getCourseList()
     {
         edu_get_instance('CourseClass');  

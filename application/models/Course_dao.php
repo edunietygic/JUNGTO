@@ -16,5 +16,19 @@ class Course_dao extends Common_dao
         $aConfig = $this->queryInfoCourse['getCourseList'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-
+    public function getMyCourseList($aParam)
+    {
+        $aConfig = $this->queryInfoCourse['getMyCourseList'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getUserListFromCourse($aParam)
+    {
+        $aConfig = $this->queryInfoCourse['getUserListFromCourse'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function setReqCourseUser($aParam)
+    {
+        $aConfig = $this->queryInfoCourse['setReqCourseUser'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 }

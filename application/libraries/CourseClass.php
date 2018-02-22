@@ -29,13 +29,28 @@ class CourseClass {
     {
         return $this->getCourseList(); 
     }
-    public function getUserListFromCourse()
+    public function getUserListFromCourse($subj)
     {
-    
+        $course_model = edu_get_instance('Course_model', 'model');
+        return $course_model->getUserListFromCourse($subj); 
     }
     public function getDetailCourse($course_idx)
     {
         if(!$course_idx) return false;
      
     }
+    public function setCourseReqUser($mb_id, $subj)
+    {
+        if(!$mb_id || !$subj) return false; 
+    
+        $course_model = edu_get_instance('Course_model', 'model');
+        return $course_model->setCourseReqUser($mb_id, $subj); 
+    }
+    public function getMyCourseInfo($mb_id)
+    {
+        if(!$mb_id) return false; 
+    
+        $course_model = edu_get_instance('Course_model', 'model');
+        return $course_model->getMyCourseInfo($mb_id); 
+    } 
 }

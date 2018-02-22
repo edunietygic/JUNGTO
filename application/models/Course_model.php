@@ -14,7 +14,60 @@ class Course_model extends CI_model{
 
         return $aCourseList; 
     }
+ 
+    public function getMyCourseInfo($mb_id)
+    {
+        if(!$mb_id) return false;
+        $aInput = array('mb_id' => $mb_id);
 
+        $aCourseList = $this->course_dao->getMyCourseList($aInput);
+        return $aCourseList;
+    }
+    public function getUserListFromCourse($subj)
+    {
+        if(!$subj) return false;
+
+        $aInput = array('subj' => $subj);
+        $aCourseList = $this->course_dao->getUserListFromCourse($aInput);
+
+        return $aCourseList; 
+    }
+    public function setCourseReqUser($mb_id, $subj)
+    {
+        if(!$mb_id || !$subj) return false; 
     
+        // 중복신청 
+        if( !$this->_chkReqInfo($mb_id, $subj)) return false;
 
+        // 신청
+        return $this->_reqCourse($mb_id, $subj); 
+    }
+    private function _reqCourse($mb_id, $subj)
+    {
+        if(!$mb_id || !$subj) return false; 
+
+        $aInput = array(
+             'mb_id' => $mb_id
+            ,'subj'  => $subj
+            ,'state' => 'REQ' 
+            ,'regdate' => date('Y-m-d H:i:s') 
+        ); 
+        $this->course_dao->setReqCourseUser($aInput);     
+        return true;
+    }    
+    private function _chkReqInfo($mb_id, $subj)
+    {
+        if(!$mb_id || !$subj) return false; 
+
+        if( $aUserList = $this->getUserListFromCourse($subj) )
+        {
+            foreach($aUserList as $key=>$val)
+            {
+                if($val->mb_id == $mb_id)
+                    return false; 
+            }
+        }
+        
+        return true; 
+    }
 }
