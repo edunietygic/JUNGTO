@@ -27,7 +27,17 @@ class CourseClass {
     }
     public function getActiveCourseList()
     {
-        return $this->getCourseList(); 
+        $aCourseList = $this->getCourseList(); 
+
+        $aActiveCourseList = array();
+
+        $today = date('Y-m-d H:i:s');
+        foreach($aCourseList as $key=>$val)
+        {
+            if($val->open_date <= $today && $today <= $val->close_date)
+                $aActiveCourseList[] = $val; 
+        } 
+        return $aActiveCourseList;
     }
     public function getUserListFromCourse($subj)
     {
