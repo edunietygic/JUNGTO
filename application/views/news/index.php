@@ -109,7 +109,7 @@
                   <div class="post-item-description col-md-6"> 
                     <span class="post-meta-date"><i class="fa fa-calendar-o"></i>2017-06-05</span> 
                     <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span> 
-                    <span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>통일신라</a></span>
+                    <!-- <span class="post-meta-category"><a href=""><i class="fa fa-tag"></i>통일신라</a></span> -->
                     <h2><a href="<?=HOSTURL?>/news/viewNews">[Vimeo]신라 천년의 예술혼, 경주 남산</a></h2>
                     <p>경주에 참 많은 것이 있지만, 이번 작업은 경주 남산을 대상으로 했습니다.서울 남산 보다도 높고, 넓고, 수많은 문화재들의 보고입니다.유네스코 세계문화유산으로도 지정되어 있지요.남산을 아니 보고 어찌 경주를 보았다 할 것인가? 라는 말도 있을 정도입니다...</p>
                     <a href="<?=HOSTURL?>/news/viewNews" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
