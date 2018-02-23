@@ -71,50 +71,11 @@
 											<div class="image"><img alt="" src="images/blog/author.jpg" class="avatar"></div>
 											<div class="text">
 												<h5 class="name">김태선</h5>
-												<span class="comment_date">Reple at 10-13, 15:32</span><a class="comment-reply-link" href="#">Reply</a>
+												<span class="comment_date">Reple at 10-13, 15:32</span>
 												<div class="text_holder">
 													<p>6학년 1학기 사회에 대해...백제의 수도는 ( ) 이었지만 5세기경 고구려의 힘에 밀려 ( )으로 도읍을 옮겼다. 그 후 도읍을 다시 (  )로 옮기고 국력을 회복하였다.</p>
 												</div>
-											</div>
-											<!-- Comment -->
-											<div class="comment" id="comment-1-1">
-												<div class="image"><img alt="" src="images/blog/author2.jpg" class="avatar"></div>
-												<div class="text">
-													<h5 class="name">이보라</h5>
-													<span class="comment_date">Reple at 10-13, 15:32</span> <a class="comment-reply-link" href="#">Reply</a>
-													<div class="text_holder">
-														<p>백제의 수도는 처음은 위례성이고 다음은 웅진 그러고 마지막 수도 사비성이죠!(맞는지 모르겠네^^)처음에 온조가 위례성에서 나라를 건국하고 발전을 하죠 백제가 고구려를 침략해서 고구려왕을죽이게 되죠 그래서 고구려는 광개토대왕이 그 원한을 풀기위해서 백제를 공격해서 백제의 위례성을빼앗죠! 거기서 백제가 항복을 하고 다음에 웅진으로 천도를 하게되죠. 사비성은 고구려에게 빼앗기고웅진에서 다시 처음부터 시작을 하죠 그러다고 백제의 마지막에가서 사비성으로 다시 천도를 하게 되죠수도를 사비성으로 옮겨야 나라가 발전할수 있다는 말을 듣고 옮겨다는 말이있죠^^ 또 다른 말로는신라의 첩자들이 왕에게 유언비어를 퍼뜨려서 옮기게 했다는 소문도 있습니다.그러고 사비성에서 향략를 즐기다가 의자왕때에 나당연합군에의해서 비로소 멸망하게 되죠 </p>
-													</div>
-												</div>
-											</div>
-											<!-- end: Comment --> 
-											<!-- Comment -->
-											<div class="comment" id="comment-1-2">
-												<div class="image"><img alt="" src="images/blog/author3.jpg" class="avatar"></div>
-												<div class="text">
-													<h5 class="name">배현정</h5>
-													<span class="comment_date">Reple at 10-13, 15:32</span> <a class="comment-reply-link" href="#">Reply</a>
-													<div class="text_holder">
-														<p>백제가 도성을 웅진성에서 사비성으로 천도한 이후에도 웅진성은 중요한 기능을 수해하고 있었다. 당시 백제는 전국을 5방으로 구획하였다. 5방에는 그 거점인 방성(方城)을 각각 설치해 두었다. 5방성은 중방 고사성(古沙城), 동방 득안성(得安城), 남방 구지하성(久知下城), 서방 도선성(刀先城), 북방 웅진성이었다. 북방의 통치 거점인 웅진성은 왕도인 사비성에서 동북 60리 떨어져 있는데, 성벽 한 변의 길이가 1리반(一里半)이었다. 이러한 웅진성의 규모는 남방의 구지하성이 130보이며, 서방의 도선성이 200보인 것과 비교해 볼 때, 월등히 규모가 컸음을 알 수 있다. 사비도읍기에도 이전의 왕도였던 웅진성의 비중이 실로 컸음을 뜻한다. 웅진성에 주둔한 병력은 그 규모에 비추어 볼 때, 여느 방성의 7백 명 보다는 규모가 큰 1천명에 이르렀던 것으로 보인다. 북방의 웅진성에는 달솔 관등의 방령(方領)이 파견되어 있었는데, 그 밑의 방좌(方佐)가 방령을 보좌하고 있었다. 웅진성을 축으로 한 북방에는 10여개의 군(郡)이 소재하고 있었는데, 군의 우두머리인 군장(郡將)은 덕솔 관등의 3인을 배속시켰다. </p>
-													</div>
-													<div class="row">
-														<div class="col-md-12">
-															<div class="form-group">
-																<label class="upper" for="comment">Reple</label>
-																<textarea class="form-control required" name="comment" rows="9" placeholder="Enter comment" id="comment" aria-required="true"></textarea>
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-12">
-															<div class="form-group text-center">
-																<button type="button" class="btn btn-light">Submit Comment</button>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- end: Comment --> 
+											</div> 
 										</div>
 										<!-- end: Comment --> 
 										<!-- Comment -->
@@ -122,7 +83,7 @@
 											<div class="image"><img alt="" src="images/blog/author2.jpg" class="avatar"></div>
 											<div class="text">
 												<h5 class="name">김성현</h5>
-												<span class="comment_date">Reple at 10-13, 15:32</span> <a class="comment-reply-link" href="#">Reply</a>
+												<span class="comment_date">Reple at 10-13, 15:32</span>
 												<div class="text_holder">
 													<p>일본서기에 의하면, "금년 7월 10일 대당(大唐)의 소정방이 수군을 거느리고, 미자진(尾資津)에 집결하였다. 신라왕 춘추지(春秋智)는 병마를 거느리고, 노수리산(怒受利山)에 모였다. 백제를 협격하여 서로 싸운지 3일만에 우리 왕성(王城)이 함락되었다. 같은 달 13일 비로소 왕성이 격파되었다. 노수리산은 백제의 동쪽 국경이었다" 라고 하여 긴박한 상황의 흐름을 요령있게 적어 놓았다. 여기서 노수리산은 두 말할 나위없이 황산(黃山)을 가리킨다. </p>
 												</div>
