@@ -62,5 +62,15 @@ class Course extends CI_Controller{
         
         return $oCourse; 
     }
-    
+
+
+    public function rpcGetAddrCode($code='')
+    {
+        if(!$code) $code = $this->input->post('code');
+        $aAddrCode = getAddrCode($code);
+                    
+        response_json(array('code'=> 1 , 'msg'=>'OK', 'result'=>$aAddrCode));
+        die;
+
+    } 
 }
