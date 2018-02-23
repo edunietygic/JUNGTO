@@ -39,6 +39,16 @@ class Account_dao extends Common_dao
         $aConfig = $this->queryInfoAccount['findAccountId'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function findAccountPw($aParam=array())
+    {
+        $aConfig = $this->queryInfoAccount['findAccountPw'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function changeAccountPw($aParam=array())
+    {
+        $aConfig = $this->queryInfoAccount['changeAccountPw'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 /*
     public function getEduMemInfo($account_id)
     {

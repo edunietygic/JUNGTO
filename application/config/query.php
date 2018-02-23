@@ -7,8 +7,8 @@
 $config['query'] = array(
     'account' => array(
         'getAccountInfo' => array(
-            'query' => 'SELECT * 
-                          FROM edu_member 
+            'query' => 'SELECT *
+                          FROM edu_member
                          WHERE trim(mb_id) = ?'
             ,'data' => array('mb_id')
             ,'btype'=> 's'
@@ -35,22 +35,40 @@ $config['query'] = array(
         )
         ,'findAccountId' => array(
             'query' => 'SELECT mb_id
-                          FROM edu_member 
+                          FROM edu_member
                          WHERE trim(mb_name) = ?
                            AND ( trim(mb_email) = ? OR trim(mb_hp) = ? )'
             ,'data' => array('mb_name','mb_email','mb_hp')
             ,'btype'=> 'sss'
             ,'null' => array()
         )
+        ,'findAccountPw' => array(
+            'query' => 'SELECT mb_id, mb_name, mb_email
+                          FROM edu_member
+                         WHERE trim(mb_id) = ?
+                           AND trim(mb_email) = ?'
+            ,'data' => array('mb_id','mb_email')
+            ,'btype'=> 'ss'
+            ,'null' => array()
+        )
+        ,'changeAccountPw' => array(
+            'query' => 'UPDATE edu_member
+                           SET mb_password = ?
+                         WHERE trim(mb_id) = ?
+                           AND trim(mb_email) = ?'
+            ,'data' => array('tmp_password','mb_id', 'mb_email')
+            ,'btype'=> 'sss'
+            ,'null' => array()
+        )
     )
     ,'course' => array(
         'getCourseList' => array(
-            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit 
-                          FROM lms_subj 
+            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit
+                          FROM lms_subj
                          WHERE isonoff = ?'
             ,'data' => array('isonoff')
             ,'btype'=> 's'
             ,'null' => array()
         )
-    )        
+    )
 );

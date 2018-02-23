@@ -63,4 +63,26 @@ class AccountClass {
         return $oAccInfo; 
     }
     
+    public function findPassword($aParam)
+    {
+        $aChkParam = array('mb_id', 'mb_email');
+            
+        if(!$this->_chkParam($aParam, $aChkParam))  return false;    
+        
+        $oAccModel = edu_get_instance('account_model', 'model');
+        $oAccInfo = $oAccModel->account_model->findAccountPw($aParam); 
+
+        return $oAccInfo; 
+    }
+
+    public function changePassword($aParam)
+    {
+        $aChkParam = array('mb_id', 'tmp_password');
+            
+        if(!$this->_chkParam($aParam, $aChkParam))  return false;    
+        
+        $oAccModel = edu_get_instance('account_model', 'model');
+        return $oAccModel->account_model->changeAccountPw($aParam); 
+    }
+
 }

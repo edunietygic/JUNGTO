@@ -62,4 +62,15 @@ class Account_model extends CI_model{
         $oEduMemInfo = $this->account_dao->findAccountId($aInput);
         return $oEduMemInfo[0];
     }
+
+    public function findAccountPw($aInput)
+    {
+        $oEduMemInfo = $this->account_dao->findAccountPw($aInput);
+        return $oEduMemInfo[0];
+    }
+
+    public function changeAccountPw($aInput)
+    {
+        return $this->account_dao->changeAccountPw($aInput);
+    }
 }

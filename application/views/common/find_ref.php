@@ -46,11 +46,11 @@
 				</div>
 			</form>
 		</div>
-		
+
 		<div role="tabpanel" class="tab-pane" id="findPw">
 			<div class="alert alert-success alert-sm">
 				비밀번호 찾기 결과는 임시비밀번호가 발급되어 제공되며, <br>
-				등록된 이메일 또는 휴대전화로 안내 됩니다.<br>
+				등록된 이메일로 안내 됩니다.<br>
 			</div>
 			<form id="findPasswordFrm" method="post">
 				<div class="row">
@@ -68,9 +68,9 @@
 						<div class="form-group">
 							<div class="input-group col-fix">
 								<div class="input-group-addon col-fix-3 text-left">
-									<label class="upper" for="senderInfo">이메일 또는 휴대전화</label>
+									<label class="upper" for="senderEmail">이메일</label>
 								</div>
-								<input type="email" class="form-control required email" name="senderInfo" placeholder="이메일 또는 휴대전화" id="senderInfo" aria-required="true">
+								<input type="email" class="form-control required email" name="senderEmail" placeholder="이메일 (id@domain.com)" id="senderEmail" aria-required="true">
 							</div>
 						</div>
 					</div>
@@ -92,7 +92,7 @@ function findId()
 	var senderInfo = $('#findIdFrm [name="senderInfo"]').val();
 
 	if(!senderName){
-		alert('아이디는 필수입력 사항입니다.');
+		alert('이름은 필수입력 사항입니다.');
 		return false;
 	}
 	if(!senderInfo){
@@ -111,6 +111,39 @@ function findId()
 	             	$('.modal-body').load('account/find_ret/'+data.id,function(){
 				        // $('#commonModal').modal({show:true});
 				    });
+	             }
+	             else if(data.code == 99)
+	             {
+	                alert(data.msg);
+	                return false;
+	             }
+	         }
+	     });
+}
+function findPassword()
+{
+	var senderId = $('#findPasswordFrm [name="senderId"]').val();
+	var senderEmail = $('#findPasswordFrm [name="senderEmail"]').val();
+
+	if(!senderId){
+		alert('아이디는 필수입력 사항입니다.');
+		return false;
+	}
+	if(!senderEmail){
+		alert('이메일은 필수입력 사항입니다.');
+		return false;
+	}
+
+	$.ajax({
+	     type: 'POST',
+	     url: '<?=HOSTURL?>/Account/rpcFindPassword',
+	     data: { "senderId": senderId, "senderInfo": senderEmail },
+	     success: function (data) {
+	             console.log(data);
+	             if(data.code == 1)
+	             {
+	             	alert(data.msg.replace('<br>','\r\n'));
+	             	location.href = "<?=HOSTURL?>/main";
 	             }
 	             else if(data.code == 99)
 	             {

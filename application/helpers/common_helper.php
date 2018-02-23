@@ -299,3 +299,20 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
     }
     return $out;
 }
+
+function generateRandomCode($sDefault='', $sLength=8)
+{
+    $len = $sLength - strlen($sDefault);
+    $sString = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    srand((double)microtime()*1000000);
+
+    $i = 0;
+    $sCode = $sDefault;
+    while ($i < $len) {
+        $num = rand() % strlen($sString);
+        $sCode .= substr($sString, $num, 1);
+        $i++;
+    }
+
+    return $sCode;
+}
