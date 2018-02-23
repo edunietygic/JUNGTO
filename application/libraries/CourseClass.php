@@ -27,15 +27,40 @@ class CourseClass {
     }
     public function getActiveCourseList()
     {
-        return $this->getCourseList(); 
+        $aCourseList = $this->getCourseList(); 
+
+        $aActiveCourseList = array();
+
+        $today = date('Y-m-d H:i:s');
+        foreach($aCourseList as $key=>$val)
+        {
+            if($val->open_date <= $today && $today <= $val->close_date)
+                $aActiveCourseList[] = $val; 
+        } 
+        return $aActiveCourseList;
     }
-    public function getUserListFromCourse()
+    public function getUserListFromCourse($subj)
     {
-    
+        $course_model = edu_get_instance('Course_model', 'model');
+        return $course_model->getUserListFromCourse($subj); 
     }
     public function getDetailCourse($course_idx)
     {
         if(!$course_idx) return false;
      
     }
+    public function setCourseReqUser($mb_id, $subj)
+    {
+        if(!$mb_id || !$subj) return false; 
+    
+        $course_model = edu_get_instance('Course_model', 'model');
+        return $course_model->setCourseReqUser($mb_id, $subj); 
+    }
+    public function getMyCourseInfo($mb_id)
+    {
+        if(!$mb_id) return false; 
+    
+        $course_model = edu_get_instance('Course_model', 'model');
+        return $course_model->getMyCourseInfo($mb_id); 
+    } 
 }

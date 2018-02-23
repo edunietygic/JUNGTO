@@ -17,6 +17,7 @@ class AccountClass {
         
         $this->account_id = $account_id;
         $this->oMemberInfo = $this->_getAccountInfo($this->account_id);
+        $this->myCourseInfo = $this->_getMyCourseInfo($this->account_id);
     }
     private function _chkParam($aInput, $aChkParam)
     {
@@ -42,6 +43,17 @@ class AccountClass {
         $rtn = $oAccModel->account_model->setAccountInfo($aParam); 
         
         return $rtn; 
+    }
+    private function _getMyCourseInfo($account_id)
+    {
+        edu_get_instance('CourseClass');  
+        $oCourse = new CourseClass(); 
+        if( !$aMyCourseList = $oCourse->getMyCourseInfo($account_id) )
+        {
+            return "no req list"; 
+        }
+
+        return $aMyCourseList;; 
     } 
     private function _getAccountInfo($account_id)
     {
