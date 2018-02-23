@@ -71,7 +71,7 @@
 											<div class="image"><img alt="" src="images/blog/author.jpg" class="avatar"></div>
 											<div class="text">
 												<h5 class="name">김태선</h5>
-												<span class="comment_date">Reple at 10-13, 15:32</span><a class="comment-reply-link" href="#">Reply</a>
+												<span class="comment_date">Reple at 10-13, 15:32</span>
 												<div class="text_holder">
 													<p>6학년 1학기 사회에 대해...백제의 수도는 ( ) 이었지만 5세기경 고구려의 힘에 밀려 ( )으로 도읍을 옮겼다. 그 후 도읍을 다시 (  )로 옮기고 국력을 회복하였다.</p>
 												</div>
@@ -83,7 +83,7 @@
 											<div class="image"><img alt="" src="images/blog/author2.jpg" class="avatar"></div>
 											<div class="text">
 												<h5 class="name">김성현</h5>
-												<span class="comment_date">Reple at 10-13, 15:32</span> <a class="comment-reply-link" href="#">Reply</a>
+												<span class="comment_date">Reple at 10-13, 15:32</span>
 												<div class="text_holder">
 													<p>일본서기에 의하면, "금년 7월 10일 대당(大唐)의 소정방이 수군을 거느리고, 미자진(尾資津)에 집결하였다. 신라왕 춘추지(春秋智)는 병마를 거느리고, 노수리산(怒受利山)에 모였다. 백제를 협격하여 서로 싸운지 3일만에 우리 왕성(王城)이 함락되었다. 같은 달 13일 비로소 왕성이 격파되었다. 노수리산은 백제의 동쪽 국경이었다" 라고 하여 긴박한 상황의 흐름을 요령있게 적어 놓았다. 여기서 노수리산은 두 말할 나위없이 황산(黃山)을 가리킨다. </p>
 												</div>
