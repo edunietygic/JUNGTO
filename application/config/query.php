@@ -96,4 +96,16 @@ $config['query'] = array(
             ,'null' => array()
         )
     )
+    ,'board' => array(
+        'getNoticeList' => array(
+            'query' => 'SELECT a.seq, a.addate, a.adtitle, a.adname, a.cnt, a.luserid, a.ldate, a.isall, a.useyn, a.popup, a.loginyn, a.gubun, a.aduserid, a.type, a.notice_gubun, a.adcontent, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
+                        FROM lms_notice a
+                        WHERE isall = "Y" and tabseq = "11"
+                        order by seq desc
+                        limit 5'
+            ,'data' => array('')
+            ,'btype'=> ''
+            ,'null' => array()
+         )
+    )
 );
