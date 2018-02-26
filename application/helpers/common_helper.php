@@ -119,6 +119,18 @@ function sendCURLGet($url,$params)
     curl_close($ch);
     return $output;
 }
+function getAddrCode($code='')
+{
+    // 행정동 코드를 리턴 합니다.
+    if(!$code)
+        $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/top.json.txt";
+    else
+        $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/mdl.".$code.".json.txt";
+    $jAddrCode = sendCURLGet($url, array()); 
+
+    $aAddrCode = json_decode($jAddrCode);
+    return $aAddrCode;
+}
 function getMenuData($sController, $sMethod)
 {
     $aMenu = edu_get_config('menu','menu');
