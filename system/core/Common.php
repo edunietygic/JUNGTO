@@ -50,25 +50,27 @@ else
 
 $sSkinURL   = 'http://jungto.eduniety.cc:8090/skin';
 $sImgURL   = 'http://jungto.eduniety.cc:8090/static/img';
+$sAttachURL   = 'http://jungtoadmin.eduniety.cc:8090/dp/bulletin';
 
 $sCookieDomain = "eduniety.cc";
 
-$sIBricksURL = 'http://210.91.70.136:11000'; 
+$sIBricksURL = 'http://210.91.70.136:11000';
 
 define("HOSTURL", $sHostURL);
 define("SKINURL", $sSkinURL);
 define("IMGURL",  $sImgURL);
+define("ATTACHURL",  $sAttachURL);
 
 /*
 if($_SERVER["SERVER_NAME"] == 'localhost')
 {
   $sHostURL = 'http://localhost/~hojunlee/unoteapi';
   $sJHostURL= 'http://localhost/~hojunlee/unoteapi';
-  $sStaticURL = 'http://localhost/~hojunlee/unoteapi/static/AdminLTE-2.3.0'; 
+  $sStaticURL = 'http://localhost/~hojunlee/unoteapi/static/AdminLTE-2.3.0';
   $sStatic  = 'http://localhost/~hojunlee/unoteapi/static';
   $sCookieDomain = "localhost";
-  
-  $sIBricksURL = 'http://210.91.70.136:11000'; 
+
+  $sIBricksURL = 'http://210.91.70.136:11000';
 }
 else
 {
@@ -78,11 +80,11 @@ else
   $sStatic  = 'http://localhost/~hojunlee/unoteapi/static';
   $sCookieDomain = "localhost";
 
-  $sIBricksURL = 'http://210.91.70.136:11000'; 
+  $sIBricksURL = 'http://210.91.70.136:11000';
 }
 */
 
-// -------------------------------------------------------// 
+// -------------------------------------------------------//
 
 /**
  * Common Functions
