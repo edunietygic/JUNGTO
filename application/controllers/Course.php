@@ -162,7 +162,7 @@ class Course extends CI_Controller{
         edu_get_instance('CourseClass');  
         $oCourse = new CourseClass(); 
         if($addrcode)
-            return $oCourse->searchCourseList($addrcode); 
+            $oCourse->searchCourseList($addrcode); 
         
         return $oCourse; 
     }

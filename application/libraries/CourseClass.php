@@ -50,6 +50,7 @@ class CourseClass {
 
         $aCourseList = $this->getCourseList($addrcode); 
         $aActiveCourseList = $this->_makeCourseList($aCourseList);;
+        $this->oActiveCourse = $aActiveCourseList;
         return $aActiveCourseList;
     }
     public function getActiveCourseList()
