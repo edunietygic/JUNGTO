@@ -7,6 +7,8 @@ class MailClass {
     }
     public function sendMail($oAccInfo, $sPassword, $tmp_password)
     {
+        $CI = & get_instance();
+
         $nameFrom  = "행복학교";
         $mailFrom = "admin@hihappyschool.com";
         $nameTo  = $oAccInfo->mb_name;
@@ -15,7 +17,9 @@ class MailClass {
         $bcc = "";
 
         $subject = "[행복학교] 임시비밀번호 발급";
-        $content = "임시비밀번호 : ".$sPassword."<br>"."임시비밀번호암호화 : ".$tmp_password;
+
+        $data = array('name'=>$oAccInfo->mb_name, 'tmp_password'=>$sPassword);
+        $content = $CI->load->view('common/mailTemplate', $data, true);
 
         $charset = "UTF-8";
 

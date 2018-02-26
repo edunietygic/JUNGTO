@@ -31,11 +31,11 @@
         <!--mail contents-->
         <div class="mailInner">
             <div class="mailCon">
-                <p><strong><span class="name"></span>님 안녕하세요,</strong> 행복학교입니다.</p>
+                <p><strong><span class="name"><?=$name?></span>님 안녕하세요,</strong> 행복학교입니다.</p>
                 <p>회원님께서 '비밀번호 찾기'를 통해 요청하신 임시비밀번호를 보내드립니다.</p>
                 <br>
-                <p><strong>임시비밀번호</strong>: <span class="tempPwd"></span></p>
-                <br>    
+                <p><strong>임시비밀번호</strong>: <span class="tempPwd"><?=$tmp_password?></span></p>
+                <br>
                 <p>임시비밀번호로 로그인 하신 후 꼭 비밀번호를 변경해주세요.</p>
                 <p>홈페이지 상단 마이페이지에서 비밀번호를 변경할 수 있습니다.</p>
                 <p>감사합니다.</p>
@@ -53,7 +53,7 @@
             <div class="info">
                 <p>서울 서초구 서초동 1623-2 우일빌딩 3층</p>
                 <p>P: (02) 567-8080</p>
-            </div>    
+            </div>
         </div>
         <div class="right">
             <p class="tit">"행복도 배울 수 있나요?"</p>
