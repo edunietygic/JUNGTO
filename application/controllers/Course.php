@@ -11,13 +11,39 @@ class Course extends CI_Controller{
      * */
     public function index()
     {
-        // get course list
-        $aCourseList = $this->_getCourseList();
+        // init
+        $aData = array();
+        $aData['addr1'] = '';
+        $aData['addr1'] = '';
+        $aData['select_addr1'] = '';
+        $aData['select_addr2'] = ''; 
 
+        if(isset($_POST['p_addr1']) && isset($_POST['p_addr2']))
+        {
+            // select addrcode     
+            $aData['select_addr1'] = $_POST['p_addr1'];
+            $aData['select_addr2'] = $_POST['p_addr2'];
+        }
+       
+        // addr setting
+        $aData['addr1'] = getAddrCode();
+        
+        if($aData['select_addr2'])
+        {
+            $aData['addr2'] = getAddrCode($aData['select_addr1']);
+        }
+        
+        // get course list
+        $aData['aCourseList'] = $this->_getCourseList($aData['select_addr2']); 
+ 
         $data = array(
             'container' => 'course/index'
-            ,'aData'    => $aCourseList
+            ,'aData'    => $aData
         );
+
+        echo "<!--";
+        print_r($data);
+        echo "-->";
 
         $this->load->view('common/container', $data);
     }
@@ -55,14 +81,15 @@ class Course extends CI_Controller{
         die;
     }
 
-    private function _getCourseList()
+    private function _getCourseList($addrcode='')
     {
         edu_get_instance('CourseClass');  
         $oCourse = new CourseClass(); 
+        if($addrcode)
+            return $oCourse->searchCourseList($addrcode); 
         
         return $oCourse; 
     }
-
 
     public function rpcGetAddrCode($code='')
     {
