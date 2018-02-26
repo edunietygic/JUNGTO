@@ -31,7 +31,18 @@ class Account_model extends CI_model{
 
         return false;
     }
+    public function getAccountInfoKeyToggler($account_id)
+    {
+        if(!$account_id) return false;
+        
+        $aInput = array('mb_id' => $account_id);
+        $aAccountInfo = $this->account_dao->getAccountInfoKeyToggler($aInput);
 
+        if( is_array($aAccountInfo) && count($aAccountInfo) > 0 )
+            return $aAccountInfo[0];
+
+        return false;
+    }
     public function setAccountInfo($aInput)
     {
         return $this->account_dao->setAccountInfo($aInput);

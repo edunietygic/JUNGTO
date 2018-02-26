@@ -41,28 +41,87 @@ class Course extends CI_Controller{
             ,'aData'    => $aData
         );
 
-        echo "<!--";
-        print_r($data);
-        echo "-->";
+        // test code
+        // echo "<!--";
+        // print_r($data);
+        // echo "-->";
 
         $this->load->view('common/container', $data);
     }
-    
     /*
      * 과목 상세 보기
      * */
-    public function detailCourse()
+    public function course_sangse($subj='')
     {
-    
+        if(!$subj) header('Location: /course'); 
+
+        // course info 
+        edu_get_instance('CourseClass');  
+        $oCourse = new CourseClass(); 
+        $aData = array();
+        $aData['oCourseInfo'] = $oCourse->getDetailCourse($subj); 
+
+        // tutol info
+        edu_get_instance('AccountClass');  
+        $oAccount = new AccountClass(); 
+        $aData['oAccountInfo'] = $oAccount->keyTogglerFromID($aData['oCourseInfo']->tutor); 
+
+        // login info 
+        edu_get_instance('CookieClass');  
+        if($jLoginInfo = CookieClass::getCookieInfo())
+        {
+            $aData['oLoginInfo'] = json_decode($jLoginInfo);
+            $aData['oLoginInfo']->pwd = $aData['oLoginInfo']->mb_id;
+        }
+        else
+        {
+            $aMemInfo['mb_id'] = '';
+            $aMemInfo['name']  = '';
+            $aMemInfo['pwd']   = '';
+            $aMemInfo['mb_hp'] = '';
+            $aMemInfo['email'] = '';
+        
+            $aData['oLoginInfo']= (object)$aMemInfo;
+        }
+
+        // test code
+        echo "<!--";
+        print_r($aData);
+        echo "-->";
+        
+        $data = array(
+            'container' => 'course/course_sangse'
+            ,'aData'    => $aData
+        );
+
+        // test code
+        // echo "<!--";
+        // print_r($data);
+        // echo "-->";
+
+        $this->load->view('common/container', $data);
+
     }
     /*
      * 수강신청 
      * */
     public function rpcReqCourse()
     {
-        $mb_id = trim($this->input->post('mb_id')); 
-        $subj  = trim($this->input->post('subj')); 
+        $subj   = trim($this->input->post('subj')); 
+        $mb_id  = trim($this->input->post('mb_id')); 
+        $passwd = trim($this->input->post('passwd')); 
+        $name   = trim($this->input->post('name')); 
+        $email  = trim($this->input->post('email')); 
+        $hp     = trim($this->input->post('hp')); 
 
+        // is Loginin
+        if($mb_id != $passwd)
+        {
+            // join process
+        
+        }
+
+        // req process
         if(!$mb_id || !$subj)
         {
             response_json(array('code'=> 99 , 'msg'=>'Fail')); 
@@ -79,8 +138,8 @@ class Course extends CI_Controller{
 
         response_json(array('code'=> 1 , 'msg'=>'OK')); 
         die;
-    }
 
+    }
     private function _getCourseList($addrcode='')
     {
         edu_get_instance('CourseClass');  
@@ -90,7 +149,6 @@ class Course extends CI_Controller{
         
         return $oCourse; 
     }
-
     public function rpcGetAddrCode($code='')
     {
         if(!$code) $code = $this->input->post('code');

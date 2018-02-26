@@ -116,11 +116,11 @@ function addrChange(){
         <div class="post-item border">
           <div class="post-item-wrap">
             <div class="post-image"> <a href="#" data-target="#modal-3" data-toggle="modal"> <img alt="" src="/skin/images/school/thum-school-03.png"> </a> <span class="post-meta-category"><a href="#">주간</a></span> </div>
-            <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=$val->open_date?></span> <span class="post-meta-comments"><a href="#"><i class="fa fa-comments-o"></i><?=$val->studentlimit?> People</a></span>
+            <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($val->open_date,0,4).'.'.substr($val->open_date,5,2).'/'.substr($val->open_date,8,2)?></span> <span class="post-meta-comments"><a href="#"><i class="fa fa-comments-o"></i><?=$val->studentlimit?> People</a></span>
             <h2><a href="#" data-target="#modal-3" data-toggle="modal"><?=$val->subjnm?></a></h2>
               <!--p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p-->
               <p><?=$val->eduoutline?></p>
-              <a href="school-view.html" class="item-link">Map More <i class="fa fa-arrow-right"></i></a> </div>
+              <a href="/course/course_sangse/<?=$val->subj?>" class="item-link">Map More <i class="fa fa-arrow-right"></i></a> </div>
           </div>
         </div>
         <?php endforeach;?>

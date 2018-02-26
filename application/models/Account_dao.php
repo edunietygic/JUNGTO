@@ -27,7 +27,11 @@ class Account_dao extends Common_dao
         $aConfig = $this->queryInfoAccount['getAccountInfo'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-    
+    public function getAccountInfoKeyToggler($aParam=array())
+    {
+        $aConfig = $this->queryInfoAccount['getAccountInfoKeyToggler'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
     public function setAccountInfo($aParam=array())
     {
         $aConfig = $this->queryInfoAccount['setAccountInfo'];

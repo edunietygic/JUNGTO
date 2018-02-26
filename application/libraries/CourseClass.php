@@ -63,10 +63,13 @@ class CourseClass {
         $course_model = edu_get_instance('Course_model', 'model');
         return $course_model->getUserListFromCourse($subj); 
     }
-    public function getDetailCourse($course_idx)
+    public function getDetailCourse($subj)
     {
-        if(!$course_idx) return false;
-     
+        if(!$subj) return false;
+       
+        $course_model = edu_get_instance('Course_model', 'model');
+        return $course_model->getDetailCourse($subj); 
+            
     }
     public function setCourseReqUser($mb_id, $subj)
     {

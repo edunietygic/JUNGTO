@@ -39,6 +39,16 @@ class Course_model extends CI_model{
 
         return $aCourseList; 
     }
+    public function getDetailCourse($subj)
+    {
+        if(!$subj) return false;
+
+        $aInput = array('subj' => $subj);
+        $aCourseList = $this->course_dao->getDetailCourse($aInput);
+
+        return $aCourseList[0]; 
+    }
+    
     public function setCourseReqUser($mb_id, $subj)
     {
         if(!$mb_id || !$subj) return false; 

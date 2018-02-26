@@ -96,5 +96,14 @@ class AccountClass {
         $oAccModel = edu_get_instance('account_model', 'model');
         return $oAccModel->account_model->changeAccountPw($aParam); 
     }
+    
+    public function keyTogglerFromID($account_id)
+    {
+        $oAccModel = edu_get_instance('account_model', 'model');
+        $aAccInfo = $oAccModel->account_model->getAccountInfoKeyToggler($account_id);
+
+        return $aAccInfo;
+       
+    }
 
 }

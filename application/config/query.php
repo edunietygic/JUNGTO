@@ -14,6 +14,14 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
+        ,'getAccountInfoKeyToggler' => array(
+            'query' => 'SELECT mb_name
+                          FROM edu_member
+                         WHERE trim(mb_id) = ?'
+            ,'data' => array('mb_id')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
         ,'setAccountInfo' => array(
             'query' => 'INSERT INTO edu_member( mb_id, mb_password, mb_name, mb_email, mb_hp, mb_join_date)
                         VALUES (?,?,?,?,?,?)'
@@ -67,6 +75,14 @@ $config['query'] = array(
                           FROM lms_subj
                          WHERE isonoff = ?'
             ,'data' => array('isonoff')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+        ,'getDetailCourse' => array(
+            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo 
+                          FROM lms_subj
+                         WHERE subj = ?'
+            ,'data' => array('subj')
             ,'btype'=> 's'
             ,'null' => array()
         )
