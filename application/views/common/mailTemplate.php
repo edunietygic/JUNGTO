@@ -7,20 +7,21 @@
     <meta name="description" content="법륜스님과 함께하는 행복학교">
     <title>비밀번호발송</title>
     <style>
-        body{position: relative;padding: 0;margin: 0;}
+        body{position: relative;padding: 0;margin: 0; background: #eee;}
+        p{font-size: 18px;}
         .clearfix{*zoom:1}
         .clearfix:after{content:'';display:block;clear:both;}
-        .mailWrap{width: 100%;background: #fff;}
-        .mailTop{background-color: #00c49f;height: 70px;}
-        .mailCon{padding: 20px 15%;}
-        .mailBottom{padding: 20px 15%; background-color: #eee;}
-        .mailBottom .tit{color: #959595;font-weight: bold;font-size: 20px;text-align: right}
-        .mailBottom .txt{color: #959595;text-align: right}
-        .mailBottom .left{float: left; width: 30%;}
+        .mailWrap{width: 100%; margin-top: 30px;}
+        .mailTop{background-color: #00c49f;height: 20px; margin: 0 20%;}
+        .mailCon{padding: 20px 5%; margin: 0 20%;background: #fff;}
+        .mailBottom{padding: 20px 5%; margin: 0 20%;; background: #fff; border-top:2px dotted #959595;}
+        .mailBottom .tit{color: #959595;font-weight: bold;font-size: 18px;text-align: right}
+        .mailBottom .txt{color: #959595;text-align: right; font-size: 14px}
+        .mailBottom .left{float: left; width: 40%;}
         .mailBottom .left.logo{padding-top:15px;}
         .mailBottom .left .info{padding-top: 20px;padding-left: 10px;}
         .mailBottom .left .info p{font-size: 12px;margin: 0px;line-height: 1.5}
-        .mailBottom .right{float: right;width: 70%;}
+        .mailBottom .right{float: right;width: 60%;}
     </style>
 </head>
 <body>
