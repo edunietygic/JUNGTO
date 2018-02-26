@@ -106,4 +106,19 @@ class AccountClass {
        
     }
 
+    public function getPwd($user_id, $user_pwd, $from)
+    {
+        if(!$user_id || !$user_pwd || !$from) return false;
+
+        if(! in_array($from, array('reqCourse'))) return false;
+
+        return $this->_mkPwd($user_id, $user_pwd); 
+    } 
+    private function _mkPwd($user_id, $user_pwd)
+    {
+        if(!$user_id || !$user_pwd) return false;
+
+        $aResult = generalizeCMPW($user_pwd, $user_id, false);
+        return $aResult[1];
+    }
 }

@@ -118,9 +118,26 @@ class Course extends CI_Controller{
         if($mb_id != $passwd)
         {
             // join process
+            
+            // is account => pass 
+            edu_get_instance('AccountClass');  
+            $oAccount = new AccountClass($mb_id) ;          
         
+            if(!$oAccount->oMemberInfo)
+            {
+                $mkpwd = $oAccount->getPwd($mb_id, $passwd, 'reqCourse');   
+                $aJoinInfo = array(
+                     'mb_id'        => $mb_id
+                    ,'mb_password'  => $mkpwd
+                    ,'mb_name'      => $name
+                    ,'mb_email'     => $email
+                    ,'mb_hp'        => substr($hp,0,3).'-'.substr($hp,3,4).'-'.substr($hp,7,4)
+                    ,'mb_join_date' => date('Y-m-d h:i:s')
+                );
+                $oAccount->joinMember($aJoinInfo);
+            }
         }
-
+        
         // req process
         if(!$mb_id || !$subj)
         {
