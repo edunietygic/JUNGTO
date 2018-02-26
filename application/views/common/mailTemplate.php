@@ -40,7 +40,7 @@
                 <p>감사합니다.</p>
                 <br>
                 <p>홈페이지로 이동하려면 아래의 링크를 방문하시기 바랍니다.<br>
-                <a href="http://hihappy.eduniety.cc/">http://hihappy.eduniety.cc</a></p>
+                <a href="http://jungto.eduniety.cc:8090/main">http://jungto.eduniety.cc:8090/main</a></p>
                 <p>*본 메일은 발송 전용 메일입니다.</p>
             </div>
         </div><!--//mail contents-->
@@ -48,7 +48,7 @@
     <!--footer-->
     <div class="mailBottom clearfix">
         <div class="left logo">
-            <a href="http://hihappy.eduniety.cc/"><img src="http://hihappy.eduniety.cc/images/logo-gray.png" alt="행복학교"></a>
+            <a href="http://jungto.eduniety.cc:8090/main"><img src="<?=SKINURL?>/images/logo-gray.png" alt="행복학교"></a>
             <div class="info">
                 <p>서울 서초구 서초동 1623-2 우일빌딩 3층</p>
                 <p>P: (02) 567-8080</p>
