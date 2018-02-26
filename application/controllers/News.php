@@ -8,8 +8,12 @@ class News extends CI_Controller{
 
     public function index()
     {
+        edu_get_instance('BoardClass');
+        $aLdata = BoardClass::getNoticeList();
+
         $data = array(
             'container' => 'news/index'
+            ,'aLdata' => $aLdata
         );
 
         $this->load->view('common/container', $data);
