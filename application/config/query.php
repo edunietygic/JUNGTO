@@ -63,10 +63,19 @@ $config['query'] = array(
     )
     ,'course' => array(
         'getCourseList' => array(
-            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date
+            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo 
                           FROM lms_subj
                          WHERE isonoff = ?'
             ,'data' => array('isonoff')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+        ,'getCourseListAddrcode' => array(
+            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo
+                          FROM lms_subj
+                         WHERE isonoff = ?
+                           AND addrcode = ?'
+            ,'data' => array('isonoff', 'addrcode')
             ,'btype'=> 's'
             ,'null' => array()
          )

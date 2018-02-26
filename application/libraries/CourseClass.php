@@ -20,23 +20,42 @@ class CourseClass {
         $this->oCourseInfo = $this->getDetailCourse($course_idx);
     }
 
-    public function getCourseList()
+    public function getCourseList($addrcode='')
     {
         $course_model = edu_get_instance('Course_model', 'model');
-        return $course_model->getCourseList(); 
+        
+        if($addrcode)
+            return $course_model->getCourseListAddrcode($addrcode); 
+        else
+            return $course_model->getCourseList(); 
+    }
+    private function _makeCourseList($aCourseList)
+    {
+        $aActiveCourseList = array();
+        
+        $today = date('Y-m-d H:i:s');
+        if(is_array($aCourseList) && count($aCourseList) >=1)
+        {
+            foreach($aCourseList as $key=>$val)
+            {
+                if($val->open_date <= $today && $today <= $val->close_date)
+                     $aActiveCourseList[] = $val; 
+            }
+        }
+        return $aActiveCourseList;  
+    }
+    public function searchCourseList($addrcode)
+    {
+        if(!$addrcode) return false;
+
+        $aCourseList = $this->getCourseList($addrcode); 
+        $aActiveCourseList = $this->_makeCourseList($aCourseList);;
+        return $aActiveCourseList;
     }
     public function getActiveCourseList()
     {
         $aCourseList = $this->getCourseList(); 
-
-        $aActiveCourseList = array();
-
-        $today = date('Y-m-d H:i:s');
-        foreach($aCourseList as $key=>$val)
-        {
-            if($val->open_date <= $today && $today <= $val->close_date)
-                $aActiveCourseList[] = $val; 
-        } 
+        $aActiveCourseList = $this->_makeCourseList($aCourseList);;
         return $aActiveCourseList;
     }
     public function getUserListFromCourse($subj)

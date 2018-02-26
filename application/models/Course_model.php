@@ -14,7 +14,14 @@ class Course_model extends CI_model{
 
         return $aCourseList; 
     }
- 
+    public function getCourseListAddrcode($sAddrCode)
+    {
+        $aInput = array('isonoff' => 'OFF', 'addrcode'=>$sAddrCode);
+        $aCourseList = $this->course_dao->getCourseListAddrcode($aInput);
+
+        return $aCourseList; 
+    }
+    
     public function getMyCourseInfo($mb_id)
     {
         if(!$mb_id) return false;
