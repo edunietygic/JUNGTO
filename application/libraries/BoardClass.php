@@ -12,6 +12,13 @@ class BoardClass {
 
         return $aResult;
     }
+    public static function getRecentReply()
+    {
+        $aResult = array();
+        $aResult = self::_getRecentReply();
+
+        return $aResult;
+    }
 
     private static function _getNoticeList()
     {
@@ -19,5 +26,10 @@ class BoardClass {
 
         return $board_model->getNoticeList();
     }
+    private static function _getRecentReply()
+    {
+        $board_model = edu_get_instance('board_model', 'model');
 
+        return $board_model->getRecentReply();
+    }
 }

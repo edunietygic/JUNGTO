@@ -12,4 +12,10 @@ class Board_model extends CI_model{
 
         return $aNoticeInfo;
     }
+    public function getRecentReply()
+    {
+        $aRecentReply = $this->board_dao->getRecentReply();
+
+        return $aRecentReply;
+    }
 }
