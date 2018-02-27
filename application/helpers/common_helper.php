@@ -131,6 +131,38 @@ function getAddrCode($code='')
     $aAddrCode = json_decode($jAddrCode);
     return $aAddrCode;
 }
+function getAddrStringFromCode($addrcode)
+{
+    return getAddrStringFromCode1($addrcode). " ". getAddrStringFromCode2($addrcode);
+}
+function getAddrStringFromCode1($addrcode)
+{
+    $code = substr($addrcode, 0, 2);
+    $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/top.json.txt";
+    $jAddrCode = sendCURLGet($url, array());
+    $aAddrCode = json_decode($jAddrCode);
+
+    foreach($aAddrCode as $key=>$val)
+    {
+       if($val->code == $code) return $val->value; 
+    } 
+    return false;
+   
+}
+function getAddrStringFromCode2($addrcode)
+{
+    $code = substr($addrcode, 0, 2);
+    $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/mdl.".$code.".json.txt";
+    $jAddrCode = sendCURLGet($url, array());
+    $aAddrCode = json_decode($jAddrCode);
+
+    foreach($aAddrCode as $key=>$val)
+    {
+       if($val->code == $addrcode) return $val->value; 
+    } 
+    return false;
+   
+}
 function getMenuData($sController, $sMethod)
 {
     $aMenu = edu_get_config('menu','menu');
