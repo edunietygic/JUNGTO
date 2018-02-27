@@ -33,9 +33,9 @@
                 <div class="post-item-wrap">
                   <div class="post-item-description">
                       <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
-                      <span class="post-meta-category"><i class="fa fa-tag"></i><?=$obj->adname?></span>
+                      <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
                       <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span>
-                      <span class="post-meta-comments"><i class="fa fa-comments-o"></i><?=$obj->cnt?> Views</span>
+                      <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
                       <p><span style="font-family: '맑은 고딕'; font-size: 14pt; font-weight: bold"><a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>"><?=$obj->adtitle?></a></span><br>
                       <span style="font-family: '맑은 고딕'; font-size: 11pt"><?=$obj->summary?></span></p>
                   </div>
@@ -50,9 +50,9 @@
                     <div class="row">
                       <div class="post-item-description col-md-12">
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
-                        <span class="post-meta-category"><i class="fa fa-tag"></i><?=$obj->adname?></span>
+                        <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
                         <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span>
-                        <span class="post-meta-comments"><i class="fa fa-comments-o"></i><?=$obj->cnt?> Views</span>
+                        <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
                         <h2><a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
                         <p><?=$obj->summary?></p>
                         <a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
@@ -70,9 +70,9 @@
                       <div class="post-item-description col-md-6"> <img alt="" src="<?=ATTACHURL?>/0_Cfei5IbP_E18492E185A2E186BCE18487E185A9E186A8E18492E185A1E186A8E18480E185AD.jpg"> </div>
                       <div class="post-item-description col-md-6">
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
-                        <span class="post-meta-category"><i class="fa fa-tag"></i><?=$obj->adname?></span>
+                        <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
                         <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
-                        <span class="post-meta-comments"><i class="fa fa-comments-o"></i><?=$obj->cnt?> Views</span>
+                        <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
                         <h2><a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
                         <p><?=$obj->summary?></p>
                         <a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
@@ -123,7 +123,7 @@
                         <div class="post-thumbnail-content">
                           <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->comment?></span></a>
                           <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
-                          <span class="post-category"><i class="fa fa-tag"></i> <?=$obj->mb_name?></span>
+                          <span class="post-category"><i class="fa fa-user"></i> <?=$obj->mb_name?></span>
                         </div>
                       </div>
                       <?php endforeach; ?>
@@ -137,7 +137,7 @@
                         <div class="post-thumbnail-content">
                             <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
                             <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
-                            <span class="post-category"><i class="fa fa-tag"></i> <?=$obj->name?></span>
+                            <span class="post-category"><i class="fa fa-user"></i> <?=$obj->name?></span>
                         </div>
                       </div>
                       <?php endforeach; ?>
@@ -151,7 +151,7 @@
                         <div class="post-thumbnail-content">
                           <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
                           <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
-                          <span class="post-category"><i class="fa fa-tag"></i> <?=$obj->name?></span>
+                          <span class="post-category"><i class="fa fa-user"></i> <?=$obj->name?></span>
                         </div>
                       </div>
                       <?php endforeach; ?>
