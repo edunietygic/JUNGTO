@@ -24,10 +24,11 @@ class Mypage extends CI_Controller{
                 $oMem->myCourseInfo[$key]->addr_string  = getAddrStringFromCode($val->addrcode) . " " . $val->addrstring ;
                 $oMem->myCourseInfo[$key]->state_string = $this->_getStateString($val->state);
             }
-        
-            echo "<!--";
-            print_r($oMem);
-            echo "-->";
+
+            // test code 
+            // echo "<!--";
+            // print_r($oMem);
+            // echo "-->";
         } 
         
         $data = array(
@@ -105,12 +106,9 @@ class Mypage extends CI_Controller{
         response_json(array('code'=> 1 , 'msg'=>'OK'));
         die;
     }
-
-
     /*
      * member delete 
-     * edu_member table delete
-     * edu_subj_applicant
+     * delete table : edu_member ,  edu_subj_applicant
      * */    
     public function rpcDeleteMember()
     {
@@ -130,8 +128,11 @@ class Mypage extends CI_Controller{
             die;
         }
         
+        // logout process
+        $oLoginout = edu_get_instance('loginout_model', 'model');  
+        $oLoginout->logout();
+        
         response_json(array('code'=> 1 , 'msg'=>'OK'));
         die;
-        // logout process
     }
 }

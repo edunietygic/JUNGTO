@@ -49,7 +49,7 @@ class Course_model extends CI_model{
         return $aCourseList[0]; 
     }
     
-    public function setCourseReqUser($mb_id, $subj)
+    public function setCourseReqUser($mb_id, $subj, $class_idx=1)
     {
         if(!$mb_id || !$subj) return false; 
     
@@ -57,9 +57,9 @@ class Course_model extends CI_model{
         if( !$this->_chkReqInfo($mb_id, $subj)) return false;
 
         // 신청
-        return $this->_reqCourse($mb_id, $subj); 
+        return $this->_reqCourse($mb_id, $subj, $class_idx); 
     }
-    private function _reqCourse($mb_id, $subj)
+    private function _reqCourse($mb_id, $subj, $class_idx=1)
     {
         if(!$mb_id || !$subj) return false; 
 
@@ -67,6 +67,7 @@ class Course_model extends CI_model{
              'mb_id' => $mb_id
             ,'subj'  => $subj
             ,'state' => 'REQ' 
+            ,'class_idx' => $class_idx 
             ,'regdate' => date('Y-m-d H:i:s') 
         ); 
         $this->course_dao->setReqCourseUser($aInput);     

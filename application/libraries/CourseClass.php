@@ -24,10 +24,22 @@ class CourseClass {
     {
         $course_model = edu_get_instance('Course_model', 'model');
         
+        $rtn = ''; 
+        
         if($addrcode)
-            return $course_model->getCourseListAddrcode($addrcode); 
+            $rtn = $course_model->getCourseListAddrcode($addrcode); 
         else
-            return $course_model->getCourseList(); 
+            $rtn = $course_model->getCourseList(); 
+
+        foreach($rtn as $key=>$val)
+        {
+            if(isset($val->img)) 
+                $val->img = "http://jungtoadmin.eduniety.cc:8090/dp/subject/".$val->img;
+            else
+                $val->img = "/skin/images/school/thum-school-03.png";
+
+        }
+        return $rtn;
     }
     private function _makeCourseList($aCourseList)
     {
@@ -69,15 +81,21 @@ class CourseClass {
         if(!$subj) return false;
        
         $course_model = edu_get_instance('Course_model', 'model');
-        return $course_model->getDetailCourse($subj); 
-            
+        $rtn = $course_model->getDetailCourse($subj); 
+
+        if(isset($rtn->img)) 
+            $rtn->img = "http://jungtoadmin.eduniety.cc:8090/dp/subject/".$rtn->img;
+        else
+            $rtn->img = "/skin/images/school/thum-school-03.png";
+        
+        return $rtn; 
     }
-    public function setCourseReqUser($mb_id, $subj)
+    public function setCourseReqUser($mb_id, $subj, $class_idx=1)
     {
         if(!$mb_id || !$subj) return false; 
     
         $course_model = edu_get_instance('Course_model', 'model');
-        return $course_model->setCourseReqUser($mb_id, $subj); 
+        return $course_model->setCourseReqUser($mb_id, $subj, $class_idx); 
     }
     public function getMyCourseInfo($mb_id)
     {

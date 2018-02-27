@@ -42,9 +42,9 @@ class Course extends CI_Controller{
         );
 
         // test code
-        // echo "<!--";
-        // print_r($data);
-        // echo "-->";
+         echo "<!--";
+         print_r($data);
+         echo "-->";
 
         $this->load->view('common/container', $data);
     }
@@ -60,11 +60,12 @@ class Course extends CI_Controller{
         $oCourse = new CourseClass();
         $aData = array();
         $aData['oCourseInfo'] = $oCourse->getDetailCourse($subj);
+        $aData['oCourseInfo']->addr_string = trim(getAddrStringFromCode($aData['oCourseInfo']->addrcode) . " " . $aData['oCourseInfo']->addrstring) ;
 
         // tutol info
         edu_get_instance('AccountClass');
         $oAccount = new AccountClass();
-        $aData['oAccountInfo'] = $oAccount->keyTogglerFromID($aData['oCourseInfo']->tutor);
+        $aData['oTutorInfo'] = $oAccount->keyTogglerFromID($aData['oCourseInfo']->tutor);
 
         // login info
         edu_get_instance('CookieClass');
@@ -113,6 +114,7 @@ class Course extends CI_Controller{
         $name   = trim($this->input->post('name'));
         $email  = trim($this->input->post('email'));
         $hp     = trim($this->input->post('hp'));
+        $class_idx = trim($this->input->post('class_idx'));
 
         // is Loginin
         if($mb_id != $passwd)
@@ -147,9 +149,9 @@ class Course extends CI_Controller{
 
         edu_get_instance('CourseClass');
         $oCourse = new CourseClass();
-        if(!$oCourse->setCourseReqUser($mb_id, $subj) )
+        if(!$oCourse->setCourseReqUser($mb_id, $subj, $class_idx) )
         {
-            response_json(array('code'=> 2 , 'msg'=>'is req'));
+            response_json(array('code'=> 2 , 'msg'=>'이미 신청 되어 있습니다.'));
             die;
         }
 
