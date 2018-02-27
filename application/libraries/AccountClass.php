@@ -110,7 +110,7 @@ class AccountClass {
     {
         if(!$user_id || !$user_pwd || !$from) return false;
 
-        if(! in_array($from, array('reqCourse'))) return false;
+        if(! in_array($from, array('reqCourse','Mypage'))) return false;
 
         return $this->_mkPwd($user_id, $user_pwd); 
     } 
@@ -120,5 +120,29 @@ class AccountClass {
 
         $aResult = generalizeCMPW($user_pwd, $user_id, false);
         return $aResult[1];
+    }
+
+    public function updateMemInfo($mb_id, $hp, $email)
+    {
+        if(!$mb_id|| !$hp || !$email) return false;
+        
+        $aInput = array(
+            'mb_id'     => $mb_id
+            ,'mb_hp'    => $hp
+            ,'mb_email' => $email
+        );
+    
+        $oAccModel = edu_get_instance('account_model', 'model');
+        return $oAccModel->account_model->updateMemberInfo($aInput);
+    }
+    public function deleteMember($mb_id)
+    {
+        if(!$mb_id) return false;
+        
+        $aInput = array('mb_id' => $mb_id);
+    
+        $oAccModel = edu_get_instance('account_model', 'model');
+        return $oAccModel->account_model->deleteMemberInfo($aInput);
+
     }
 }

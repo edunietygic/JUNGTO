@@ -84,4 +84,15 @@ class Account_model extends CI_model{
     {
         return $this->account_dao->changeAccountPw($aInput);
     }
+    public function updateMemberInfo($aInput)
+    {
+        return $this->account_dao->updateMemberInfo($aInput);
+    }
+    public function deleteMemberInfo($aInput)
+    {
+        $this->account_dao->deleteMemberInfo($aInput);
+        $this->account_dao->deleteSubjApplicant($aInput);
+
+        return true;
+    }
 }

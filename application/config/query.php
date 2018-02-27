@@ -68,6 +68,29 @@ $config['query'] = array(
             ,'btype'=> 'sss'
             ,'null' => array()
         )
+        ,'updateMemberInfo' => array(
+            'query' => 'UPDATE edu_member
+                           SET mb_email = ?
+                              ,mb_hp = ?
+                         WHERE trim(mb_id) = ?'
+            ,'data' => array('mb_email','mb_hp','mb_id')
+            ,'btype'=> 'sss'
+            ,'null' => array()
+        )
+        ,'deleteMemberInfo' => array(
+            'query' => 'DELETE from edu_member 
+                         WHERE mb_id = ?'
+            ,'data' => array('mb_id')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+        ,'deleteSubjApplicant' => array(
+            'query' => 'DELETE from lms_subj_applicant 
+                         WHERE mb_id = ?'
+            ,'data' => array('mb_id')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
     )
     ,'course' => array(
         'getCourseList' => array(
@@ -96,7 +119,7 @@ $config['query'] = array(
             ,'null' => array()
          )
          ,'getMyCourseList' => array(
-            'query' => 'SELECT s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit
+            'query' => 'SELECT s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.tutor, s.addrcode, s.addrstring
                                , a.mb_id, a.state, a.regdate
                           FROM lms_subj s, lms_subj_applicant a
                          WHERE s.subj = a.subj
