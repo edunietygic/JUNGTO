@@ -72,23 +72,23 @@ function sendCURLPost($url,$params)
     if(!$url) return false;
 
     $postData = '';
-    
-    foreach($params as $k => $v) 
-    { 
-        if($v)  $postData .= $k . '='.$v.'&'; 
+
+    foreach($params as $k => $v)
+    {
+        if($v)  $postData .= $k . '='.$v.'&';
     }
     $postData = rtrim($postData, '&');
 
-    $ch = curl_init();  
-                                
+    $ch = curl_init();
+
     curl_setopt($ch, CURLOPT_URL,$url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($ch, CURLOPT_HEADER, false); 
+    curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_POST, count($postData));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);    
-                                                         
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+
     $output=curl_exec($ch);
-                                                              
+
     curl_close($ch);
 
     return $output;
@@ -98,24 +98,24 @@ function sendCURLGet($url,$params)
     if(!$url) return false;
 
     $postData = '';
-    
-    foreach($params as $k => $v) 
+
+    foreach($params as $k => $v)
     {
-        if($v)  $postData .= $k . '='.$v.'&'; 
+        if($v)  $postData .= $k . '='.$v.'&';
     }
     $postData = rtrim($postData, '&');
 
     $url .= "?".$postData;
 
-    $ch = curl_init();  
-    
+    $ch = curl_init();
+
     curl_setopt($ch, CURLOPT_URL,$url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-                                                         
+
     $output=curl_exec($ch);
 
     //$output = iconv("UTF-8", "ISO-8859-1//TRANSLIT", $output);
-    
+
     curl_close($ch);
     return $output;
 }
@@ -126,7 +126,7 @@ function getAddrCode($code='')
         $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/top.json.txt";
     else
         $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/mdl.".$code.".json.txt";
-    $jAddrCode = sendCURLGet($url, array()); 
+    $jAddrCode = sendCURLGet($url, array());
 
     $aAddrCode = json_decode($jAddrCode);
     return $aAddrCode;
@@ -150,8 +150,8 @@ function chkLoginInfo()
     {
         $aRtn = array('usn'=>'');
         return (object)$aRtn;
-    }    
-    // view login page 
+    }
+    // view login page
     //header('Location: '.HOSTURL.'/Login');
 }
 function replaceArticleHTML($sText)
@@ -179,18 +179,18 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
     (string)$auth_pw = "";
 
     if($in_str_auto)
-    {   
+    {
         $in="";
         for($au=0; $au<$in_str_auto_length; $au++)
         {
             $in .= $randRef[mt_rand(0,$seedLen-1)];
         }
     }
-    
+
     if( empty($mid) || empty($in) ) return NULL;
 
     (int)$in_len = mb_strlen($in);
-    
+
     ## 변조 string 보다 긴 경우 subfix 저장
     if($in_len>$bound)
     {
@@ -198,10 +198,10 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
         $in_len = $bound;
     }
 
-    
-    $account_model = edu_get_instance('account_model', 'model');  
-    
-    
+
+    $account_model = edu_get_instance('account_model', 'model');
+
+
     if($encode===TRUE) // encode
     {
 	    ## string 변조 참조 키 생성
@@ -211,7 +211,7 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
             for($j=0; $j<$bound; $j++)
             {
                 $tmpKey = mt_rand(0,$bound-1);
-                
+
                 if ( !in_array($tmpKey, $randKey) )
                 {
                     $randKey[$i] = $tmpKey;
@@ -233,7 +233,7 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
             {
                 $randStr[$i] = $randRef[mt_rand(0,$seedLen-1)];
                 $wasteStr[] = $randStr[$i];
-            } 
+            }
         }
 
         // fot debug
@@ -251,12 +251,12 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
         | gw    | varchar(45)  | NO   |     | NULL              |                             |
         +-------+--------------+------+-----+-------------------+-----------------------------+
         */
-        
+
         //if( sql_query("replace into edu_gtmp (gk,gv,gw) values (md5('{$mid2}'),'{$out[0]}','{$out[1]}')") )
         if( $account_model->mkpwdquery1($mid2, $out[0], $out[1]) )
         {
             $auth_pw = md5($out[2]);
-            
+
             unset($out);
             $out = array(2, $auth_pw);
             if($in_str_auto) $out[2] = $in;
@@ -276,7 +276,7 @@ function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, 
         {
             $gv = explode("|", $row['gv']);
             $gw = $row['gw'];
-            
+
             for($i=0; $i<mb_strlen($gw); $i++)
             {
                 $skey = array_search($i, $gv);
@@ -327,4 +327,51 @@ function generateRandomCode($sDefault='', $sLength=8)
     }
 
     return $sCode;
+}
+
+function datetimediff($rtime, $ctime = null, $option = null)
+{
+    if ($ctime) $cur_time = strtotime($ctime);
+    else $cur_time = time();
+    $ref_time = strtotime($rtime);
+
+    $cur_date = floor($cur_time / 86400);
+    $ref_date = floor($ref_time / 86400);
+
+    $datetimediff = $cur_time - $ref_time;
+    $datedist = $cur_date - $ref_date;
+    $datediff = floor($datetimediff / 86400);
+    $weekdiff = floor($datediff / 7);
+    $timediff = $datetimediff % 86400;
+
+    $hour = floor($timediff / 3600);
+    $min = floor($timediff % 3600 / 60);
+    $sec = floor($timediff % 3600 % 60);
+
+    $result = "";
+    if ($datedist>34) {
+        $result = date("Y-m-d", $ref_time);
+    } else if ($weekdiff>0) {
+        $result = $weekdiff . "주 전";
+    } else {
+        if ($datediff>0) {
+            $result = $datedist . "일 전";
+        } else if ($timediff<=0) {
+            $result = "1초 전";
+        } else {
+            if ($hour) $result = $hour . "시간";
+            else if ($min) $result = $min . "분";
+            else $result = $sec . "초";
+            if ($result) $result .= " 전";
+        }
+    }
+    if ($option=='ALL') {
+        $result = "";
+        if ($datediff) $result .= ($result?" ":"") . $datediff."일";
+        if ($hour) $result .= ($result?" ":"") . $hour."시간";
+        if ($min) $result .= ($result?" ":"") . $min ."분";
+        if ($sec) $result .= ($result?" ":"") . $sec . "초";
+        $result .= " 전";
+    }
+    return $result;
 }

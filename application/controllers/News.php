@@ -11,18 +11,15 @@ class News extends CI_Controller{
         edu_get_instance('BoardClass');
         $aLdata          = BoardClass::getNoticeList();
         $aRecentReply    = BoardClass::getRecentReply();
-        // $aRecentContents = BoardClass::getRecentContents();
-        // $aHotContents    = BoardClass::getHotContents();
-        foreach ($aLdata as $key => $obj) {
-            $aLdata[$key]->summary = iconv_substr(strip_tags($obj->adcontent),0,176,'utf-8');
-        }
+        $aRecentContents = BoardClass::getRecentContents();
+        $aHotContents    = BoardClass::getHotContents();
 
         $data = array(
             'container'        => 'news/index'
             ,'aLdata'          => $aLdata
             ,'aRecentReply'    => $aRecentReply
-            // ,'aRecentContents' => $aRecentContents
-            // ,'aHotContents'    => $aLdata
+            ,'aRecentContents' => $aRecentContents
+            ,'aHotContents'    => $aHotContents
         );
 
         $this->load->view('common/container', $data);

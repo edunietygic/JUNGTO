@@ -21,4 +21,14 @@ class Board_dao extends Common_dao
         $aConfig = $this->queryInfoBoard['getRecentReply'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function getRecentContents($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['getRecentContents'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getHotContents($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['getHotContents'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 }

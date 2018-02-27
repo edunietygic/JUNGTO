@@ -19,17 +19,43 @@ class BoardClass {
 
         return $aResult;
     }
+    public static function getRecentContents()
+    {
+        $aResult = array();
+        $aResult = self::_getRecentContents();
+
+        return $aResult;
+    }
+    public static function getHotContents()
+    {
+        $aResult = array();
+        $aResult = self::_getHotContents();
+
+        return $aResult;
+    }
 
     private static function _getNoticeList()
     {
-        $board_model = edu_get_instance('board_model', 'model');
+        $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->getNoticeList();
     }
     private static function _getRecentReply()
     {
-        $board_model = edu_get_instance('board_model', 'model');
+        $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->getRecentReply();
+    }
+    private static function _getRecentContents()
+    {
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getRecentContents();
+    }
+    private static function _getHotContents()
+    {
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getHotContents();
     }
 }

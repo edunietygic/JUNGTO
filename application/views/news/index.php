@@ -1,6 +1,9 @@
 <?php
 // test code
 // echo '<pre>: '. print_r( $aLdata, true ) .'</pre>';
+// echo '<pre>aRecentReply: '. print_r( $aRecentReply, true ) .'</pre>';
+// echo '<pre>aRecentContents: '. print_r( $aRecentContents, true ) .'</pre>';
+// echo '<pre>aHotContents: '. print_r( $aHotContents, true ) .'</pre>';
 // die();
 ?>
   <!-- Content -->
@@ -67,6 +70,7 @@
                       <div class="post-item-description col-md-6"> <img alt="" src="<?=ATTACHURL?>/0_Cfei5IbP_E18492E185A2E186BCE18487E185A9E186A8E18492E185A1E186A8E18480E185AD.jpg"> </div>
                       <div class="post-item-description col-md-6">
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
+                        <span class="post-meta-category"><i class="fa fa-tag"></i><?=$obj->adname?></span>
                         <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
                         <span class="post-meta-comments"><i class="fa fa-comments-o"></i><?=$obj->cnt?> Views</span>
                         <h2><a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
@@ -113,44 +117,44 @@
                 <div class="tabs-content">
                   <div class="tab-pane active" id="tab1">
                     <div class="post-thumbnail-list">
-                      <div class="post-thumbnail-entry"> <img alt="" src="http://dimg.donga.com/egc/CDB/WOMAN/Article/14/69/06/82/1469068212737.jpg">
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">행복하기 위해 버려야 할 10가지 습관들</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 6분전</span> <span class="post-category"><i class="fa fa-tag"></i> 박병섭</span> </div>
-                      </div>
+                      <?php foreach ($aRecentReply as $key => $obj) : ?>
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">행복에 대한 12가지 정의와 행복 명언 36선</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 9분전</span> <span class="post-category"><i class="fa fa-tag"></i> 이민동</span> </div>
+                        <div class="post-thumbnail-content">
+                          <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->comment?></span></a>
+                          <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
+                          <span class="post-category"><i class="fa fa-tag"></i> <?=$obj->mb_name?></span>
+                        </div>
                       </div>
-                      <div class="post-thumbnail-entry"> <img alt="" src="http://sccdn.chosun.com/news/html/2016/10/27/2016102801002411000174441.jpg">
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">'행복해지는 과학'은 있다, 일상 속에 얼마든지</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 11분전</span> <span class="post-category"><i class="fa fa-tag"></i> 김태우</span> </div>
-                      </div>
+                      <?php endforeach; ?>
                     </div>
                   </div>
                   <div class="tab-pane" id="tab2">
                     <div class="post-thumbnail-list">
-                      <div class="post-thumbnail-entry"> <img alt="" src="https://pbs.twimg.com/profile_images/2852980511/af103c3f49677e741f21cbaeb44fc0a9_400x400.jpeg">
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">6월민주항쟁 30주년 수업자료</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 6분전</span> <span class="post-category"><i class="fa fa-tag"></i> 박병섭</span> </div>
-                      </div>
+                      <?php foreach ($aRecentContents as $key => $obj) : ?>
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">[논평]"문재인 대통령, 역사교육 적폐청산에 박차를 ...</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 9분전</span> <span class="post-category"><i class="fa fa-tag"></i> 이민동</span> </div>
+                        <div class="post-thumbnail-content">
+                            <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
+                            <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
+                            <span class="post-category"><i class="fa fa-tag"></i> <?=$obj->name?></span>
+                        </div>
                       </div>
-                      <div class="post-thumbnail-entry"> <img alt="" src="http://munjang.or.kr/wp-content/uploads/2016/05/%EB%B0%B0%EB%AA%85%ED%9B%88-%EC%9E%91%EA%B0%802.jpg">
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">마음이 힘들 때 우울증 극복하는 방법 ...</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 11분전</span> <span class="post-category"><i class="fa fa-tag"></i> 김태우</span> </div>
-                      </div>
+                      <?php endforeach; ?>
                     </div>
                   </div>
                   <div class="tab-pane" id="tab3">
                     <div class="post-thumbnail-list">
-                      <div class="post-thumbnail-entry"> <img alt="" src="http://pds.joins.com/news/component/htmlphoto_mmdata/201708/03/1a94b18b-5194-426b-8ccc-510f2a524993.jpg">
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">인연과를 알면 인생이 자유롭다</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 6분전</span> <span class="post-category"><i class="fa fa-tag"></i> 박병섭</span> </div>
-                      </div>
+                      <?php foreach ($aHotContents as $key => $obj) : ?>
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">정회원으로 가입하고자 합니다.절차와 방법을 알려 주시면 ...</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 9분전</span> <span class="post-category"><i class="fa fa-tag"></i> 이민동</span> </div>
+                        <div class="post-thumbnail-content">
+                          <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
+                          <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
+                          <span class="post-category"><i class="fa fa-tag"></i> <?=$obj->name?></span>
+                        </div>
                       </div>
-                      <div class="post-thumbnail-entry"> <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmYXhR0OnqK_22HGbscLsGnwHiRq7FqLVVLzHsKPY1b2NSZQiI">
-                        <div class="post-thumbnail-content"> <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter">'행복해지는 과학'은 있다, 일상 속에 얼마든지</span></a> <span class="post-date"><i class="fa fa-clock-o"></i> 11분전</span> <span class="post-category"><i class="fa fa-tag"></i> 김태우</span> </div>
-                      </div>
+                      <?php endforeach; ?>
                     </div>
                   </div>
                 </div>

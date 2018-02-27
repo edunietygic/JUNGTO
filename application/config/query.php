@@ -79,7 +79,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getDetailCourse' => array(
-            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo 
+            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo
                           FROM lms_subj
                          WHERE subj = ?'
             ,'data' => array('subj')
@@ -126,18 +126,40 @@ $config['query'] = array(
             'query' => 'SELECT a.seq, a.addate, a.adtitle, a.adname, a.cnt, a.luserid, a.ldate, a.isall, a.useyn, a.popup, a.loginyn, a.gubun, a.aduserid, a.type, a.notice_gubun, a.adcontent, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
                         FROM lms_notice a
                         WHERE tabseq = "11"
-                        order by seq desc
-                        limit 10'
+                        ORDER BY seq DESC
+                        LIMIT 10'
             ,'data' => array('')
             ,'btype'=> ''
             ,'null' => array()
          )
         ,'getRecentReply' => array(
-            'query' => 'SELECT a.seq, a.addate, a.adtitle, a.adname, a.cnt, a.luserid, a.ldate, a.isall, a.useyn, a.popup, a.loginyn, a.gubun, a.aduserid, a.type, a.notice_gubun, a.adcontent, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
-                        FROM lms_notice a
-                        WHERE tabseq = "11"
-                        order by seq desc
-                        limit 10'
+            'query' => 'SELECT bc.idx, bc.tabseq, bc.seq, bc.comment, bc.luser, bc.lastdate, m.mb_name
+                          FROM lms_board_comment bc
+                     LEFT JOIN edu_member m
+                            ON m.mb_id=bc.luser
+                         WHERE tabseq IN ("9000")
+                         ORDER BY idx DESC
+                         LIMIT 3'
+            ,'data' => array('')
+            ,'btype'=> ''
+            ,'null' => array()
+         )
+        ,'getRecentContents' => array(
+            'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
+                          FROM lms_board
+                         WHERE tabseq IN ("9000")
+                         ORDER BY idx DESC
+                         LIMIT 3'
+            ,'data' => array('')
+            ,'btype'=> ''
+            ,'null' => array()
+         )
+        ,'getHotContents' => array(
+            'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
+                          FROM lms_board
+                         WHERE tabseq IN ("9000")
+                         ORDER BY cnt DESC
+                         LIMIT 3'
             ,'data' => array('')
             ,'btype'=> ''
             ,'null' => array()
