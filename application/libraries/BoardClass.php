@@ -12,6 +12,24 @@ class BoardClass {
 
         return $aResult;
     }
+    public static function getNoticeDetail($seq=0)
+    {
+        if(!$seq) return false;
+
+        $aResult = array();
+        $aResult = self::_getNoticeDetail($seq);
+
+        return $aResult;
+    }
+    public static function getAttachFile($seq=0)
+    {
+        if(!$seq) return false;
+
+        $aResult = array();
+        $aResult = self::_getAttachFile($seq);
+
+        return $aResult;
+    }
     public static function getRecentReply()
     {
         $aResult = array();
@@ -39,6 +57,18 @@ class BoardClass {
         $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->getNoticeList();
+    }
+    private static function _getNoticeDetail($seq)
+    {
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getNoticeDetail($seq);
+    }
+    private static function _getAttachFile($seq)
+    {
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getAttachFile($seq);
     }
     private static function _getRecentReply()
     {

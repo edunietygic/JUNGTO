@@ -16,6 +16,22 @@ class Board_model extends CI_model{
 
         return $aNoticeInfo;
     }
+    public function getNoticeDetail($seq=0)
+    {
+    	if(!$seq) return false;
+    	$aInput = array('seq' => $seq);
+        $aNoticeDetail = $this->board_dao->getNoticeDetail($aInput);
+
+        return $aNoticeDetail;
+    }
+    public function getAttachFile($seq=0)
+    {
+    	if(!$seq) return false;
+    	$aInput = array('seq' => $seq);
+        $aAttachFile = $this->board_dao->getAttachFile($aInput);
+
+        return $aAttachFile;
+    }
     public function getRecentReply()
     {
         $aRecentReply = $this->board_dao->getRecentReply();

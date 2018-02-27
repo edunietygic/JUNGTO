@@ -1,6 +1,6 @@
 <?php
 // test code
-// echo '<pre>: '. print_r( $aLdata, true ) .'</pre>';
+// echo '<pre>aLdata: '. print_r( $aLdata, true ) .'</pre>';
 // echo '<pre>aRecentReply: '. print_r( $aRecentReply, true ) .'</pre>';
 // echo '<pre>aRecentContents: '. print_r( $aRecentContents, true ) .'</pre>';
 // echo '<pre>aHotContents: '. print_r( $aHotContents, true ) .'</pre>';
@@ -25,7 +25,7 @@
           <!-- Blog -->
           <div id="blog" class="grid-layout post-thumbnails" data-item="post-item">
             <!--div id="blog" class="grid-layout post-thumbnails m-b-30" data-item="post-item"-->
-            <?php foreach ($aLdata as $obj) : ?>
+            <?php foreach ($aLdata as $key => $obj) : ?>
               <?php if($obj->isall == 'Y') : ?>
               <!-- * 공지사항 고정 -->
               <!-- Post item quote-->
@@ -34,15 +34,16 @@
                   <div class="post-item-description">
                       <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
                       <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
-                      <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span>
+                      <!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
                       <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
-                      <p><span style="font-family: '맑은 고딕'; font-size: 14pt; font-weight: bold"><a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>"><?=$obj->adtitle?></a></span><br>
+                      <span class="post-meta-comments"><i class="fa fa-link"></i><?=$obj->filecnt?> Files</span>
+                      <p><span style="font-family: '맑은 고딕'; font-size: 14pt; font-weight: bold"><a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>"><?=$obj->adtitle?></a></span><br>
                       <span style="font-family: '맑은 고딕'; font-size: 11pt"><?=$obj->summary?></span></p>
                   </div>
                 </div>
               </div>
               <!-- end: Post item-->
-              <?php elseif($obj->isall == 'N' && $obj->filecnt<1) :?>
+              <?php else :?>
                 <!-- 일반 text 공지사항 -->
                 <!-- Post item-->
                 <div class="post-item bc-법륜">
@@ -51,31 +52,12 @@
                       <div class="post-item-description col-md-12">
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
                         <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
-                        <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span>
+                        <!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
                         <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
-                        <h2><a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
+                        <span class="post-meta-comments"><i class="fa fa-link"></i><?=$obj->filecnt?> Files</span>
+                        <h2><a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
                         <p><?=$obj->summary?></p>
-                        <a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
-                        <div class="seperator m-b-10"></div>
-                    </div>
-                  </div>
-                </div>
-                <!-- end: Post item-->
-              <?php else: ?>
-                <!-- 이미지 있는 공지사항 -->
-                <!-- Post item-->
-                <div class="post-item bc-법륜">
-                  <div class="post-item-wrap">
-                    <div class="row">
-                      <div class="post-item-description col-md-6"> <img alt="" src="<?=ATTACHURL?>/0_Cfei5IbP_E18492E185A2E186BCE18487E185A9E186A8E18492E185A1E186A8E18480E185AD.jpg"> </div>
-                      <div class="post-item-description col-md-6">
-                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
-                        <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
-                        <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
-                        <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
-                        <h2><a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
-                        <p><?=$obj->summary?></p>
-                        <a href="<?=HOSTURL?>/news/viewnews/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
+                        <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
                         <div class="seperator m-b-10"></div>
                     </div>
                   </div>

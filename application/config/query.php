@@ -132,6 +132,36 @@ $config['query'] = array(
             ,'btype'=> ''
             ,'null' => array()
          )
+        // 'getNoticeList' => array(
+        //     'query' => 'SELECT n.seq, n.addate, n.adtitle, n.adname, n.cnt, n.luserid, n.ldate, n.isall, n.useyn, n.popup, n.loginyn, n.gubun, n.aduserid, n.type, n.notice_gubun, n.adcontent, COUNT(bf.realfile) filecnt, bf.savefile
+        //                 FROM lms_notice n
+        //                 LEFT JOIN lms_boardfile bf
+        //                        ON (bf.tabseq = n.tabseq AND bf.seq = n.seq)
+        //                 WHERE n.tabseq = "11"
+        //                 ORDER BY n.seq DESC
+        //                 LIMIT 10'
+        //     ,'data' => array('')
+        //     ,'btype'=> ''
+        //     ,'null' => array()
+        //  )
+        ,'getNoticeDetail' => array(
+            'query' => 'SELECT a.seq, a.addate, a.adtitle, a.adname, a.cnt, a.luserid, a.ldate, a.isall, a.useyn, a.popup, a.loginyn, a.gubun, a.aduserid, a.type, a.notice_gubun, a.adcontent, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
+                        FROM lms_notice a
+                        WHERE tabseq = "11"
+                          AND seq in ( ? , (SELECT seq  FROM lms_notice WHERE seq < ?  ORDER BY seq DESC LIMIT 1), (SELECT seq  FROM lms_notice WHERE seq > ?  ORDER BY seq LIMIT 1) )'
+            ,'data' => array('seq','seq','seq')
+            ,'btype'=> 'iii'
+            ,'null' => array()
+         )
+        ,'getAttachFile' => array(
+            'query' => 'SELECT fileseq, realfile, savefile
+                        FROM lms_boardfile
+                        WHERE tabseq = "11"
+                          AND seq = ?'
+            ,'data' => array('seq')
+            ,'btype'=> 'i'
+            ,'null' => array()
+         )
         ,'getRecentReply' => array(
             'query' => 'SELECT bc.idx, bc.tabseq, bc.seq, bc.comment, bc.luser, bc.lastdate, m.mb_name
                           FROM lms_board_comment bc

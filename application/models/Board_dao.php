@@ -16,6 +16,16 @@ class Board_dao extends Common_dao
         $aConfig = $this->queryInfoBoard['getNoticeList'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function getNoticeDetail($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['getNoticeDetail'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getAttachFile($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['getAttachFile'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
     public function getRecentReply($aParam=array())
     {
         $aConfig = $this->queryInfoBoard['getRecentReply'];
