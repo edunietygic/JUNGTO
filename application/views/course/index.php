@@ -1,7 +1,7 @@
 
   <!-- Content -->
   <section id="page-content">
-    <div class="container"> 
+    <div class="container">
       <!--filter district -->
       <div class="row m-b-20">
         <div class="col-md-6 p-t-10 m-b-20">
@@ -9,25 +9,25 @@
           <p>우리동네 행복학교를 찾아보세요.</p>
         </div>
         <div class="col-md-3">
-          <div class="order-select"> 
+          <div class="order-select">
             <!--h6>Sort by city</h6-->
             <p></p>
             <form name="fo" action='/Course' method="post">
               <select name="p_addr1" id="addr1" onchange="addrChange()">
                 <option value="">시도검색</option>
-                <?php foreach($aData['addr1'] as $key=>$val) :?> 
+                <?php foreach($aData['addr1'] as $key=>$val) :?>
                   <?php if($val->code == $aData['select_addr1']) :?>
                     <option value=<?=$val->code?> selected><?=$val->value?></option>
-                  <?php else :?> 
+                  <?php else :?>
                     <option value=<?=$val->code?>><?=$val->value?></option>
-                  <?php endif;?> 
-                <?php endforeach;?> 
+                  <?php endif;?>
+                <?php endforeach;?>
                 <option value="ALL"><< 전체검색 >></option>
               </select>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="order-select"> 
+          <div class="order-select">
             <!--h6>Sort by borough</h6-->
             <p></p>
               <select name="p_addr2" id="addr2" onchange="selectSubmit()" >
@@ -36,7 +36,7 @@
                     <?php foreach($aData['addr2'] as $key=>$val) :?>
                         <?php if($val->code == $aData['select_addr2']) :?>
                           <option value=<?=$val->code?> selected><?=$val->value?></option>
-                        <?php else :?> 
+                        <?php else :?>
                           <option value=<?=$val->code?>><?=$val->value?></option>
                         <?php endif;?>
                     <?php endforeach;?>
@@ -46,8 +46,8 @@
           </div>
         </div>
       </div>
-      <!--end: filter district--> 
-      <!-- post content --> 
+      <!--end: filter district-->
+      <!-- post content -->
 <script>
 function selectSubmit()
 {
@@ -59,7 +59,7 @@ function addrChange(){
         {
             $("#addr1").val('');
             $("#addr2").val('');
-             
+
             document.fo.submit();
         }
         else
@@ -73,15 +73,15 @@ function addrChange(){
                          {
                             console.log(data);
                             var changeitem = data.result;
-                         
+
                             $('#addr2').empty();
-                            
+
                             var option = $("<option value=''>시군구선택</option>");
                             $('#addr2').append(option);
-                            for(var count = 0; count < changeitem.length; count++){                
+                            for(var count = 0; count < changeitem.length; count++){
                                 var option = $("<option value="+changeitem[count]['code']+">"+changeitem[count]['value']+"</option>");
                                 $('#addr2').append(option);
-                            } 
+                            }
                          }
                          else if(data.code == 99)
                          {
@@ -91,12 +91,12 @@ function addrChange(){
                      }
                 });
 
-        } 
-         
+        }
+
 }
-</script>     
+</script>
       <!-- Page title -->
-      <div class="page-title"> 
+      <div class="page-title">
         <!--h1>happy school</h1-->
         <div class="breadcrumb float-left">
           <ul>
@@ -105,40 +105,40 @@ function addrChange(){
           </ul>
         </div>
       </div>
-      <!-- end: Page title --> 
-      
+      <!-- end: Page title -->
+
       <!-- Blog -->
-      <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item"> 
-        
-      <?if(isset($aData['aCourseList']) && count($aData['aCourseList']) >=1 ) :?>  
+      <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
+
+      <?if(isset($aData['aCourseList']) && count($aData['aCourseList']) >=1 ) :?>
         <!-- Post item-->
         <?php foreach($aData['aCourseList']->oActiveCourse as $key=>$val) :?>
         <div class="post-item border">
           <div class="post-item-wrap">
-            <div class="post-image"> <a href="#" data-target="#modal-3" data-toggle="modal"> <img alt="" src="/skin/images/school/thum-school-03.png"> </a> <span class="post-meta-category"><a href="#">주간</a></span> </div>
-            <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($val->open_date,0,4).'.'.substr($val->open_date,5,2).'/'.substr($val->open_date,8,2)?></span> <span class="post-meta-comments"><a href="#"><i class="fa fa-comments-o"></i><?=$val->studentlimit?> People</a></span>
-            <h2><a href="#" data-target="#modal-3" data-toggle="modal"><?=$val->subjnm?></a></h2>
+            <div class="post-image"> <a href="javascript:;" data-target="#modal-3" data-toggle="modal"> <img alt="" src="/skin/images/school/thum-school-03.png"> </a> <span class="post-meta-category">주간</span> </div>
+            <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($val->open_date,0,4).'.'.substr($val->open_date,5,2).'.'.substr($val->open_date,8,2)?></span> <span class="post-meta-comments"><i class="fa fa-comments-o"></i><?=$val->studentlimit?> People</span>
+            <h2><a href="javascript:;" data-target="#modal-3" data-toggle="modal"><?=$val->subjnm?></a></h2>
               <!--p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p-->
               <p><?=$val->eduoutline?></p>
-              <a href="/course/course_sangse/<?=$val->subj?>" class="item-link">Map More <i class="fa fa-arrow-right"></i></a> </div>
+              <a href="/course/course_detail/<?=$val->subj?>" class="item-link">Map More <i class="fa fa-arrow-right"></i></a> </div>
           </div>
         </div>
         <?php endforeach;?>
-        <!-- end: Post item--> 
-        <?php endif;?> 
-       
+        <!-- end: Post item-->
+        <?php endif;?>
+
       </div>
-      <!-- end: Blog --> 
-      
+      <!-- end: Blog -->
+
       <!-- Load next portfolio items -->
       <div id="pagination" class="infinite-scroll"> <a href="infinite-scroll-2.html"></a> </div>
-      <!-- end:Load next portfolio items --> 
-                              
+      <!-- end:Load next portfolio items -->
+
     </div>
-    <!-- end: post content --> 
-    
+    <!-- end: post content -->
+
   </section>
-  <!-- end: Content --> 
+  <!-- end: Content -->
 
   <!-- end: modal -->
   <div class="modal fade" id="modal-3" tabindex="-1" role="modal" aria-labelledby="modal-label-3" aria-hidden="true" style="display: none;">
@@ -201,9 +201,9 @@ function addrChange(){
                     </li>
                   </ul>
                 </div>
-                <!--div class="form-group"> 
-                          <script src="https://www.google.com/recaptcha/api.js"></script> 
-                          <!--div class="g-recaptcha" data-sitekey="6LddCxAUAAAAAKOg0-U6IprqOZ7vTfiMNSyQT2-M"></div> 
+                <!--div class="form-group">
+                          <script src="https://www.google.com/recaptcha/api.js"></script>
+                          <!--div class="g-recaptcha" data-sitekey="6LddCxAUAAAAAKOg0-U6IprqOZ7vTfiMNSyQT2-M"></div>
                         </div-->
                 <div class="col-md-12">
                   <button class="btn btn-default" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;신청</button>
@@ -220,8 +220,8 @@ function addrChange(){
   </div>
   <!-- modal -->
 
-<!-- Go to top button --> 
-<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a> 
+<!-- Go to top button -->
+<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a>
 
 
 
@@ -241,10 +241,10 @@ $(function(){
       $.post(
         "/Course/rpcReqCourse"
         ,{
-            // "mb_id" :  $('#user_id').val() 
-            // ,"subj" : $('#user_pwd').val() 
-             "mb_id" : 'jazzwave14' 
-            , "subj" : 1388 
+            // "mb_id" :  $('#user_id').val()
+            // ,"subj" : $('#user_pwd').val()
+             "mb_id" : 'jazzwave14'
+            , "subj" : 1388
          }
         ,function(data, status) {
               if (status == "success" && data.code == 1)
@@ -254,7 +254,7 @@ $(function(){
               else
               {
                   alert(data.msg);
-              } 
+              }
         }
       );
     });
