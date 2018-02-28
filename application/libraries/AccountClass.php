@@ -100,10 +100,8 @@ class AccountClass {
     public function keyTogglerFromID($account_id)
     {
         $oAccModel = edu_get_instance('account_model', 'model');
-        $aAccInfo = $oAccModel->account_model->getAccountInfoKeyToggler($account_id);
-
-        return $aAccInfo;
-       
+        $oAccInfo = $oAccModel->account_model->getAccountInfoKeyToggler($account_id);
+        return $oAccInfo;
     }
 
     public function getPwd($user_id, $user_pwd, $from)
