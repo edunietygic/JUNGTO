@@ -17,13 +17,17 @@ class Mypage extends CI_Controller{
         {
             edu_get_instance('AccountClass');  
             $oMem = new AccountClass($aMemberInfo['mb_id']); 
-            
-            foreach($oMem->myCourseInfo as $key=>$val)
+
+            if($oMem->myCourseInfo != "no req list")
             {
-                $oMem->myCourseInfo[$key]->tutor_name   = $oMem->keyTogglerFromID($val->tutor)->mb_name; 
-                $oMem->myCourseInfo[$key]->addr_string  = getAddrStringFromCode($val->addrcode) . " " . $val->addrstring ;
-                $oMem->myCourseInfo[$key]->state_string = $this->_getStateString($val->state);
+                foreach($oMem->myCourseInfo as $key=>$val)
+                {
+                    $oMem->myCourseInfo[$key]->tutor_name   = $oMem->keyTogglerFromID($val->tutor)->mb_name; 
+                    $oMem->myCourseInfo[$key]->addr_string  = getAddrStringFromCode($val->addrcode) . " " . $val->addrstring ;
+                    $oMem->myCourseInfo[$key]->state_string = $this->_getStateString($val->state);
+                }
             }
+            
 
             // test code 
             // echo "<!--";

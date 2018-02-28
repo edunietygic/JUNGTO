@@ -32,7 +32,7 @@
                       <div class="tabs-content">
                         <div class="tab-pane active" id="Class"> 
                           <!--Toggle fancy clean-->
-                          <?php if(isset($oMem->myCourseInfo) && count($oMem->myCourseInfo)>=1) :?>
+                          <?php if(isset($oMem->myCourseInfo) && $oMem->myCourseInfo!="no req list") :?>
                             <?php foreach($oMem->myCourseInfo as $key=>$val) :?>
                             <div class="accordion toggle fancy clean">
                               <div class="ac-item">
@@ -67,11 +67,11 @@
                               </div>
                               <div class="col-md-6 form-group">
                                 <label class="sr-only">패스워드</label>
-                                <input type="password" id="pwd1" value="" placeholder="새 패스워드" class="form-control input-lg">
+                                <input type="password" id="pwd1" value="" placeholder="패스워드" class="form-control input-lg">
                               </div>
                               <div class="col-md-6 form-group">
                                 <label class="sr-only">패스워드 확인</label>
-                                <input type="password" id="pwd2" value="" placeholder="새 패스워드 확인" class="form-control input-lg">
+                                <input type="password" id="pwd2" value="" placeholder="패스워드 확인" class="form-control input-lg">
                               </div>
                               <div class="col-md-6 form-group">
                                 <label class="sr-only">Email</label>

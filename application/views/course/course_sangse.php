@@ -125,15 +125,17 @@
                   <input type="email" id="email" aria-required="true" name="widget-contact-form-email" value="<?=$aData['oLoginInfo']->email?>" class="form-control required email" placeholder="Enter your Email">
                 </div>
                 
-                <?php if(isset($aData['oCourseInfo']->class_num) && $aData['oCourseInfo']->class_num) : ?>
-                <div class="radio">
-                <?php for($i=1 ; $i <= $aData['oCourseInfo']->class_num; $i++ ) :?> 
-                    <label>
-                    <input type="radio" name="class_idx" id="class_idx<?=$i?>" value="<?=$i?>"> <?=$i?>반
-                    </label>
-                <?php endfor;?>
+                <div class="form-group col-md-4">
+                    <?php if(isset($aData['oCourseInfo']->class_num) && $aData['oCourseInfo']->class_num) : ?>
+                    <div class="radio">
+                    <?php for($i=1 ; $i <= $aData['oCourseInfo']->class_num; $i++ ) :?> 
+                        <label>
+                        <input type="radio" name="class_idx" id="class_idx<?=$i?>" value="<?=$i?>"> <?=$i?>반
+                        </label>
+                    <?php endfor;?>
+                    </div>
+                    <?php endif;?>
                 </div>
-                <?php endif;?>
               </div>
             </div>
           </div>

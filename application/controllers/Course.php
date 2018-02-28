@@ -36,6 +36,24 @@ class Course extends CI_Controller{
         // get course list
         $aData['aCourseList'] = $this->_getCourseList($aData['select_addr2']);
 
+        // login info
+        edu_get_instance('CookieClass');
+        if($jLoginInfo = CookieClass::getCookieInfo())
+        {
+            $aData['oLoginInfo'] = json_decode($jLoginInfo);
+            $aData['oLoginInfo']->pwd = $aData['oLoginInfo']->mb_id;
+        }
+        else
+        {
+            $aMemInfo['mb_id'] = '';
+            $aMemInfo['name']  = '';
+            $aMemInfo['pwd']   = '';
+            $aMemInfo['mb_hp'] = '';
+            $aMemInfo['email'] = '';
+
+            $aData['oLoginInfo']= (object)$aMemInfo;
+        }
+
         $data = array(
             'container' => 'course/index'
             ,'aData'    => $aData
@@ -168,6 +186,9 @@ class Course extends CI_Controller{
 
         return $oCourse;
     }
+    
+    
+     
     public function rpcGetAddrCode($code='')
     {
         if(!$code) $code = $this->input->post('code');

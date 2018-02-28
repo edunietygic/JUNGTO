@@ -33,7 +33,7 @@ class CourseClass {
 
         foreach($rtn as $key=>$val)
         {
-            if(isset($val->img)) 
+            if(isset($val->img) && $val->img) 
                 $val->img = "http://jungtoadmin.eduniety.cc:8090/dp/subject/".$val->img;
             else
                 $val->img = "/skin/images/school/thum-school-03.png";
@@ -83,7 +83,7 @@ class CourseClass {
         $course_model = edu_get_instance('Course_model', 'model');
         $rtn = $course_model->getDetailCourse($subj); 
 
-        if(isset($rtn->img)) 
+        if(isset($rtn->img) && $rtn->img) 
             $rtn->img = "http://jungtoadmin.eduniety.cc:8090/dp/subject/".$rtn->img;
         else
             $rtn->img = "/skin/images/school/thum-school-03.png";
