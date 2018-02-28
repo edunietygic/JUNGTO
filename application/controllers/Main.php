@@ -5,7 +5,7 @@ class Main extends CI_Controller{
     {
         parent::__construct();
      //   $this->account_model = edu_get_instance('account_model', 'model');
-        //    $this->load->helper(array('form', 'url')); 
+        //    $this->load->helper(array('form', 'url'));
     }
 
     public function index()
@@ -54,7 +54,7 @@ class Main extends CI_Controller{
         $account = "bolee";
         $oAccountModel = edu_get_instance('Account_model', 'model');
         print_r($oAccountModel->getEduMemInfo($account));
-    } 
+    }
     public function testDB()
     {
         // test code db ACL check
@@ -75,7 +75,7 @@ class Main extends CI_Controller{
         $usn = 2;
         $oFile = edu_get_instance("FileClass");
         $oFile->saveFile($usn, $_FILES);
-    }   
+    }
     public function deleteImg($usn, $filename)
     {
         $oFile = edu_get_instance("FileClass");
@@ -92,10 +92,10 @@ class Main extends CI_Controller{
 
     private function _isLogin()
     {
-        return true; 
+        return true;
 //      edu_get_instance('LoginClass');
 //      $oMemberInfo = LoginClass::isLogin();
-//      
+//
 //      if($oMemberInfo->usn)
 //          return $oMemberInfo->account;
 //

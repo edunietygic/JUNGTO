@@ -62,4 +62,28 @@ class Board_model extends CI_model{
 
         return $aHotContents;
     }
+    public function setBoardInfo($aInput=array())
+    {
+        return $this->board_dao->setBoardInfo($aInput);
+    }
+    public function getBoardList($tabseq=0)
+    {
+        if(!$tabseq) return false;
+        $aInput = array('tabseq' => $tabseq);
+        $aBoardInfo = $this->board_dao->getBoardList($aInput);
+
+        foreach ($aBoardInfo as $key => $obj) {
+            $aBoardInfo[$key]->summary = iconv_substr(strip_tags($obj->content),0,176,'utf-8').'...';
+        }
+
+        return $aBoardInfo;
+    }
+    public function getBoardDetail($tabseq=0, $seq=0)
+    {
+        if(!$tabseq) return false;
+        $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
+        $aBoardDetail = $this->board_dao->getBoardDetail($aInput);
+
+        return $aBoardDetail;
+    }
 }

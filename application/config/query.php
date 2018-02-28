@@ -78,14 +78,14 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'deleteMemberInfo' => array(
-            'query' => 'DELETE from edu_member 
+            'query' => 'DELETE from edu_member
                          WHERE mb_id = ?'
             ,'data' => array('mb_id')
             ,'btype'=> 's'
             ,'null' => array()
         )
         ,'deleteSubjApplicant' => array(
-            'query' => 'DELETE from lms_subj_applicant 
+            'query' => 'DELETE from lms_subj_applicant
                          WHERE mb_id = ?'
             ,'data' => array('mb_id')
             ,'btype'=> 's'
@@ -215,6 +215,32 @@ $config['query'] = array(
                          LIMIT 3'
             ,'data' => array('')
             ,'btype'=> ''
+            ,'null' => array()
+         )
+        ,'setBoardInfo' => array(
+            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, seq)
+                        SELECT ?,?,?,?,?,?, (seq+1) next_seq FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
+            ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'tabseq')
+            ,'btype'=> 'isssssi'
+            ,'null' => array()
+         )
+        ,'getBoardList' => array(
+            'query' => 'SELECT a.seq, a.title, a.userid, a.name, a.content, a.indate, a.cnt, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
+                        FROM lms_board a
+                        WHERE tabseq = ?
+                        ORDER BY seq DESC
+                        LIMIT 10'
+            ,'data' => array('tabseq')
+            ,'btype'=> 'i'
+            ,'null' => array()
+         )
+        ,'getBoardDetail' => array(
+            'query' => 'SELECT a.seq, a.title, a.userid, a.name, a.content, a.indate, a.cnt, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
+                        FROM lms_board a
+                        WHERE tabseq = ?
+                          AND seq in ( ? , (SELECT seq  FROM lms_board WHERE seq < ?  ORDER BY seq DESC LIMIT 1), (SELECT seq  FROM lms_board WHERE seq > ?  ORDER BY seq LIMIT 1) )'
+            ,'data' => array('tabseq','seq','seq','seq')
+            ,'btype'=> 'iiii'
             ,'null' => array()
          )
     )

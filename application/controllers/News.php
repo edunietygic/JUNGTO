@@ -14,12 +14,17 @@ class News extends CI_Controller{
         $aRecentContents = BoardClass::getRecentContents();
         $aHotContents    = BoardClass::getHotContents();
 
-        $data = array(
-            'container'        => 'news/index'
-            ,'aLdata'          => $aLdata
-            ,'aRecentReply'    => $aRecentReply
+        $sidebar_data = array(
+             'aRecentReply'    => $aRecentReply
             ,'aRecentContents' => $aRecentContents
             ,'aHotContents'    => $aHotContents
+        );
+        $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
+
+        $data = array(
+             'container' => 'news/index'
+            ,'sidebar'   => $sidebar
+            ,'aLdata'    => $aLdata
         );
 
         $this->load->view('common/container', $data);
@@ -46,15 +51,20 @@ class News extends CI_Controller{
             }
         }
 
-        $data = array(
-            'container'     => 'news/news_detail'
-            ,'aDetailData'  => $aDetailData
-            ,'aPreData'  => $aPreData
-            ,'aNextData'  => $aNextData
-            ,'aRecentReply'    => $aRecentReply
+        $sidebar_data = array(
+             'aRecentReply'    => $aRecentReply
             ,'aRecentContents' => $aRecentContents
             ,'aHotContents'    => $aHotContents
-            ,'aAttachFile'    => $aAttachFile
+        );
+        $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
+
+        $data = array(
+             'container'    => 'news/news_detail'
+            ,'sidebar'      => $sidebar
+            ,'aDetailData'  => $aDetailData
+            ,'aPreData'     => $aPreData
+            ,'aNextData'    => $aNextData
+            ,'aAttachFile'  => $aAttachFile
         );
 
         $this->load->view('common/container', $data);

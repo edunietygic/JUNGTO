@@ -18,15 +18,15 @@
 						<div class="post-item">
 							<div class="post-item-wrap">
 								<div class="post-item-description">
-									<h2><?=$aDetailData->adtitle?></h2>
+									<h2><?=$aDetailData->title?></h2>
 									<div class="post-meta">
-										<span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($aDetailData->addate,0,4).'-'.substr($aDetailData->addate,4,2).'-'.substr($aDetailData->addate,6,2)?></span>
-										<span class="post-meta-category"><i class="fa fa-user"></i><?=$aDetailData->adname?></span>
+										<span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($aDetailData->indate,0,4).'-'.substr($aDetailData->indate,4,2).'-'.substr($aDetailData->indate,6,2)?></span>
+										<span class="post-meta-category"><i class="fa fa-user"></i><?=$aDetailData->name?></span>
 										<!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
 										<span class="post-meta-comments"><i class="fa fa-eye"></i><?=$aDetailData->cnt?> Views</span>
 										<span class="post-meta-comments"><i class="fa fa-link"></i><?=$aDetailData->filecnt?> Files</span>
 									</div>
-									<?=$aDetailData->adcontent?>
+									<?=$aDetailData->content?>
 									<?php if( is_array($aAttachFile) && count($aAttachFile) > 0 ) : ?>
 									<div class="seperator"><span>File Download</span></div>
 									<?php foreach ($aAttachFile as $key => $obj) : ?>

@@ -7,85 +7,66 @@ class BoardClass {
     }
     public static function getNoticeList()
     {
-        $aResult = array();
-        $aResult = self::_getNoticeList();
+        $board_model = edu_get_instance('Board_model', 'model');
 
-        return $aResult;
+        return $board_model->getNoticeList();
     }
     public static function getNoticeDetail($seq=0)
     {
         if(!$seq) return false;
 
-        $aResult = array();
-        $aResult = self::_getNoticeDetail($seq);
+        $board_model = edu_get_instance('Board_model', 'model');
 
-        return $aResult;
+        return $board_model->getNoticeDetail($seq);
     }
     public static function getAttachFile($seq=0)
     {
         if(!$seq) return false;
 
-        $aResult = array();
-        $aResult = self::_getAttachFile($seq);
-
-        return $aResult;
-    }
-    public static function getRecentReply()
-    {
-        $aResult = array();
-        $aResult = self::_getRecentReply();
-
-        return $aResult;
-    }
-    public static function getRecentContents()
-    {
-        $aResult = array();
-        $aResult = self::_getRecentContents();
-
-        return $aResult;
-    }
-    public static function getHotContents()
-    {
-        $aResult = array();
-        $aResult = self::_getHotContents();
-
-        return $aResult;
-    }
-
-    private static function _getNoticeList()
-    {
-        $board_model = edu_get_instance('Board_model', 'model');
-
-        return $board_model->getNoticeList();
-    }
-    private static function _getNoticeDetail($seq)
-    {
-        $board_model = edu_get_instance('Board_model', 'model');
-
-        return $board_model->getNoticeDetail($seq);
-    }
-    private static function _getAttachFile($seq)
-    {
         $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->getAttachFile($seq);
     }
-    private static function _getRecentReply()
+    public static function getRecentReply()
     {
         $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->getRecentReply();
     }
-    private static function _getRecentContents()
+    public static function getRecentContents()
     {
         $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->getRecentContents();
     }
-    private static function _getHotContents()
+    public static function getHotContents()
     {
         $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->getHotContents();
     }
+    public static function saveBoard($aInput=array())
+    {
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->setBoardInfo($aInput);
+    }
+    public static function getBoardList($tabseq=0)
+    {
+        if(!$tabseq) return false;
+
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getBoardList($tabseq);
+    }
+    public static function getBoardDetail($tabseq=0, $seq=0)
+    {
+        if(!$seq) return false;
+
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getBoardDetail($tabseq, $seq);
+    }
+
+
 }
