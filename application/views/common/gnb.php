@@ -4,43 +4,43 @@ $controller = $this->uri->segment(1);
 <!-- Header -->
 <header id="header" class="header-fullwidth header-transparent <?=($controller=='main') ? 'header-plain' : '';?>">
   <div id="header-wrap">
-    <div class="container"> 
+    <div class="container">
       <!--Logo-->
       <div id="logo"> <a href="<?=HOSTURL?>/main" class="logo" data-dark-logo="<?=SKINURL?>/images/logo-dark.png"> <img src="<?=SKINURL?>/images/logo.png" alt="hihappyschool Logo"> </a> </div>
-      <!--End: Logo--> 
-      
+      <!--End: Logo-->
+
       <!--Top Search Form-->
       <div id="top-search">
         <form action="search-results-page.html" method="get">
           <input type="text" name="q" class="form-control" value="" placeholder="Start typing & press  &quot;Enter&quot;">
         </form>
       </div>
-      <!--end: Top Search Form--> 
-      
+      <!--end: Top Search Form-->
+
       <!--Header Extras-->
       <div class="header-extras">
         <ul>
-          <li> 
-            <!--top search--> 
-            <a id="top-search-trigger" href="#" class="toggle-item"> <i class="fa fa-search"></i> <i class="fa fa-close"></i> </a> 
-            <!--end: top search--> 
+          <li>
+            <!--top search-->
+            <a id="top-search-trigger" href="#" class="toggle-item"> <i class="fa fa-search"></i> <i class="fa fa-close"></i> </a>
+            <!--end: top search-->
           </li>
         </ul>
       </div>
-      <!--end: Header Extras--> 
-      
+      <!--end: Header Extras-->
+
       <!--Navigation Resposnive Trigger-->
       <div id="mainMenu-trigger">
         <button class="lines-button x"> <span class="lines"></span> </button>
       </div>
-      <!--end: Navigation Resposnive Trigger--> 
-      
+      <!--end: Navigation Resposnive Trigger-->
+
       <!--Navigation-->
       <div id="mainMenu" class="light">
         <div class="container">
           <nav>
             <ul>
-              <?php if($name) :?> 
+              <?php if($name) :?>
               <li><a href="<?=HOSTURL?>/mypage">MY PAGE</a></li>
               <?php endif; ?>
               <li class="dropdown"> <a href="<?=HOSTURL?>/happyschool">행복학교</a>
@@ -52,15 +52,15 @@ $controller = $this->uri->segment(1);
               </li>
               <li><a href="<?=HOSTURL?>/course">수강신청</a></li>
               <li><a href="<?=HOSTURL?>/news">행복학교 소식</a></li>
-              <li><a href="<?=HOSTURL?>/camp">행복캠프</a></li>
-              <li><a href="<?=HOSTURL?>/lecture">행복한강연</a></li>
-              <li><a href="<?=HOSTURL?>/review">생생후기</a></li>
+              <li><a href="<?=HOSTURL?>/board/camp">행복캠프</a></li>
+              <li><a href="<?=HOSTURL?>/board/lecture">행복한강연</a></li>
+              <li><a href="<?=HOSTURL?>/board/review">생생후기</a></li>
             </ul>
           </nav>
         </div>
       </div>
-      <!--end: Navigation--> 
+      <!--end: Navigation-->
     </div>
   </div>
 </header>
-<!-- end: Header --> 
+<!-- end: Header -->

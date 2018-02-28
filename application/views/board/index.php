@@ -4,6 +4,7 @@
 // print_r($aLdata);
 // echo "-->";
 // test code
+// echo '<pre>aBoardInfo: '. print_r( $aBoardInfo, true ) .'</pre>';
 // echo '<pre>aDetailData: '. print_r( $aDetailData, true ) .'</pre>';
 // die();
 ?>
@@ -14,7 +15,7 @@
         <!-- post content -->
         <div class="content col-md-9">
           <div class="page-title">
-            <h1>행복캠프</h1>
+            <h1><?=$aBoardInfo['title']?></h1>
           </div>
           <!-- end: Page title -->
           <!-- Portfolio Filter -->
@@ -25,11 +26,12 @@
             <div class="grid-active-title">Show All</div>
           </nav>-->
           <?php if( isset($aMemberInfo['mb_id'])) : ?>
-          <a href="<?=HOSTURL?>/camp/camp_write" class="btn btn-light right" style="margin-bottom: 26px;" ><i class="fa fa-pencil"></i> 글쓰기</a>
+          <a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_write" class="btn btn-light right" style="margin-bottom: 26px;" ><i class="fa fa-pencil"></i> 글쓰기</a>
           <?php endif; ?>
           <!-- end: Portfolio Filter -->
           <!-- Blog -->
           <div id="blog" class="grid-layout post-thumbnails" data-item="post-item">
+            <?php if( is_array($aLdata) && count($aLdata)>0 ) : ?>
             <?php foreach ($aLdata as $key => $obj) : ?>
               <!-- Post item quote-->
                 <div class="post-item">
@@ -41,16 +43,16 @@
                         <!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
                         <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
                         <span class="post-meta-comments"><i class="fa fa-link"></i><?=$obj->filecnt?> Files</span>
-                        <h2><a href="<?=HOSTURL?>/camp/camp_detail/<?=$obj->seq?>"><?=$obj->title?></a></h2>
+                        <h2><a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_detail/<?=$obj->seq?>"><?=$obj->title?></a></h2>
                         <p><?=$obj->summary?></p>
-                        <a href="<?=HOSTURL?>/camp/camp_detail/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
+                        <a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_detail/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
                         <div class="seperator m-b-10"></div>
                     </div>
                   </div>
                 </div>
               <!-- end: Post item-->
             <?php endforeach; ?>
-
+            <?php endif; ?>
           </div>
           <!-- end: Blog -->
           <!-- Pagination -->

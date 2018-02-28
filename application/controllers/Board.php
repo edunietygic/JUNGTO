@@ -1,12 +1,40 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Camp extends CI_Controller{
+class Board extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
 
         $aBbsInfo = edu_get_config('bbs', 'jungto');
-        $this->tabseq = $aBbsInfo[$this->uri->segment(1)]['tabseq'];
+        $this->board = $aBbsInfo[$this->uri->segment(2)];
+    }
+
+    public function camp()
+    {
+        if( $this->uri->segment(3) ){
+            $this->{$this->uri->segment(3)}($this->uri->segment(4));
+        }
+        else {
+            $this->index();
+        }
+    }
+    public function lecture()
+    {
+        if( $this->uri->segment(3) ){
+            $this->{$this->uri->segment(3)}($this->uri->segment(4));
+        }
+        else {
+            $this->index();
+        }
+    }
+    public function review()
+    {
+        if( $this->uri->segment(3) ){
+            $this->{$this->uri->segment(3)}($this->uri->segment(4));
+        }
+        else {
+            $this->index();
+        }
     }
 
     public function index()
@@ -14,7 +42,7 @@ class Camp extends CI_Controller{
         $aMemberInfo = $this->_getMemberInfo();
 
         edu_get_instance('BoardClass');
-        $aLdata          = BoardClass::getBoardList($this->tabseq);
+        $aLdata          = BoardClass::getBoardList($this->board['tabseq']);
         $aRecentReply    = BoardClass::getRecentReply();
         $aRecentContents = BoardClass::getRecentContents();
         $aHotContents    = BoardClass::getHotContents();
@@ -28,7 +56,8 @@ class Camp extends CI_Controller{
         $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
 
         $data = array(
-            'container' => 'camp/index'
+            'container' => 'board/index'
+            ,'aBoardInfo'    => $this->board
             ,'sidebar'    => $sidebar
             ,'aMemberInfo'    => $aMemberInfo
             ,'aLdata'   => $aLdata
@@ -37,7 +66,7 @@ class Camp extends CI_Controller{
         $this->load->view('common/container', $data);
     }
 
-    public function camp_write()
+    public function board_write()
     {
         if(! $aMemberInfo = $this->_getMemberInfo())
         {
@@ -46,11 +75,9 @@ class Camp extends CI_Controller{
         else
         {
             edu_get_instance('BoardClass');
-            // $aNoticeDetail = BoardClass::getNoticeDetail($seq);
             $aRecentReply    = BoardClass::getRecentReply();
             $aRecentContents = BoardClass::getRecentContents();
             $aHotContents    = BoardClass::getHotContents();
-            // $aAttachFile    = BoardClass::getAttachFile($seq);
 
             $sidebar_data = array(
                  'aRecentReply'    => $aRecentReply
@@ -60,9 +87,9 @@ class Camp extends CI_Controller{
             $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
 
             $data = array(
-                 'container'    => 'camp/camp_write'
+                 'container'    => 'board/board_write'
+                ,'aBoardInfo'    => $this->board
                 ,'sidebar'      => $sidebar
-                ,'tabseq'       => $this->tabseq
                 ,'aMemberInfo'  => $aMemberInfo
             );
 
@@ -70,10 +97,10 @@ class Camp extends CI_Controller{
         }
     }
 
-    public function camp_detail($seq=0)
+    public function board_detail($seq=0)
     {
         edu_get_instance('BoardClass');
-        $aBoardDetail    = BoardClass::getBoardDetail($this->tabseq, $seq);
+        $aBoardDetail    = BoardClass::getBoardDetail($this->board['tabseq'], $seq);
         $aRecentReply    = BoardClass::getRecentReply();
         $aRecentContents = BoardClass::getRecentContents();
         $aHotContents    = BoardClass::getHotContents();
@@ -101,9 +128,9 @@ class Camp extends CI_Controller{
         $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
 
         $data = array(
-             'container'      => 'camp/camp_detail'
+             'container'      => 'board/board_detail'
             ,'sidebar'        => $sidebar
-            ,'tabseq'         => $this->tabseq
+            ,'tabseq'         => $this->board['tabseq']
             ,'aDetailData'    => $aDetailData
             ,'aPreData'       => $aPreData
             ,'aNextData'      => $aNextData
@@ -113,7 +140,7 @@ class Camp extends CI_Controller{
         $this->load->view('common/container', $data);
     }
 
-    public function rpcSaveCamp()
+    public function rpcSaveBoard()
     {
         $aInput = array();
         $aInput['tabseq']   = trim($this->input->post('tabseq'));
@@ -132,7 +159,7 @@ class Camp extends CI_Controller{
         edu_get_instance('BoardClass');
         if($aResult = BoardClass::saveBoard($aInput))
         {
-            response_json(array('code'=> 1 , 'msg'=>'OK'));
+            response_json(array('code'=> 1 , 'msg'=>'등록되었습니다.'));
             die;
         }
 

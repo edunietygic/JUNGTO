@@ -1,6 +1,7 @@
 <?php
 // test code
 // echo '<pre>: '. print_r( $aMemberInfo, true ) .'</pre>';
+echo '<pre>aBoardInfo: '. print_r( $aBoardInfo, true ) .'</pre>';
 // die();
 ?>
   <!-- Article write Content -->
@@ -10,7 +11,7 @@
         <!-- content -->
         <div class="content col-md-9">
           <div class="page-title">
-            <h1>행복캠프</h1>
+            <h1><?=$aBoardInfo['title']?></h1>
           </div>
           <!-- navi path ->
           <div class="breadcrumb float-right hidden-xs">
@@ -21,13 +22,13 @@
           </div>
           <!-- end: navi path -->
 
-          <form action="<?=HOSTURL?>/camp/rpcSaveCamp" id="writeCamp" name="writeCamp" method="post">
+          <form action="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/rpcSaveBoard" id="writeBoard" name="writeBoard" method="post">
           <div id="blog" class="single-post">
             <!-- Post single item-->
             <div class="post-item">
               <div class="post-item-wrap">
                 <div class="post-item-description">
-                  <input type="hidden" id="tabseq" name="tabseq" value="<?=$tabseq?>">
+                  <input type="hidden" id="tabseq" name="tabseq" value="<?=$aBoardInfo['tabseq']?>">
                   <input type="hidden" id="mb_id" name="mb_id" value="<?=$aMemberInfo['mb_id']?>">
                   <input type="hidden" id="mb_name" name="mb_name" value="<?=$aMemberInfo['name']?>">
                   <div class="row">
@@ -144,18 +145,18 @@
 
   //등록하기
   function save() {
-    var params = jQuery("#writeCamp").serialize();
+    var params = jQuery("#writeBoard").serialize();
 
     $.ajax({
         type: 'POST',
-        url: '<?=HOSTURL?>/camp/rpcSaveCamp',
+        url: '<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/rpcSaveBoard',
         data: params,
         success: function (data) {
                   console.log(data);
                   if(data.code == 1)
                   {
                     alert(data.msg);
-                    location.href = "<?=HOSTURL?>/camp";
+                    location.href = "<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>";
                   }
                   else if(data.code == 999)
                   {

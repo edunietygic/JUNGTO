@@ -219,7 +219,7 @@ $config['query'] = array(
          )
         ,'setBoardInfo' => array(
             'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, seq)
-                        SELECT ?,?,?,?,?,?, (seq+1) next_seq FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
+                        SELECT ?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
             ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'tabseq')
             ,'btype'=> 'isssssi'
             ,'null' => array()

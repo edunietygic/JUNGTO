@@ -72,8 +72,10 @@ class Board_model extends CI_model{
         $aInput = array('tabseq' => $tabseq);
         $aBoardInfo = $this->board_dao->getBoardList($aInput);
 
-        foreach ($aBoardInfo as $key => $obj) {
-            $aBoardInfo[$key]->summary = iconv_substr(strip_tags($obj->content),0,176,'utf-8').'...';
+        if( is_array($aBoardInfo) ){
+            foreach ($aBoardInfo as $key => $obj) {
+                $aBoardInfo[$key]->summary = iconv_substr(strip_tags($obj->content),0,176,'utf-8').'...';
+            }
         }
 
         return $aBoardInfo;

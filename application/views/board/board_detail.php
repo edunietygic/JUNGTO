@@ -26,7 +26,7 @@
 										<span class="post-meta-comments"><i class="fa fa-eye"></i><?=$aDetailData->cnt?> Views</span>
 										<span class="post-meta-comments"><i class="fa fa-link"></i><?=$aDetailData->filecnt?> Files</span>
 									</div>
-									<?=$aDetailData->content?>
+									<?=nl2br($aDetailData->content)?>
 									<?php if( is_array($aAttachFile) && count($aAttachFile) > 0 ) : ?>
 									<div class="seperator"><span>File Download</span></div>
 									<?php foreach ($aAttachFile as $key => $obj) : ?>
@@ -40,7 +40,7 @@
 									<a href="<?=( isset($aPreData->seq) ) ? $aPreData->seq : 'javascript:;' ?>" class="post-prev">
 										<div class="post-prev-title"><span>이전글</span><?=( isset($aPreData->title) ) ? $aPreData->title : '' ?></div>
 									</a>
-									<a href="<?=HOSTURL?>/news" class="post-all"><i class="fa fa-th"></i></a>
+									<a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>" class="post-all"><i class="fa fa-th"></i></a>
 									<a href="<?=( isset($aNextData->seq) ) ? $aNextData->seq : 'javascript:;' ?>" class="post-next">
 										<div class="post-next-title"><span>다음글</span><?=( isset($aNextData->title) ) ? $aNextData->title : '' ?></div>
 									</a>
