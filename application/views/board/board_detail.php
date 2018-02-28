@@ -23,8 +23,8 @@
 										<span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($aDetailData->indate,0,4).'-'.substr($aDetailData->indate,4,2).'-'.substr($aDetailData->indate,6,2)?></span>
 										<span class="post-meta-category"><i class="fa fa-user"></i><?=$aDetailData->name?></span>
 										<!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
-										<span class="post-meta-comments"><i class="fa fa-eye"></i><?=$aDetailData->cnt?> Views</span>
-										<span class="post-meta-comments"><i class="fa fa-link"></i><?=$aDetailData->filecnt?> Files</span>
+										<span class="post-meta-comments"><i class="fa fa-eye"></i>조회수 <?=$aDetailData->cnt?></span>
+										<span class="post-meta-comments"><i class="fa fa-link"></i>첨부파일 <?=$aDetailData->filecnt?></span>
 									</div>
 									<?=nl2br($aDetailData->content)?>
 									<?php if( is_array($aAttachFile) && count($aAttachFile) > 0 ) : ?>

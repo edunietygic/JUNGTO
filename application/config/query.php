@@ -190,7 +190,7 @@ $config['query'] = array(
                           FROM lms_board_comment bc
                      LEFT JOIN edu_member m
                             ON m.mb_id=bc.luser
-                         WHERE tabseq IN ("9000")
+                         WHERE tabseq IN ("100","200","300")
                          ORDER BY idx DESC
                          LIMIT 3'
             ,'data' => array('')
@@ -200,7 +200,7 @@ $config['query'] = array(
         ,'getRecentContents' => array(
             'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
                           FROM lms_board
-                         WHERE tabseq IN ("9000")
+                         WHERE tabseq IN ("100","200","300")
                          ORDER BY idx DESC
                          LIMIT 3'
             ,'data' => array('')
@@ -210,7 +210,7 @@ $config['query'] = array(
         ,'getHotContents' => array(
             'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
                           FROM lms_board
-                         WHERE tabseq IN ("9000")
+                         WHERE tabseq IN ("100","200","300")
                          ORDER BY cnt DESC
                          LIMIT 3'
             ,'data' => array('')

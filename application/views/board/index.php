@@ -41,8 +41,8 @@
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->indate,0,4).'-'.substr($obj->indate,4,2).'-'.substr($obj->indate,6,2)?></span>
                         <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->name?></span>
                         <!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
-                        <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
-                        <span class="post-meta-comments"><i class="fa fa-link"></i><?=$obj->filecnt?> Files</span>
+                        <span class="post-meta-comments"><i class="fa fa-eye"></i>조회수 <?=$obj->cnt?></span>
+                        <span class="post-meta-comments"><i class="fa fa-link"></i>첨부파일 <?=$obj->filecnt?></span>
                         <h2><a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_detail/<?=$obj->seq?>"><?=$obj->title?></a></h2>
                         <p><?=$obj->summary?></p>
                         <a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_detail/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>

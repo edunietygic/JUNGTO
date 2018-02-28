@@ -36,8 +36,10 @@ class Board_model extends CI_model{
     {
         $aRecentReply = $this->board_dao->getRecentReply();
 
-        foreach ($aRecentReply as $key => $obj) {
-            $aRecentReply[$key]->diffdate = datetimediff($obj->lastdate);
+        if(is_array($aRecentReply)){
+            foreach ($aRecentReply as $key => $obj) {
+                $aRecentReply[$key]->diffdate = datetimediff($obj->lastdate);
+            }
         }
 
         return $aRecentReply;
@@ -46,8 +48,10 @@ class Board_model extends CI_model{
     {
         $aRecentContents = $this->board_dao->getRecentContents();
 
-        foreach ($aRecentContents as $key => $obj) {
-            $aRecentContents[$key]->diffdate = datetimediff($obj->indate);
+        if(is_array($aRecentContents)){
+            foreach ($aRecentContents as $key => $obj) {
+                $aRecentContents[$key]->diffdate = datetimediff($obj->indate);
+            }
         }
 
         return $aRecentContents;
@@ -56,8 +60,10 @@ class Board_model extends CI_model{
     {
         $aHotContents = $this->board_dao->getHotContents();
 
-        foreach ($aHotContents as $key => $obj) {
-            $aHotContents[$key]->diffdate = datetimediff($obj->indate);
+        if(is_array($aHotContents)){
+            foreach ($aHotContents as $key => $obj) {
+                $aHotContents[$key]->diffdate = datetimediff($obj->indate);
+            }
         }
 
         return $aHotContents;

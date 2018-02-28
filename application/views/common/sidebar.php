@@ -12,6 +12,7 @@
                 <div class="tabs-content">
                   <div class="tab-pane active" id="tab1">
                     <div class="post-thumbnail-list">
+                      <?php if(is_array($aRecentReply) && count($aRecentReply)>0 ) : ?>
                       <?php foreach ($aRecentReply as $key => $obj) : ?>
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
@@ -22,10 +23,12 @@
                         </div>
                       </div>
                       <?php endforeach; ?>
+                      <?php endif; ?>
                     </div>
                   </div>
                   <div class="tab-pane" id="tab2">
                     <div class="post-thumbnail-list">
+                      <?php if(is_array($aRecentContents) && count($aRecentContents)>0 ) : ?>
                       <?php foreach ($aRecentContents as $key => $obj) : ?>
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
@@ -36,10 +39,12 @@
                         </div>
                       </div>
                       <?php endforeach; ?>
+                      <?php endif; ?>
                     </div>
                   </div>
                   <div class="tab-pane" id="tab3">
                     <div class="post-thumbnail-list">
+                      <?php if(is_array($aHotContents) && count($aHotContents)>0 ) : ?>
                       <?php foreach ($aHotContents as $key => $obj) : ?>
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
@@ -50,6 +55,7 @@
                         </div>
                       </div>
                       <?php endforeach; ?>
+                      <?php endif; ?>
                     </div>
                   </div>
                 </div>
