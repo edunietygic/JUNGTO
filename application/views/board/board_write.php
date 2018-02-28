@@ -1,7 +1,7 @@
 <?php
 // test code
 // echo '<pre>: '. print_r( $aMemberInfo, true ) .'</pre>';
-echo '<pre>aBoardInfo: '. print_r( $aBoardInfo, true ) .'</pre>';
+// echo '<pre>aBoardInfo: '. print_r( $aBoardInfo, true ) .'</pre>';
 // die();
 ?>
   <!-- Article write Content -->
