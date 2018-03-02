@@ -92,6 +92,16 @@ $config['query'] = array(
             ,'null' => array()
         )
     )
+    ,'auth' => array(
+        'getAuthInfo' => array(
+            'query' => 'SELECT userid, gadmin 
+                          FROM lms_manager
+                         WHERE userid = ?'
+            ,'data' => array('userid')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+    )
     ,'course' => array(
         'getCourseList' => array(
             'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img

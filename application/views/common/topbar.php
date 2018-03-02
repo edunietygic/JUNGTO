@@ -5,13 +5,12 @@
         <div class="col-md-12">
           <?php if($name) :?> 
           <div class="topbar-dropdown">
-              <a class="title"><i class="fa fa-caret-down"> manager</i></a>
+              <a class="title"><i class="fa fa-user">&nbsp;<?=$auth_name?></i></a>
+              <?php if($auth) :?> 
               <div class="dropdown-list">
-                <a class="list-entry" href="javascript:void(0);">총괄관리자</a>
-                <a class="list-entry" href="javascript:void(0);">운영자</a>
-                <a class="list-entry" href="javascript:void(0);">학습자</a>
-                <a class="list-entry" href="javascript:void(0);">개인정보수정</a>
+                  <a class="list-entry" href="http://jungtoadmin.eduniety.cc:8090/site_manage/login.php">운영툴 바로가기</a>
               </div>
+              <?php endif;?> 
           </div>
           <div class="topbar-dropdown">
             <div class="title"><i class="fa fa-user">&nbsp;<?=$name?> 님</i></div>
