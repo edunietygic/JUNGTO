@@ -40,7 +40,7 @@
                         <span class="post-meta-comments"><i class="fa fa-link"></i>첨부파일 <?=$obj->filecnt?></span>
                         <h2><i class="fa fa-asterisk"></i> <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
                         <p><?=$obj->summary?></p>
-                        <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>" class="item-link">더보 <i class="fa fa-arrow-right"></i></a> </div>
+                        <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>" class="item-link">더보기 <i class="fa fa-arrow-right"></i></a> </div>
                         <div class="seperator m-b-10"></div>
                     </div>
                   </div>
