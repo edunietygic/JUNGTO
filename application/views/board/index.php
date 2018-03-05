@@ -43,7 +43,7 @@
                         <span class="post-meta-comments"><i class="fa fa-link"></i>첨부파일 <?=$obj->filecnt?></span>
                         <h2><a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_detail/<?=$obj->seq?>"><?=$obj->title?></a></h2>
                         <p><?=$obj->summary?></p>
-                        <a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_detail/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
+                        <a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_detail/<?=$obj->seq?>" class="item-link">더보기 <i class="fa fa-arrow-right"></i></a> </div>
                         <div class="seperator m-b-10"></div>
                     </div>
                   </div>

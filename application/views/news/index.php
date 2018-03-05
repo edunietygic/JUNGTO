@@ -36,11 +36,11 @@
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
                         <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
                         <!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
-                        <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
-                        <span class="post-meta-comments"><i class="fa fa-link"></i><?=$obj->filecnt?> Files</span>
+                        <span class="post-meta-comments"><i class="fa fa-eye"></i>조회수 <?=$obj->cnt?></span>
+                        <span class="post-meta-comments"><i class="fa fa-link"></i>첨부파일 <?=$obj->filecnt?></span>
                         <h2><i class="fa fa-asterisk"></i> <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
                         <p><?=$obj->summary?></p>
-                        <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
+                        <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>" class="item-link">더보기 <i class="fa fa-arrow-right"></i></a> </div>
                         <div class="seperator m-b-10"></div>
                     </div>
                   </div>
@@ -56,11 +56,11 @@
                         <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($obj->addate,0,4).'-'.substr($obj->addate,4,2).'-'.substr($obj->addate,6,2)?></span>
                         <span class="post-meta-category"><i class="fa fa-user"></i><?=$obj->adname?></span>
                         <!-- <span class="post-meta-comments"><i class="fa fa-comments-o"></i>33 Comments</span> -->
-                        <span class="post-meta-comments"><i class="fa fa-eye"></i><?=$obj->cnt?> Views</span>
-                        <span class="post-meta-comments"><i class="fa fa-link"></i><?=$obj->filecnt?> Files</span>
+                        <span class="post-meta-comments"><i class="fa fa-eye"></i>조회수 <?=$obj->cnt?></span>
+                        <span class="post-meta-comments"><i class="fa fa-link"></i>첨부파일 <?=$obj->filecnt?></span>
                         <h2><a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>"><?=$obj->adtitle?></a></h2>
                         <p><?=$obj->summary?></p>
-                        <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>" class="item-link">Read More <i class="fa fa-arrow-right"></i></a> </div>
+                        <a href="<?=HOSTURL?>/news/news_detail/<?=$obj->seq?>" class="item-link">더보기 <i class="fa fa-arrow-right"></i></a> </div>
                         <div class="seperator m-b-10"></div>
                     </div>
                   </div>

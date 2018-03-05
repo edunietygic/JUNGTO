@@ -72,6 +72,11 @@ class Board_model extends CI_model{
     {
         return $this->board_dao->setBoardInfo($aInput);
     }
+
+    public function setBoardReply($aInput=array())
+    {
+        return $this->board_dao->setBoardReply($aInput);
+    }
     public function getBoardList($tabseq=0)
     {
         if(!$tabseq) return false;
@@ -88,10 +93,30 @@ class Board_model extends CI_model{
     }
     public function getBoardDetail($tabseq=0, $seq=0)
     {
-        if(!$tabseq) return false;
+        if(!$tabseq || !$seq) return false;
         $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
         $aBoardDetail = $this->board_dao->getBoardDetail($aInput);
 
         return $aBoardDetail;
+    }
+    public function getReplyDetail($tabseq=0, $seq=0)
+    {
+        if(!$tabseq || !$seq) return false;
+        $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
+        $aReplyDetail = $this->board_dao->getReplyDetail($aInput);
+
+        return $aReplyDetail;
+    }
+    public function updateNoticeCnt($seq=0)
+    {
+        if(!$seq) return false;
+        $aInput = array('seq' => $seq);
+        return $this->board_dao->updateNoticeCnt($aInput);
+    }
+    public function updateBoardCnt($tabseq=0, $seq=0)
+    {
+        if(!$tabseq || !$seq) return false;
+        $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
+        return $this->board_dao->updateBoardCnt($aInput);
     }
 }

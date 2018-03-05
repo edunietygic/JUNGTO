@@ -250,9 +250,12 @@ $config['query'] = array(
             'query' => 'SELECT a.seq, a.title, a.userid, a.name, a.content, a.indate, a.cnt, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
                         FROM lms_board a
                         WHERE tabseq = ?
-                          AND seq in ( ? , (SELECT seq  FROM lms_board WHERE seq < ?  ORDER BY seq DESC LIMIT 1), (SELECT seq  FROM lms_board WHERE seq > ?  ORDER BY seq LIMIT 1) )'
-            ,'data' => array('tabseq','seq','seq','seq')
-            ,'btype'=> 'iiii'
+                          AND seq=refseq
+                          AND seq in ( ? ,
+                              (SELECT seq  FROM lms_board WHERE tabseq = ? AND seq=refseq AND seq < ?  ORDER BY seq DESC LIMIT 1),
+                              (SELECT seq  FROM lms_board WHERE tabseq = ? AND seq=refseq AND seq > ?  ORDER BY seq LIMIT 1) )'
+            ,'data' => array('tabseq','seq','tabseq','seq','tabseq','seq')
+            ,'btype'=> 'iiiiii'
             ,'null' => array()
          )
         ,'getReplyDetail' => array(
@@ -265,12 +268,29 @@ $config['query'] = array(
             ,'btype'=> 'ii'
             ,'null' => array()
          )
-
-        ,'setBoardReplyInfo' => array(
-            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, seq, refseq)
-                        SELECT ?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq, ? FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
-            ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'tabseq')
+        ,'setBoardReply' => array(
+            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, refseq, seq)
+                        SELECT ?,?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq
+                          FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
+            ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'refseq', 'tabseq')
             ,'btype'=> 'isssssii'
+            ,'null' => array()
+         )
+        ,'updateNoticeCnt' => array(
+            'query' => 'UPDATE lms_notice
+                           SET cnt = cnt+1
+                         WHERE seq = ?'
+            ,'data' => array('seq')
+            ,'btype'=> 'i'
+            ,'null' => array()
+         )
+        ,'updateBoardCnt' => array(
+            'query' => 'UPDATE lms_board
+                           SET cnt = cnt+1
+                         WHERE tabseq = ?
+                           AND seq = ?'
+            ,'data' => array('tabseq', 'seq')
+            ,'btype'=> 'ii'
             ,'null' => array()
          )
     )

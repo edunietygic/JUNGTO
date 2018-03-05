@@ -32,6 +32,9 @@ class News extends CI_Controller{
     public function news_detail($seq=0)
     {
         edu_get_instance('BoardClass');
+
+        BoardClass::updateNoticeCnt($seq);
+
         $aNoticeDetail = BoardClass::getNoticeDetail($seq);
         $aRecentReply    = BoardClass::getRecentReply();
         $aRecentContents = BoardClass::getRecentContents();

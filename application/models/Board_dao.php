@@ -46,15 +46,34 @@ class Board_dao extends Common_dao
         $aConfig = $this->queryInfoBoard['setBoardInfo'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function setBoardReply($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['setBoardReply'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
     public function getBoardList($aParam=array())
     {
         $aConfig = $this->queryInfoBoard['getBoardList'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-
     public function getBoardDetail($aParam=array())
     {
         $aConfig = $this->queryInfoBoard['getBoardDetail'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getReplyDetail($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['getReplyDetail'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function updateNoticeCnt($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['updateNoticeCnt'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function updateBoardCnt($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['updateBoardCnt'];
         return $this->actModelFuc($aConfig, $aParam);
     }
 }
