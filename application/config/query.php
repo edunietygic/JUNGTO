@@ -255,5 +255,23 @@ $config['query'] = array(
             ,'btype'=> 'iiii'
             ,'null' => array()
          )
+        ,'getReplyDetail' => array(
+            'query' => 'SELECT a.seq, a.title, a.userid, a.name, a.content, a.indate
+                          FROM lms_board a
+                         WHERE tabseq = ?
+                           AND refseq = ?
+                           AND seq<>refseq'
+            ,'data' => array('tabseq','seq')
+            ,'btype'=> 'ii'
+            ,'null' => array()
+         )
+
+        ,'setBoardReplyInfo' => array(
+            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, seq, refseq)
+                        SELECT ?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq, ? FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
+            ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'tabseq')
+            ,'btype'=> 'isssssii'
+            ,'null' => array()
+         )
     )
 );
