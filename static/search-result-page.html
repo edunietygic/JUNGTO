@@ -13,11 +13,11 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
 </head>
-
 <body>
 
 <!-- Wrapper -->
 <div id="wrapper"> 
+  
   <!-- TOPBAR -->
   <div id="topbar" class="topbar-transparent visible-md visible-lg">
     <div class="container">
@@ -81,7 +81,7 @@
         
         <!--Top Search Form-->
         <div id="top-search">
-          <form action="search-result-page.html" method="get">
+          <form action="search-results-page.html" method="get">
             <input type="text" name="q" class="form-control" value="" placeholder="Start typing & press  &quot;Enter&quot;">
           </form>
         </div>
@@ -97,7 +97,7 @@
             </li>
             <li class="hidden-lg hidden-md hidden-sm"> 
               <!--xs login-->
-              <div> <a href="page-user-login.html"> <i class="fa fa-user"></i></a> </div>
+              <div> <a href="#"> <i class="fa fa-user"></i></a> </div>
               <!--end: xs login--> 
             </li>
           </ul>
@@ -138,25 +138,32 @@
   </header>
   <!-- end: Header --> 
   
-  <!-- SECTION IMAGE FULLSCREEN --> 
-  <!--section class="fullscreen" data-vide-bg="homepages/video-background/video/To-The-Left" data-vide-options="position: 0% 50%"-->
-  <section class="fullscreen" data-vide-bg="homepages/video-background/video/Leaves_of_Tree" data-video-options="position: 0% 50%"> 
-    <!--section class="fullscreen" data-vide-bg="homepages/video-background/video/Dancing-Bulbs" data-vide-options="position: 0% 50%"-->
-    <div class="container-fluid">
-      <div class="container-fullscreen">
-        <div class="text-middle text-center"> <i class="fa fa-bullseye"></i>
-          <h3 class="m-b-0"></h3>
-          <h2 class="text-medium m-t-0"><img src="images/happy-is.png" width="100%" alt="head"></h2>
-          <p class="lead hidden-xs"><span style="color: #000000">행복학교에서 오늘 내 삶에 만족하고 감사하며 <br>
-            지금 이대로 행복해지는 법을 만나보세요.</span></p>
-          <a class="btn btn-dark btn-outline" href="infinite-scroll.html">오늘의 행복을 내일로 미루지 않는 법</a> </div>
+  <!-- Page Content -->
+  <section id="page-content" class="sidebar-right">
+    <div class="container">
+      <div class="row"> 
+        <!-- search -->
+        <div class="content col-md-12"> 
+          <script>
+					(function() {
+						var cx = '016074844995542224425:-iang4ulrqg';
+						var gcse = document.createElement('script');
+						gcse.type = 'text/javascript';
+						gcse.async = true;
+						gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+							'//cse.google.com/cse.js?cx=' + cx;
+						var s = document.getElementsByTagName('script')[0];
+						s.parentNode.insertBefore(gcse, s);
+					})();
+
+				</script>
+          <gcse:searchresults-only></gcse:searchresults-only>
+        </div>
+        <!-- end: search --> 
       </div>
     </div>
   </section>
-  <!-- end: SECTION IMAGE FULLSCREEN --> 
-  
-  <!--div class="seperator p-b-0 p-t-0"><i class="fa fa-chevron-down"></i>
-        </div--> 
+  <!-- end: Page Content --> 
   
   <!-- Footer -->
   <footer id="footer" class="footer-light">
@@ -172,11 +179,11 @@
 <!-- end: Wrapper --> 
 
 <!-- Go to top button --> 
-<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a> 
-
-<!--Plugins--> 
+<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a><!--Plugins--> 
 <script src="js/jquery.js"></script> 
 <script src="js/plugins.js"></script> 
+
+<!--Template functions--> 
 <script src="js/functions.js"></script>
 </body>
 </html>
