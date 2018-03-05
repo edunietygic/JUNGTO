@@ -22,12 +22,12 @@
                   <div class="row">
                     <!--Horizontal tabs default-->
                     <div id="tabs-003" class="tabs simple">
-                      <h3>My page</h3>
+                      <h3>내 정보</h3>
                       <p></p>
                       <ul class="tabs-navigation">
-                        <li class="active"><a href="#Class"><i class="fa fa-home"></i>Class</a> </li>
-                        <li><a href="#Personal"><i class="fa fa-user"></i>Personal</a> </li>
-                        <li><a href="#Member"><i class="fa fa-home"></i>Member leave</a> </li>
+                        <li class="active"><a href="#Class"><i class="fa fa-home"></i>신청 학교</a> </li>
+                        <li><a href="#Personal"><i class="fa fa-user"></i>개인정보변경</a> </li>
+                        <li><a href="#Member"><i class="fa fa-home"></i>회원탈퇴</a> </li>
                       </ul>
                       <div class="tabs-content">
                         <div class="tab-pane active" id="Class">

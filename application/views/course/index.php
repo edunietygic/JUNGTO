@@ -100,9 +100,11 @@ function addrChange(){
         <!--h1>happy school</h1-->
         <div class="breadcrumb float-left">
           <ul>
-            <li>서울특별시</li>
-            <li class="active">서초구</li>
+          <?php if($aData['select_addr_string'][0]) :?>
+          <li><?=$aData['select_addr_string'][0]?></li>
+            <li class="active"><?=$aData['select_addr_string'][1]?></li>
           </ul>
+          <?php endif;?>
         </div>
       </div>
       <!-- end: Page title -->

@@ -18,11 +18,18 @@ class Course extends CI_Controller{
         $aData['select_addr1'] = '';
         $aData['select_addr2'] = '';
 
-        if(isset($_POST['p_addr1']) && isset($_POST['p_addr2']))
+        if((isset($_POST['p_addr1']) && isset($_POST['p_addr2'])) && ($_POST['p_addr1'] && $_POST['p_addr2']))
         {
             // select addrcode
             $aData['select_addr1'] = $_POST['p_addr1'];
             $aData['select_addr2'] = $_POST['p_addr2'];
+            $aData['select_addr_string'] = explode(" ",trim(getAddrStringFromCode($aData['select_addr2']))) ;
+        } 
+        else
+        {
+            $aData['search_addr1'] = "";
+            $aData['search_addr2'] = "";
+            $aData['select_addr_string'] = array('','');
         }
 
         // addr setting
@@ -60,9 +67,9 @@ class Course extends CI_Controller{
         );
 
         // test code
-         echo "<!--";
-         print_r($data);
-         echo "-->";
+        // echo "<!--";
+        // print_r($data);
+        // echo "-->";
 
         $this->load->view('common/container', $data);
     }
@@ -79,7 +86,7 @@ class Course extends CI_Controller{
         $aData = array();
         $aData['oCourseInfo'] = $oCourse->getDetailCourse($subj);
         $aData['oCourseInfo']->addr_string = trim(getAddrStringFromCode($aData['oCourseInfo']->addrcode) . " " . $aData['oCourseInfo']->addrstring) ;
-
+        
         // tutol info
         edu_get_instance('AccountClass');
         $oAccount = new AccountClass();
@@ -104,9 +111,9 @@ class Course extends CI_Controller{
         }
 
         // test code
-        echo "<!--";
-        print_r($aData);
-        echo "-->";
+        // echo "<!--";
+        // print_r($aData);
+        // echo "-->";
 
         $data = array(
             'container' => 'course/course_sangse'

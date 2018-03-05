@@ -45,8 +45,8 @@
         </div>
         <div id="tabs-1" class="tabs simple">
           <ul class="tabs-navigation">
-            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>Progress</a> </li>
-            <li><a href="#tab2"><i class="fa fa-info"></i>Program</a> </li>
+            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>과정 상세</a> </li>
+            <li><a href="#tab2"><i class="fa fa-info"></i>프로그램</a> </li>
           </ul>
           <div class="tabs-content">
             <div class="tab-pane active" id="tab1">
@@ -61,6 +61,36 @@
     </div>
   </section>
   <!-- end: School Product info --> 
+  
+<!-- School promotion -->
+  <!--section class="background-grey p-t-40 p-b-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="icon-box effect small clean">
+            <div class="icon"> <a href="#"><i class="fa fa-gift"></i></a> </div>
+            <h3>Promotion Title</h3>
+            <p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="icon-box effect small clean">
+            <div class="icon"> <a href="#"><i class="fa fa-plane"></i></a> </div>
+            <h3>Promotion Title</h3>
+            <p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="icon-box effect small clean">
+            <div class="icon"> <a href="#"><i class="fa fa-history"></i></a> </div>
+            <h3>Promotion Title</h3>
+            <p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section-->
+  <!-- end: School promotion --> 
 
 
   <!-- end: modal -->

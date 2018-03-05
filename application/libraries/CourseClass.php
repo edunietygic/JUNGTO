@@ -30,14 +30,16 @@ class CourseClass {
             $rtn = $course_model->getCourseListAddrcode($addrcode); 
         else
             $rtn = $course_model->getCourseList(); 
-
-        foreach($rtn as $key=>$val)
+        if(isset($rtn) && $rtn)
         {
-            if(isset($val->img) && $val->img) 
-                $val->img = "http://jungtoadmin.eduniety.cc:8090/dp/subject/".$val->img;
-            else
-                $val->img = "/skin/images/school/thum-school-03.png";
+            foreach($rtn as $key=>$val)
+            {
+                if(isset($val->img) && $val->img) 
+                    $val->img = "http://jungtoadmin.eduniety.cc:8090/dp/subject/".$val->img;
+                else
+                    $val->img = "/skin/images/school/thum-school-03.png";
 
+            }
         }
         return $rtn;
     }
