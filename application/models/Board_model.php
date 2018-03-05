@@ -107,6 +107,12 @@ class Board_model extends CI_model{
 
         return $aReplyDetail;
     }
+    public function updateNoticeCnt($seq=0)
+    {
+        if(!$seq) return false;
+        $aInput = array('seq' => $seq);
+        return $this->board_dao->updateNoticeCnt($aInput);
+    }
     public function updateBoardCnt($tabseq=0, $seq=0)
     {
         if(!$tabseq || !$seq) return false;

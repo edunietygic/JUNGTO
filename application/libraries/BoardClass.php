@@ -81,6 +81,14 @@ class BoardClass {
 
         return $board_model->getReplyDetail($tabseq, $seq);
     }
+    public static function updateNoticeCnt($seq=0)
+    {
+        if(!$seq) return false;
+
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->updateNoticeCnt($seq);
+    }
     public static function updateBoardCnt($tabseq=0, $seq=0)
     {
         if(!$tabseq || !$seq) return false;

@@ -276,6 +276,14 @@ $config['query'] = array(
             ,'btype'=> 'isssssii'
             ,'null' => array()
          )
+        ,'updateNoticeCnt' => array(
+            'query' => 'UPDATE lms_notice
+                           SET cnt = cnt+1
+                         WHERE seq = ?'
+            ,'data' => array('seq')
+            ,'btype'=> 'i'
+            ,'null' => array()
+         )
         ,'updateBoardCnt' => array(
             'query' => 'UPDATE lms_board
                            SET cnt = cnt+1
