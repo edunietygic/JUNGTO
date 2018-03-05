@@ -17,7 +17,7 @@
                     <div class="post-thumbnail-list">
                       <?php if(is_array($aRecentReply) && count($aRecentReply)>0 ) : ?>
                       <?php foreach ($aRecentReply as $key => $obj) : ?>
-                      <div class="post-thumbnail-entry">
+                      <div class="post-thumbnail-entry" style="width: 100%;">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
                         <div class="post-thumbnail-content">
                           <a href="<?=HOSTURL?>/board/<?=$aBbsTabseq[$obj->tabseq]['url']?>/board_detail/<?=$obj->refseq?>"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->content?></span></a>
@@ -33,7 +33,7 @@
                     <div class="post-thumbnail-list">
                       <?php if(is_array($aRecentContents) && count($aRecentContents)>0 ) : ?>
                       <?php foreach ($aRecentContents as $key => $obj) : ?>
-                      <div class="post-thumbnail-entry">
+                      <div class="post-thumbnail-entry" style="width: 100%;">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
                         <div class="post-thumbnail-content">
                             <a href="<?=HOSTURL?>/board/<?=$aBbsTabseq[$obj->tabseq]['url']?>/board_detail/<?=$obj->seq?>"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
@@ -49,7 +49,7 @@
                     <div class="post-thumbnail-list">
                       <?php if(is_array($aHotContents) && count($aHotContents)>0 ) : ?>
                       <?php foreach ($aHotContents as $key => $obj) : ?>
-                      <div class="post-thumbnail-entry">
+                      <div class="post-thumbnail-entry" style="width: 100%;">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
                         <div class="post-thumbnail-content">
                           <a href="<?=HOSTURL?>/board/<?=$aBbsTabseq[$obj->tabseq]['url']?>/board_detail/<?=$obj->seq?>"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
