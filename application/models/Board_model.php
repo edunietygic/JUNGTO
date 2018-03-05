@@ -72,6 +72,11 @@ class Board_model extends CI_model{
     {
         return $this->board_dao->setBoardInfo($aInput);
     }
+
+    public function setBoardReply($aInput=array())
+    {
+        return $this->board_dao->setBoardReply($aInput);
+    }
     public function getBoardList($tabseq=0)
     {
         if(!$tabseq) return false;
@@ -93,5 +98,13 @@ class Board_model extends CI_model{
         $aBoardDetail = $this->board_dao->getBoardDetail($aInput);
 
         return $aBoardDetail;
+    }
+    public function getReplyDetail($tabseq=0, $seq=0)
+    {
+        if(!$tabseq) return false;
+        $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
+        $aReplyDetail = $this->board_dao->getReplyDetail($aInput);
+
+        return $aReplyDetail;
     }
 }

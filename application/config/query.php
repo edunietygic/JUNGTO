@@ -265,11 +265,11 @@ $config['query'] = array(
             ,'btype'=> 'ii'
             ,'null' => array()
          )
-
-        ,'setBoardReplyInfo' => array(
-            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, seq, refseq)
-                        SELECT ?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq, ? FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
-            ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'tabseq')
+        ,'setBoardReply' => array(
+            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, refseq, seq)
+                        SELECT ?,?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq
+                          FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
+            ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'refseq', 'tabseq')
             ,'btype'=> 'isssssii'
             ,'null' => array()
          )

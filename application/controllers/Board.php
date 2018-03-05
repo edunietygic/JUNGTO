@@ -49,18 +49,18 @@ class Board extends CI_Controller{
         // $aAttachFile    = BoardClass::getAttachFile($seq);
 
         $sidebar_data = array(
-            'aRecentReply'    => $aRecentReply
+            'aRecentReply'     => $aRecentReply
             ,'aRecentContents' => $aRecentContents
             ,'aHotContents'    => $aHotContents
         );
         $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
 
         $data = array(
-            'container' => 'board/index'
-            ,'aBoardInfo'    => $this->board
-            ,'sidebar'    => $sidebar
-            ,'aMemberInfo'    => $aMemberInfo
-            ,'aLdata'   => $aLdata
+            'container'     => 'board/index'
+            ,'aBoardInfo'   => $this->board
+            ,'sidebar'      => $sidebar
+            ,'aMemberInfo'  => $aMemberInfo
+            ,'aLdata'       => $aLdata
         );
 
         $this->load->view('common/container', $data);
@@ -99,8 +99,11 @@ class Board extends CI_Controller{
 
     public function board_detail($seq=0)
     {
+        $aMemberInfo = $this->_getMemberInfo();
+
         edu_get_instance('BoardClass');
         $aBoardDetail    = BoardClass::getBoardDetail($this->board['tabseq'], $seq);
+        $aReplyDetail    = BoardClass::getReplyDetail($this->board['tabseq'], $seq);
         $aRecentReply    = BoardClass::getRecentReply();
         $aRecentContents = BoardClass::getRecentContents();
         $aHotContents    = BoardClass::getHotContents();
@@ -108,15 +111,17 @@ class Board extends CI_Controller{
         $aAttachFile     = array();
 
         $aPreData = $aNextData = (object) array();
-        foreach ($aBoardDetail as $key => $obj) {
-            if($seq == $obj->seq){
-                $aDetailData = $obj;
-            }
-            else if($seq > $obj->seq){
-                $aPreData = (object) array('seq' => $obj->seq, 'title' => $obj->title);
-            }
-            else if($seq < $obj->seq){
-                $aNextData = (object) array('seq' => $obj->seq, 'title' => $obj->title);
+        if(is_array($aBoardDetail)){
+            foreach ($aBoardDetail as $key => $obj) {
+                if($seq == $obj->seq){
+                    $aDetailData = $obj;
+                }
+                else if($seq > $obj->seq){
+                    $aPreData = (object) array('seq' => $obj->seq, 'title' => $obj->title);
+                }
+                else if($seq < $obj->seq){
+                    $aNextData = (object) array('seq' => $obj->seq, 'title' => $obj->title);
+                }
             }
         }
 
@@ -131,7 +136,10 @@ class Board extends CI_Controller{
              'container'      => 'board/board_detail'
             ,'sidebar'        => $sidebar
             ,'tabseq'         => $this->board['tabseq']
+            ,'seq'            => $seq
+            ,'aMemberInfo'    => $aMemberInfo
             ,'aDetailData'    => $aDetailData
+            ,'aReplyDetail'   => $aReplyDetail
             ,'aPreData'       => $aPreData
             ,'aNextData'      => $aNextData
             ,'aAttachFile'    => $aAttachFile
@@ -158,6 +166,34 @@ class Board extends CI_Controller{
 
         edu_get_instance('BoardClass');
         if($aResult = BoardClass::saveBoard($aInput))
+        {
+            response_json(array('code'=> 1 , 'msg'=>'등록되었습니다.'));
+            die;
+        }
+
+        response_json(array('code'=> 99 , 'msg'=>'Fail'));
+        die;
+    }
+
+    public function rpcSaveBoardReply()
+    {
+        $aInput = array();
+        $aInput['tabseq']   = trim($this->input->post('tabseq'));
+        $aInput['refseq']   = trim($this->input->post('refseq'));
+        $aInput['title']    = trim($this->input->post('title'));
+        $aInput['userid']   = trim($this->input->post('mb_id'));
+        $aInput['name']     = trim($this->input->post('mb_name'));
+        $aInput['content']  = strip_tags(trim($this->input->post('comment')));
+        $aInput['indate']   = date('YmdHis');
+
+        if(! $this->_chkJoinParam($aInput) )
+        {
+            response_json(array('code'=> 99 , 'msg'=>'Fail'));
+            die;
+        }
+
+        edu_get_instance('BoardClass');
+        if($aResult = BoardClass::saveBoardReply($aInput))
         {
             response_json(array('code'=> 1 , 'msg'=>'등록되었습니다.'));
             die;
