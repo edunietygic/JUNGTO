@@ -276,5 +276,14 @@ $config['query'] = array(
             ,'btype'=> 'isssssii'
             ,'null' => array()
          )
+        ,'updateBoardCnt' => array(
+            'query' => 'UPDATE lms_board
+                           SET cnt = cnt+1
+                         WHERE tabseq = ?
+                           AND seq = ?'
+            ,'data' => array('tabseq', 'seq')
+            ,'btype'=> 'ii'
+            ,'null' => array()
+         )
     )
 );

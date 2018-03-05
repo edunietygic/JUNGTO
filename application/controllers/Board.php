@@ -102,6 +102,9 @@ class Board extends CI_Controller{
         $aMemberInfo = $this->_getMemberInfo();
 
         edu_get_instance('BoardClass');
+
+        BoardClass::updateBoardCnt($this->board['tabseq'], $seq);
+
         $aBoardDetail    = BoardClass::getBoardDetail($this->board['tabseq'], $seq);
         $aReplyDetail    = BoardClass::getReplyDetail($this->board['tabseq'], $seq);
         $aRecentReply    = BoardClass::getRecentReply();

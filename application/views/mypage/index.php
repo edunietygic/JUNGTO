@@ -1,25 +1,25 @@
- 
+
   <!-- My page Content -->
   <section id="page-content" class="sidebar-right">
     <div class="container">
-      <div class="row"> 
+      <div class="row">
         <!-- content -->
-        <div class="content col-md-12"> 
-          <!-- Blog --> 
+        <div class="content col-md-12">
+          <!-- Blog -->
           <!-- navi path -->
-          <div class="breadcrumb float-right hidden-xs">
+          <!--div class="breadcrumb float-right hidden-xs">
             <ul>
               <li><a href="#">Home</a> </li>
               <li class="active"><a href="#">My page</a> </li>
             </ul>
-          </div>
+          </div-->
           <!-- end: navi path -->
-          <div id="blog" class="single-post"> 
+          <div id="blog" class="single-post">
             <!-- Post single item-->
             <div class="post-item">
               <div class="post-item-wrap">
                 <div class="post-item-description">
-                  <div class="row"> 
+                  <div class="row">
                     <!--Horizontal tabs default-->
                     <div id="tabs-003" class="tabs simple">
                       <h3>My page</h3>
@@ -30,7 +30,7 @@
                         <li><a href="#Member"><i class="fa fa-home"></i>Member leave</a> </li>
                       </ul>
                       <div class="tabs-content">
-                        <div class="tab-pane active" id="Class"> 
+                        <div class="tab-pane active" id="Class">
                           <!--Toggle fancy clean-->
                           <?php if(isset($oMem->myCourseInfo) && $oMem->myCourseInfo!="no req list") :?>
                             <?php foreach($oMem->myCourseInfo as $key=>$val) :?>
@@ -45,12 +45,12 @@
                               </div>
                             </div>
                             <?php endforeach;?>
-                          
-                          <?php else : ?> 
+
+                          <?php else : ?>
                           <h4>아직 참가하신 이력이 없습니다.</h4>
                           <p>캠프나 학교등 아직 참가하신 이력이 없습니다.</p>
-                          <?php endif;?> 
-                        <!--END: Toggle fancy clean--> 
+                          <?php endif;?>
+                        <!--END: Toggle fancy clean-->
                         </div>
                         <div class="tab-pane" id="Personal">
                           <h4>개인정보수정</h4>
@@ -94,15 +94,15 @@
                         </div>
                       </div>
                     </div>
-                    <!--END: Horizontal tabs default--> 
+                    <!--END: Horizontal tabs default-->
                   </div>
                 </div>
               </div>
             </div>
-            <!-- end: Post single item--> 
+            <!-- end: Post single item-->
           </div>
         </div>
-        <!-- end: content --> 
+        <!-- end: content -->
 
 <script>
 $(function(){
@@ -121,7 +121,7 @@ $(function(){
               if (status == "success" && data.code == 1)
               {
                   alert('변경 되었습니다.');
-                  location.reload(); 
+                  location.reload();
               }
               else
               {
@@ -140,7 +140,7 @@ $(function(){
               if (status == "success" && data.code == 1)
               {
                   alert('삭제 되었습니다.');
-                  location.reload(); 
+                  location.reload();
               }
               else
               {
@@ -153,14 +153,14 @@ $(function(){
 });
 
 </script>
-            
+
       </div>
     </div>
   </section>
-  <!-- end: My page Content --> 
- 
-</div>
-<!-- end: Wrapper --> 
+  <!-- end: My page Content -->
 
-<!-- Go to top button --> 
-<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a> 
+</div>
+<!-- end: Wrapper -->
+
+<!-- Go to top button -->
+<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a>

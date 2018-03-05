@@ -93,7 +93,7 @@ class Board_model extends CI_model{
     }
     public function getBoardDetail($tabseq=0, $seq=0)
     {
-        if(!$tabseq) return false;
+        if(!$tabseq || !$seq) return false;
         $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
         $aBoardDetail = $this->board_dao->getBoardDetail($aInput);
 
@@ -101,10 +101,16 @@ class Board_model extends CI_model{
     }
     public function getReplyDetail($tabseq=0, $seq=0)
     {
-        if(!$tabseq) return false;
+        if(!$tabseq || !$seq) return false;
         $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
         $aReplyDetail = $this->board_dao->getReplyDetail($aInput);
 
         return $aReplyDetail;
+    }
+    public function updateBoardCnt($tabseq=0, $seq=0)
+    {
+        if(!$tabseq || !$seq) return false;
+        $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
+        return $this->board_dao->updateBoardCnt($aInput);
     }
 }
