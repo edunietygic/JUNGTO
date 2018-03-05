@@ -6,14 +6,30 @@ class Account extends CI_Controller{
         parent::__construct();
     }
 
+    // public function signin()
+    // {
+    //     $this->load->view('common/signin_ref');
+    // }
     public function signin()
     {
-        $this->load->view('common/signin_ref');
+       $data = array(
+            'container' => 'common/signIn'
+        );
+
+        $this->load->view('common/container', $data);
     }
 
+    // public function find()
+    // {
+    //     $this->load->view('common/find_ref');
+    // }
     public function find()
     {
-        $this->load->view('common/find_ref');
+        $data = array(
+            'container' => 'common/find'
+        );
+
+        $this->load->view('common/container', $data);
     }
 
     public function find_ret($mb_id)

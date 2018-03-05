@@ -21,7 +21,16 @@ class Loginout extends CI_Controller{
 
         $this->load->view('common/container', $data);
     }
-    
+
+    public function login()
+    {
+       $data = array(
+            'container' => 'common/login'
+        );
+
+        $this->load->view('common/container', $data);
+    }
+
     public function rpcLogin()
     {
         $user_id  = trim($this->input->post('user_id')); 
