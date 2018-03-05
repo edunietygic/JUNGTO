@@ -104,7 +104,7 @@ $config['query'] = array(
     )
     ,'course' => array(
         'getCourseList' => array(
-            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img
+            'query' => 'SELECT place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img
                           FROM lms_subj
                          WHERE isonoff = ?'
             ,'data' => array('isonoff')
@@ -112,7 +112,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getDetailCourse' => array(
-            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img, class_num
+            'query' => 'SELECT place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img, class_num
                           FROM lms_subj
                          WHERE subj = ?'
             ,'data' => array('subj')
@@ -120,7 +120,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getCourseListAddrcode' => array(
-            'query' => 'SELECT subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, introducefilenamenew3 as img
+            'query' => 'SELECT place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, introducefilenamenew3 as img
                           FROM lms_subj
                          WHERE isonoff = ?
                            AND addrcode = ?'
@@ -129,7 +129,7 @@ $config['query'] = array(
             ,'null' => array()
          )
          ,'getMyCourseList' => array(
-            'query' => 'SELECT s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.tutor, s.addrcode, s.addrstring, introducefilenamenew3 as img
+            'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.tutor, s.addrcode, s.addrstring, introducefilenamenew3 as img
                                , a.mb_id, a.state, a.regdate
                           FROM lms_subj s, lms_subj_applicant a
                          WHERE s.subj = a.subj
