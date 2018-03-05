@@ -20,12 +20,13 @@
           <!-- end: Page title -->
           <?php if( isset($aMemberInfo['mb_id'])) : ?>
           <a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_write" class="btn btn-light right" style="margin-bottom: 26px;" ><i class="fa fa-pencil"></i> 글쓰기</a>
-          <?php endif; ?>
+          <?php else: ?>
           <!-- Portfolio Filter -->
           <nav class="grid-filter gf-outline" data-layout="#blog">
             <div class="grid-active-title">Show All</div>
           </nav>
           <!-- end: Portfolio Filter -->
+          <?php endif; ?>
           <!-- Blog -->
           <div id="blog" class="grid-layout post-thumbnails" data-item="post-item">
             <?php if( is_array($aLdata) && count($aLdata)>0 ) : ?>
