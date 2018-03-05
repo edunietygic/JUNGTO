@@ -23,8 +23,8 @@
 
           <?php else :?> 
           <div class="topbar-dropdown">
-            <div class="title"><a href="javascript:void(0);"><i class="fa fa-user"></i> 로그인</a></div>
-            <div class="topbar-form">
+            <div class="title"><a href="<?=HOSTURL?>/loginout/login"><i class="fa fa-user"></i>로그인</a></div>
+            <!-- <div class="topbar-form">
               <form>
                 <div class="form-group">
                   <label class="sr-only">ID</label>
@@ -47,11 +47,11 @@
                    <div class="text-left" id="findAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="javascript:void(0);">아이디/비밀번호 찾기</a></div>
                 </div>
               </form>
-            </div>
+            </div> -->
           </div>
 
           <div class="topbar-dropdown">
-            <div class="title" id="startAccount" data-toggle="modal" data-target="#commonModal" data-backdrop="static" data-id="applicationForm"><a href="javascript:void(0);"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
+            <div class="title"><a href="<?=HOSTURL?>/account/signIn"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
           </div>
           <?php endif;?>
         </div>
@@ -112,17 +112,18 @@ $(function(){
       );
   });
 
-  $("#startAccount").click(function(){
-    $('.modal-content').load('account/signin',function(){
-        $('#commonModal').modal({show:true});
-    });
-  });
+  // $("#startAccount").click(function(){
+  //   $('.modal-content').load('account/signin',function(){
+  //       $('#commonModal').modal({show:true});
+  //   });
+  // });
 
-  $("#findAccount").click(function(){
-    $('.modal-content').load('account/find',function(){
-        $('#commonModal').modal({show:true});
-    });
-  });
+  // $("#findAccount").click(function(){
+  //   $('.modal-content').load('account/find',function(){
+  //       $('#commonModal').modal({show:true});
+  //   });
+  // });
+   
 });
 
 </script>

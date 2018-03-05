@@ -22,8 +22,16 @@ $controller = $this->uri->segment(1);
         <ul>
           <li>
             <!--top search-->
-            <a id="top-search-trigger" href="#" class="toggle-item"> <i class="fa fa-search"></i> <i class="fa fa-close"></i> </a>
+            <a id="top-search-trigger" href="#" class="toggle-item hidden-xs"><i class="fa fa-search"></i><i class="fa fa-close"></i>
+            </a>
             <!--end: top search-->
+          </li>
+          <li class="hidden-lg hidden-md hidden-sm"> 
+             <!--xs login-->
+            <div>
+              <a href="<?=HOSTURL?>/loginout/login"><i class="fa fa-user"></i></a> 
+            </div>
+             <!--end: xs login--> 
           </li>
         </ul>
       </div>
