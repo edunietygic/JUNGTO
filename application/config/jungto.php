@@ -5,3 +5,8 @@ $config['bbs'] = array(
 	,'lecture' => array('tabseq'=>'200','title'=>'행복한강연')
 	,'review' => array('tabseq'=>'300','title'=>'생생후기')
 );
+$config['bbs_tabseq'] = array(
+	 '100' => array('url'=>'camp')
+	,'200' => array('url'=>'lecture')
+	,'300' => array('url'=>'review')
+);

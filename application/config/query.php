@@ -94,7 +94,7 @@ $config['query'] = array(
     )
     ,'auth' => array(
         'getAuthInfo' => array(
-            'query' => 'SELECT userid, gadmin 
+            'query' => 'SELECT userid, gadmin
                           FROM lms_manager
                          WHERE userid = ?'
             ,'data' => array('userid')
@@ -196,11 +196,10 @@ $config['query'] = array(
             ,'null' => array()
          )
         ,'getRecentReply' => array(
-            'query' => 'SELECT bc.idx, bc.tabseq, bc.seq, bc.comment, bc.luser, bc.lastdate, m.mb_name
-                          FROM lms_board_comment bc
-                     LEFT JOIN edu_member m
-                            ON m.mb_id=bc.luser
+            'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
+                          FROM lms_board
                          WHERE tabseq IN ("100","200","300")
+                           AND seq<>refseq
                          ORDER BY idx DESC
                          LIMIT 3'
             ,'data' => array('')
@@ -211,6 +210,7 @@ $config['query'] = array(
             'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
                           FROM lms_board
                          WHERE tabseq IN ("100","200","300")
+                           AND seq=refseq
                          ORDER BY idx DESC
                          LIMIT 3'
             ,'data' => array('')
@@ -221,6 +221,7 @@ $config['query'] = array(
             'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
                           FROM lms_board
                          WHERE tabseq IN ("100","200","300")
+                           AND seq=refseq
                          ORDER BY cnt DESC
                          LIMIT 3'
             ,'data' => array('')
@@ -238,6 +239,7 @@ $config['query'] = array(
             'query' => 'SELECT a.seq, a.title, a.userid, a.name, a.content, a.indate, a.cnt, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt
                         FROM lms_board a
                         WHERE tabseq = ?
+                          AND seq=refseq
                         ORDER BY seq DESC
                         LIMIT 10'
             ,'data' => array('tabseq')

@@ -1,3 +1,6 @@
+<?php
+  $aBbsTabseq = edu_get_config('bbs_tabseq', 'jungto');
+?>
         <div class="sidebar col-md-3">
           <div class="pinOnScroll">
             <!--Tabs with Posts-->
@@ -17,9 +20,9 @@
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
                         <div class="post-thumbnail-content">
-                          <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->comment?></span></a>
+                          <a href="<?=HOSTURL?>/board/<?=$aBbsTabseq[$obj->tabseq]['url']?>/board_detail/<?=$obj->refseq?>"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->content?></span></a>
                           <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
-                          <span class="post-category"><i class="fa fa-user"></i> <?=$obj->mb_name?></span>
+                          <span class="post-category"><i class="fa fa-user"></i> <?=$obj->name?></span>
                         </div>
                       </div>
                       <?php endforeach; ?>
@@ -33,7 +36,7 @@
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
                         <div class="post-thumbnail-content">
-                            <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
+                            <a href="<?=HOSTURL?>/board/<?=$aBbsTabseq[$obj->tabseq]['url']?>/board_detail/<?=$obj->seq?>"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
                             <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
                             <span class="post-category"><i class="fa fa-user"></i> <?=$obj->name?></span>
                         </div>
@@ -49,7 +52,7 @@
                       <div class="post-thumbnail-entry">
                         <!--img alt="" src="images/blog/thumbnail/6.jpg"-->
                         <div class="post-thumbnail-content">
-                          <a href="#"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
+                          <a href="<?=HOSTURL?>/board/<?=$aBbsTabseq[$obj->tabseq]['url']?>/board_detail/<?=$obj->seq?>"><span style="font-family:'맑은 고딕';font-size: 10pt;font-weight: lighter"><?=$obj->title?></span></a>
                           <span class="post-date"><i class="fa fa-clock-o"></i> <?=$obj->diffdate?></span>
                           <span class="post-category"><i class="fa fa-user"></i> <?=$obj->name?></span>
                         </div>

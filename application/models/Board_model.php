@@ -38,7 +38,7 @@ class Board_model extends CI_model{
 
         if(is_array($aRecentReply)){
             foreach ($aRecentReply as $key => $obj) {
-                $aRecentReply[$key]->diffdate = datetimediff($obj->lastdate);
+                $aRecentReply[$key]->diffdate = datetimediff($obj->indate);
             }
         }
 
