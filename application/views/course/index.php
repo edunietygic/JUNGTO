@@ -124,7 +124,7 @@ function addrChange(){
               
               <p>장소 : <?=$val->place?><br/>개강 : <?=substr($val->start_date,0,10)?></p>
               <!--p><?=$val->eduoutline?></p-->
-              <a href="/course/course_detail/<?=$val->subj?>" class="item-link">Map More <i class="fa fa-arrow-right"></i></a> </div>
+              <a href="/course/course_detail/<?=$val->subj?>" class="item-link">과정 상세 보기 <i class="fa fa-arrow-right"></i></a> </div>
           </div>
         </div>
         <?php endforeach;?>
