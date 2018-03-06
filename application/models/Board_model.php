@@ -6,16 +6,22 @@ class Board_model extends CI_model{
         $this->board_dao = edu_get_instance('Board_dao', 'model');
     }
 
-    public function getNoticeList()
+    public function getNoticeListTotalCnt()
     {
-        $aNoticeInfo = $this->board_dao->getNoticeList();
+        $aRtn = $this->board_dao->getNoticeListTotalCnt();
+
+        return $aRtn[0]->cnt;
+    }
+    public function getNoticeList($limit, $offset)
+    {
+        $aNoticeInfo = $this->board_dao->getNoticeList($limit, $offset);
 
         if(isset($aNoticeInfo) && $aNoticeInfo)
         {
             foreach ($aNoticeInfo as $key => $obj) {
                 $aNoticeInfo[$key]->summary = iconv_substr(strip_tags($obj->adcontent),0,176,'utf-8');
             }
-        } 
+        }
         else
         {
             $aNoticeInfo = array();
@@ -84,11 +90,19 @@ class Board_model extends CI_model{
     {
         return $this->board_dao->setBoardReply($aInput);
     }
-    public function getBoardList($tabseq=0)
+    public function getBoardListTotalCnt($tabseq=0)
     {
         if(!$tabseq) return false;
         $aInput = array('tabseq' => $tabseq);
-        $aBoardInfo = $this->board_dao->getBoardList($aInput);
+        $aRtn = $this->board_dao->getBoardListTotalCnt($aInput);
+
+        return $aRtn[0]->cnt;
+    }
+    public function getBoardList($tabseq=0, $limit, $offset)
+    {
+        if(!$tabseq) return false;
+        $aInput = array('tabseq' => $tabseq);
+        $aBoardInfo = $this->board_dao->getBoardList($aInput, $limit, $offset);
 
         if( is_array($aBoardInfo) ){
             foreach ($aBoardInfo as $key => $obj) {

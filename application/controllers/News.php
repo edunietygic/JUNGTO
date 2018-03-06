@@ -8,8 +8,16 @@ class News extends CI_Controller{
 
     public function index()
     {
+        $limit = 10; // row cnt
+        $offset = 0;
+
+        if($this->input->get('per_page')){
+            $offset = ($this->input->get('per_page')-1) * $limit;
+        }
+
         edu_get_instance('BoardClass');
-        $aLdata          = BoardClass::getNoticeList();
+        $sTotalCnt       = BoardClass::getNoticeListTotalCnt();
+        $aLdata          = BoardClass::getNoticeList($limit, $offset);
         $aRecentReply    = BoardClass::getRecentReply();
         $aRecentContents = BoardClass::getRecentContents();
         $aHotContents    = BoardClass::getHotContents();
@@ -21,10 +29,21 @@ class News extends CI_Controller{
         );
         $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
 
+        $this->load->library('pagination');
+
+        $config['base_url'] = HOSTURL.'/news';
+        $config['total_rows'] = $sTotalCnt;
+        $config['per_page'] = $limit;
+
+        $this->pagination->initialize($config);
+
+        $pagination = $this->pagination->create_links();
+
         $data = array(
-             'container' => 'news/index'
-            ,'sidebar'   => $sidebar
-            ,'aLdata'    => $aLdata
+             'container'    => 'news/index'
+            ,'sidebar'      => $sidebar
+            ,'pagination'   => $pagination
+            ,'aLdata'       => $aLdata
         );
 
         $this->load->view('common/container', $data);

@@ -41,8 +41,16 @@ class Board extends CI_Controller{
     {
         $aMemberInfo = $this->_getMemberInfo();
 
+        $limit = 10; // row cnt
+        $offset = 0;
+
+        if($this->input->get('per_page')){
+            $offset = ($this->input->get('per_page')-1) * $limit;
+        }
+
         edu_get_instance('BoardClass');
-        $aLdata          = BoardClass::getBoardList($this->board['tabseq']);
+        $sTotalCnt       = BoardClass::getBoardListTotalCnt($this->board['tabseq']);
+        $aLdata          = BoardClass::getBoardList($this->board['tabseq'], $limit, $offset);
         $aRecentReply    = BoardClass::getRecentReply();
         $aRecentContents = BoardClass::getRecentContents();
         $aHotContents    = BoardClass::getHotContents();
@@ -55,11 +63,22 @@ class Board extends CI_Controller{
         );
         $sidebar = $this->load->view('common/sidebar', $sidebar_data, true);
 
+        $this->load->library('pagination');
+
+        $config['base_url'] = HOSTURL.'/board/'.$this->uri->segment(2);
+        $config['total_rows'] = $sTotalCnt;
+        $config['per_page'] = $limit;
+
+        $this->pagination->initialize($config);
+
+        $pagination = $this->pagination->create_links();
+
         $data = array(
             'container'     => 'board/index'
             ,'aBoardInfo'   => $this->board
             ,'sidebar'      => $sidebar
             ,'aMemberInfo'  => $aMemberInfo
+            ,'pagination'   => $pagination
             ,'aLdata'       => $aLdata
         );
 

@@ -10,11 +10,26 @@ class Board_dao extends Common_dao
         $aQueryInfo = edu_get_config('query', 'query');
         $this->queryInfoBoard = $aQueryInfo['board'];
     }
-
-    public function getNoticeList($aParam=array())
+    public function getNoticeListTotalCnt($aParam=array())
     {
-        $aConfig = $this->queryInfoBoard['getNoticeList'];
+        $aConfig = $this->queryInfoBoard['getNoticeListTotalCnt'];
         return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getNoticeList($limit=0, $offset=10)
+    {
+        $this->db->select('a.seq, a.addate, a.adtitle, a.adname, a.cnt, a.luserid, a.ldate, a.isall, a.useyn, a.popup, a.loginyn, a.gubun, a.aduserid, a.type, a.notice_gubun, a.adcontent, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt');
+        $this->db->from('lms_notice a');
+
+        $this->db->where('a.tabseq', "11");
+
+        $this->db->order_by('a.seq', 'DESC');
+
+        $this->db->limit($limit, $offset);
+
+        $query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
     }
     public function getNoticeDetail($aParam=array())
     {
@@ -51,10 +66,36 @@ class Board_dao extends Common_dao
         $aConfig = $this->queryInfoBoard['setBoardReply'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-    public function getBoardList($aParam=array())
+    public function getBoardListTotalCnt($aParam=array())
     {
-        $aConfig = $this->queryInfoBoard['getBoardList'];
+        $aConfig = $this->queryInfoBoard['getBoardListTotalCnt'];
         return $this->actModelFuc($aConfig, $aParam);
+    }
+    // public function getBoardList($aParam=array())
+    // {
+    //     $aConfig = $this->queryInfoBoard['getBoardList'];
+    //     return $this->actModelFuc($aConfig, $aParam);
+    // }
+    public function getBoardList($aParam=array(), $limit=0, $offset=10)
+    {
+        $this->db->select('a.seq, a.title, a.userid, a.name, a.content, a.indate, a.cnt, (SELECT count(realfile) FROM lms_boardfile WHERE tabseq = a.TABSEQ AND seq = a.seq) filecnt');
+        $this->db->from('lms_board a');
+
+        if($aParam['tabseq']){
+            $this->db->where('a.tabseq', $aParam['tabseq']);
+        }
+
+        $where = 'a.seq = a.refseq';
+        $this->db->where($where);
+
+        $this->db->order_by('a.seq', 'DESC');
+
+        $this->db->limit($limit, $offset);
+
+        $query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
     }
     public function getBoardDetail($aParam=array())
     {

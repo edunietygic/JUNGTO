@@ -5,11 +5,17 @@ class BoardClass {
     public function  __construct()
     {
     }
-    public static function getNoticeList()
+    public static function getNoticeListTotalCnt()
     {
         $board_model = edu_get_instance('Board_model', 'model');
 
-        return $board_model->getNoticeList();
+        return $board_model->getNoticeListTotalCnt();
+    }
+    public static function getNoticeList($limit=0, $offset=10)
+    {
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getNoticeList($limit, $offset);
     }
     public static function getNoticeDetail($seq=0)
     {
@@ -57,13 +63,21 @@ class BoardClass {
 
         return $board_model->setBoardReply($aInput);
     }
-    public static function getBoardList($tabseq=0)
+    public static function getBoardListTotalCnt($tabseq=0)
     {
         if(!$tabseq) return false;
 
         $board_model = edu_get_instance('Board_model', 'model');
 
-        return $board_model->getBoardList($tabseq);
+        return $board_model->getBoardListTotalCnt($tabseq);
+    }
+    public static function getBoardList($tabseq=0, $limit=0, $offset=10)
+    {
+        if(!$tabseq) return false;
+
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getBoardList($tabseq, $limit, $offset);
     }
     public static function getBoardDetail($tabseq=0, $seq=0)
     {
