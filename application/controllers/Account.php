@@ -6,10 +6,6 @@ class Account extends CI_Controller{
         parent::__construct();
     }
 
-    // public function signin()
-    // {
-    //     $this->load->view('common/signin_ref');
-    // }
     public function signin()
     {
        $data = array(
