@@ -23,6 +23,7 @@
           </nav>
           <!-- end: Portfolio Filter -->
           <!-- Blog -->
+          <?php if($aLdata && isset($aLdata)) :?>
           <div id="blog" class="grid-layout post-thumbnails" data-item="post-item">
             <!--div id="blog" class="grid-layout post-thumbnails m-b-30" data-item="post-item"-->
             <?php foreach ($aLdata as $key => $obj) : ?>
@@ -84,6 +85,18 @@
             </ul>
           </div>
           <!-- end: Pagination -->
+          <?php else : ?>
+          <div id="blog" class="grid-layout post-thumbnails" data-item="post-item">
+              <div class="post-item">
+                <div class="post-item-wrap">
+                  <div class="row">
+                  공지 사항이 없습니다.
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <?php endif; ?>
         </div>
         <!-- end: post content -->
 

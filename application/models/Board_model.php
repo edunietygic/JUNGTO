@@ -10,8 +10,15 @@ class Board_model extends CI_model{
     {
         $aNoticeInfo = $this->board_dao->getNoticeList();
 
-        foreach ($aNoticeInfo as $key => $obj) {
-            $aNoticeInfo[$key]->summary = iconv_substr(strip_tags($obj->adcontent),0,176,'utf-8');
+        if(isset($aNoticeInfo) && $aNoticeInfo)
+        {
+            foreach ($aNoticeInfo as $key => $obj) {
+                $aNoticeInfo[$key]->summary = iconv_substr(strip_tags($obj->adcontent),0,176,'utf-8');
+            }
+        } 
+        else
+        {
+            $aNoticeInfo = array();
         }
 
         return $aNoticeInfo;
