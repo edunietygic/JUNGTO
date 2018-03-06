@@ -51,7 +51,7 @@
           </div>
 
           <div class="topbar-dropdown">
-            <div class="title"><a href="<?=HOSTURL?>/account/signIn"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
+            <div class="title"><a href="<?=HOSTURL?>/account/signin"><i class="fa fa-id-badge" aria-hidden="true"></i>회원가입</a></div>
           </div>
           <?php endif;?>
         </div>

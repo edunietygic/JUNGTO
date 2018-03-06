@@ -13,7 +13,7 @@ class Account extends CI_Controller{
     public function signin()
     {
        $data = array(
-            'container' => 'common/signIn'
+            'container' => 'common/signin'
         );
 
         $this->load->view('common/container', $data);
