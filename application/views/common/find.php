@@ -2,44 +2,33 @@
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-          <h3 class="text-center">아이디/비밀번호 찾기</h3>
+        <div id="findDiv" class="col-sm-6 col-sm-offset-3">
+          <h3>아이디/비밀번호 찾기</h3>
            <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 15px;">
               <li role="presentation" class="active"><a href="#findId" aria-controls="findId" role="tab" data-toggle="tab">아이디 찾기</a></li>
               <li role="presentation" class=""><a href="#findPw" aria-controls="findPw" role="tab" data-toggle="tab">비밀번호 찾기</a></li>
             </ul>
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="findId">
-                <!-- <div class="alert alert-success alert-sm">
-                아이디 찾기 결과는 일부를 감추고 안내 됩니다.
-                </div> -->
                 <form id="findIdFrm" method="post">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <div class="input-group col-fix">
-                          <div class="input-group-addon col-fix-3 text-left">
-                            <label class="upper" for="senderName">이름</label>
-                          </div>
-                          <input type="text" class="form-control required" name="senderName" id="senderName" placeholder="이름" id="gf-name-1519009442" aria-required="true">
-                        </div>
+                        <label class="sr-only">이름</label>
+                        <input type="text" class="form-control" name="senderName" id="senderName" placeholder="이름" aria-required="true">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <div class="input-group col-fix">
-                          <div class="input-group-addon col-fix-3 text-left">
-                            <label class="upper" for="senderInfo">이메일 또는 휴대전화</label>
-                          </div>
-                          <input type="email" class="form-control required email" name="senderInfo" placeholder="이메일(id@domain.com) 또는 휴대전화(010-0000-0000)" id="senderInfo" aria-required="true">
-                        </div>
+                        <label class="sr-only">이메일</label>
+                        <input type="text" class="form-control" name="senderInfo" id="senderInfo" placeholder="이메일(id@domain.com) 또는 휴대전화(010-0000-0000)" aria-required="true">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group text-center">
-                        <button class="btn btn-default btn-submit" type="button" onclick="findId();">확인</button>
+                        <button class="btn btn-default" type="button" onclick="findId();">확인</button>
                       </div>
                     </div>
                   </div>
@@ -55,27 +44,19 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <div class="input-group col-fix">
-                          <div class="input-group-addon col-fix-3 text-left">
-                            <label class="upper" for="senderId">아이디</label>
-                          </div>
-                          <input type="text" class="form-control required" name="senderId" id="senderId" placeholder="아이디 (영문, 숫자로 4자이상 20자이하)" id="gf-name-1519009442" aria-required="true">
-                        </div>
+                        <label class="sr-only">아이디</label>
+                        <input type="text" class="form-control" name="senderId" id="senderId" placeholder="아이디 (영문, 숫자로 4자이상 20자이하)" aria-required="true">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <div class="input-group col-fix">
-                          <div class="input-group-addon col-fix-3 text-left">
-                            <label class="upper" for="senderEmail">이메일</label>
-                          </div>
-                          <input type="email" class="form-control required email" name="senderEmail" placeholder="이메일 (id@domain.com)" id="senderEmail" aria-required="true">
-                        </div>
+                        <label class="sr-only">이메일</label>
+                        <input type="text" class="form-control" name="senderEmail" id="senderEmail" placeholder="이메일 (id@domain.com)" aria-required="true">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group text-center">
-                        <button class="btn btn-default btn-submit" type="button" onclick="findPassword();">확인</button>
+                        <button class="btn btn-default" type="button" onclick="findPassword();">확인</button>
                       </div>
                     </div>
                   </div>
@@ -83,6 +64,18 @@
               </div>
             </div>
         </div>
+
+        <div id="findIdRrt" class="col-sm-6 col-sm-offset-3" style="display:none;">
+          <h3>아이디 찾기 결과</h3>
+          <div class="alert alert-success alert-sm">
+            <i class="fa fa-check-circle"></i> 가입하신 아이디는 <b><span id="mb_id"></span></b> 입니다.
+          </div>
+          <div class="form-group text-center">
+            <a class="btn btn-default" href="<?=HOSTURL?>/loginout/login">로그인</a>
+            <a class="btn btn-light" href="<?=HOSTURL?>/account/find">비밀번호 찾기</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -107,18 +100,18 @@
          url: '<?=HOSTURL?>/Account/rpcFindId',
          data: { "senderName": senderName, "senderInfo": senderInfo },
          success: function (data) {
-                 console.log(data);
-                 if(data.code == 1)
-                 {
-                  $('.modal-body').load('account/find_ret/'+data.id,function(){
-                  // $('#commonModal').modal({show:true});
-              });
-                 }
-                 else if(data.code == 99)
-                 {
-                    alert(data.msg);
-                    return false;
-                 }
+                console.log(data);
+                if(data.code == 1)
+                {
+                  $('#findDiv').hide();
+                  $('#findIdRrt').show();
+                  $('#mb_id').html(data.id);
+                }
+                else if(data.code == 99)
+                {
+                  alert(data.msg);
+                  return false;
+                }
              }
          });
   }

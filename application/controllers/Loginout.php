@@ -8,15 +8,12 @@ class Loginout extends CI_Controller{
 
     public function index()
     {
-        // test code 
-        $account_id = 'jazzwave14' ;   
-        
-        edu_get_instance('AccountClass');  
-        $oMem = new AccountClass($account_id); 
-        
+        edu_get_instance('AccountClass');
+        $oMem = new AccountClass($account_id);
+
         $data = array(
             'container' => 'mypage/index'
-            ,'oMem'     => $oMem 
+            ,'oMem'     => $oMem
         );
 
         $this->load->view('common/container', $data);
@@ -33,26 +30,26 @@ class Loginout extends CI_Controller{
 
     public function rpcLogin()
     {
-        $user_id  = trim($this->input->post('user_id')); 
-        $user_pwd = trim($this->input->post('user_pwd')); 
-    
-        $oLoginout= edu_get_instance('loginout_model', 'model');  
-        
+        $user_id  = trim($this->input->post('user_id'));
+        $user_pwd = trim($this->input->post('user_pwd'));
+
+        $oLoginout= edu_get_instance('loginout_model', 'model');
+
         if($oLoginout->login($user_id, $user_pwd))
         {
-            response_json(array('code'=> 1 , 'msg'=>'OK')); 
+            response_json(array('code'=> 1 , 'msg'=>'OK'));
             die;
         }
-        
-        response_json(array('code'=> 99 , 'msg'=>'Fail')); 
+
+        response_json(array('code'=> 99 , 'msg'=>'Fail'));
         die;
     }
     public function rpcLogout()
     {
-        $oLoginout= edu_get_instance('loginout_model', 'model');  
-        
+        $oLoginout= edu_get_instance('loginout_model', 'model');
+
         $oLoginout->logout();
-        response_json(array('code'=> 1 , 'msg'=>'OK')); 
+        response_json(array('code'=> 1 , 'msg'=>'OK'));
         die;
 
     }

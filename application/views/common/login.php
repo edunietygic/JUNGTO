@@ -6,24 +6,24 @@
           <div class="panel ">
             <div class="panel-body">
               <h3>로그인</h3>
-              <form>
+              <form id="loginFrm" name="loginFrm">
                 <div class="form-group">
                   <label class="sr-only">ID</label>
-                  <input type="text" placeholder="아이디" class="form-control">
+                  <input type="text" id="user_id" placeholder="아이디" class="form-control">
                 </div>
                 <div class="form-group m-b-5">
                   <label class="sr-only">Password</label>
-                  <input type="password" placeholder="비밀번호" class="form-control">
+                  <input type="password" id="user_pwd" placeholder="비밀번호" class="form-control">
                 </div>
                 <div class="form-group form-inline m-b-10 ">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox">
-                      <small> 아이디 기억</small> </label>
+                      <small> 아이디 저장</small> </label>
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-default" type="button">로그인</button>
+                  <button type="button" id="bSend" class="btn btn-primary btn-block">로그인</button>
                 </div>
               </form>
             </div>
@@ -37,3 +37,27 @@
       </div>
     </div>
   </section>
+
+  <script>
+  $(function(){
+     $('#bSend').click(function(){
+        $.post(
+          "<?=HOSTURL?>/Loginout/rpcLogin"
+          ,{
+               "user_id" :  $('#user_id').val()
+               ,"user_pwd" : $('#user_pwd').val()
+           }
+          ,function(data, status) {
+                if (status == "success" && data.code == 1)
+                {
+                    location.href = "<?=HOSTURL?>/main";
+                }
+                else
+                {
+                    alert("올바른 정보로 입력 바랍니다.");
+                }
+          }
+        );
+    });
+  });
+  </script>

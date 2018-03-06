@@ -19,10 +19,6 @@ class Account extends CI_Controller{
         $this->load->view('common/container', $data);
     }
 
-    // public function find()
-    // {
-    //     $this->load->view('common/find_ref');
-    // }
     public function find()
     {
         $data = array(
@@ -30,12 +26,6 @@ class Account extends CI_Controller{
         );
 
         $this->load->view('common/container', $data);
-    }
-
-    public function find_ret($mb_id)
-    {
-        $data = array('mb_id'=>$mb_id);
-        $this->load->view('common/findid_ref', $data);
     }
 
     public function rpcSignin()
@@ -66,7 +56,7 @@ class Account extends CI_Controller{
         $oMem = new AccountClass();
         if( $oMem->joinMember($aInput) )
         {
-            response_json(array('code'=> 1 , 'msg'=>'OK'));
+            response_json(array('code'=> 1 , 'msg'=>'가입되었습니다.'));
             die;
         }
 

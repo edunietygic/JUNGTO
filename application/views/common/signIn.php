@@ -10,66 +10,31 @@
 				 			<div class="row">
 				 				<div class="col-md-12">
 				 					<div class="form-group">
-				 						<div class="input-group col-fix">
-				 							<div class="input-group-addon col-fix-2 text-left">
-				 								<label class="upper" for="nwId">아이디</label>
-				 							</div>
-				 							<input type="text" class="form-control required" name="nwId" placeholder="아이디 (영문, 숫자, 하이픈, 언더바로 4자이상 20자이하)" id="nwId" aria-required="true">
-				 						</div>
+				 					  <label class="sr-only">아이디
+				 					  </label>
+				 					  <input type="text" name="nwId" id="nwId" placeholder="아이디 (영문, 숫자, 하이픈, 언더바로 4자이상 20자이하)" class="form-control">
 				 					</div>
-				 				</div>
-				 				<div class="col-md-12">
 				 					<div class="form-group">
-				 						<div class="input-group col-fix">
-				 							<div class="input-group-addon col-fix-2 text-left">
-				 								<label class="upper" for="nwPw">비밀번호</label>
-				 							</div>
-				 							<input type="password" class="form-control required" name="nwPw" placeholder="비밀번호 (영문, 숫자, 특수문자로 8자 이상)" id="nwPw" aria-required="true">
-				 						</div>
+				 					  <label class="sr-only">비밀번호</label>
+				 					  <input type="password" class="form-control" name="nwPw" placeholder="비밀번호 (영문, 숫자, 특수문자로 8자 이상)" id="nwPw" aria-required="true">
 				 					</div>
-				 				</div>
-				 				<div class="col-md-12">
 				 					<div class="form-group">
-				 						<div class="input-group col-fix">
-				 							<div class="input-group-addon col-fix-2 text-left">
-				 								<label class="upper" for="nwPw2">비밀번호 확인</label>
-				 							</div>
-				 							<input type="password" class="form-control required" name="nwPw2" placeholder="비밀번호 재입력" id="nwPw2" aria-required="true">
-				 						</div>
+				 					  <label class="sr-only">비밀번호 확인</label>
+				 					  <input type="password" class="form-control required" name="nwPw2" placeholder="비밀번호 확인 (비밀번호 재입력)" id="nwPw2" aria-required="true">
 				 					</div>
-				 				</div>
-				 				<div class="col-md-12">
 				 					<div class="form-group">
-				 						<div class="input-group col-fix">
-				 							<div class="input-group-addon col-fix-2 text-left">
-				 								<label class="upper" for="nName">이름</label>
-				 							</div>
-				 							<input type="text" class="form-control required" name="nName" placeholder="이름 (실명)" id="nName" aria-required="true">
-				 						</div>
+				 					  <label class="sr-only">비밀번호 확인</label>
+				 					  <input type="text" class="form-control required" name="nName" placeholder="이름 (실명)" id="nName" aria-required="true">
 				 					</div>
-				 				</div>
-				 				<div class="col-md-12">
 				 					<div class="form-group">
-				 						<div class="input-group col-fix">
-				 							<div class="input-group-addon col-fix-2 text-left">
-				 								<label class="upper" for="nEmail">이메일</label>
-				 							</div>
-				 							<input type="email" class="form-control required email" name="nEmail" placeholder="이메일 (id@domain.com)" id="nEmail" aria-required="true">
-				 						</div>
+				 					  <label class="sr-only">이메일</label>
+				 					  <input type="email" class="form-control required email" name="nEmail" placeholder="이메일 (id@domain.com)" id="nEmail" aria-required="true">
 				 					</div>
-				 				</div>
-				 				<div class="col-md-12">
 				 					<div class="form-group">
-				 						<div class="input-group col-fix">
-				 							<div class="input-group-addon col-fix-2 text-left">
-				 								<label class="upper" for="nPhone">휴대전화</label>
-				 							</div>
-				 							<input type="text" class="form-control required" name="nPhone" placeholder="휴대전화 (010-0000-0000)" id="nPhone" aria-required="true">
-				 						</div>
+				 					  <label class="sr-only">휴대전화</label>
+				 					  <input type="text" class="form-control required" name="nPhone" placeholder="휴대전화 (010-0000-0000)" id="nPhone" aria-required="true">
 				 					</div>
-				 				</div>
-				 				<div class="col-md-12">
-				 					<div class="form-group">
+				 					<div class="form-group text-center">
 				 						<button class="btn btn-default" type="button" onclick="signin();">가입하기</button>
 				 					</div>
 				 				</div>
@@ -110,7 +75,7 @@ function signin()
 	}
 
 	//아이디유효성
-	
+
 	//비번확인
 	if($('#nwPw').val() != $('#nwPw2').val()){
 		alert('비밀번호가 일치하지 않습니다.');
@@ -123,7 +88,7 @@ function signin()
 	var params = jQuery("#signinFrm").serialize();
 	$.ajax({
 	     type: 'POST',
-	     url: '/Account/rpcSignin',
+	     url: '<?=HOSTURL?>/Account/rpcSignin',
 	     data: params,
 	     success: function (data) {
 	             console.log(data);
