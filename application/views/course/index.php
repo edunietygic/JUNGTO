@@ -5,7 +5,7 @@
       <!--filter district -->
       <div class="row m-b-20">
         <div class="col-md-6 p-t-10 m-b-20">
-          <h3 class="m-b-20">HI~Happy School</h3>
+          <h1 class="m-b-20">수강신청</h1>
           <p>우리동네 행복학교를 찾아보세요.</p>
         </div>
         <div class="col-md-3">
@@ -121,17 +121,17 @@ function addrChange(){
             <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($val->open_date,0,4).'.'.substr($val->open_date,5,2).'.'.substr($val->open_date,8,2)?></span> <span class="post-meta-comments"><i class="fa fa-user"></i><?=$val->a_cnt?> 신청</span>
             <h2><!--a href="javascript:;" data-target="#modal-3" data-toggle="modal"--><?=$val->subjnm?><!--/a--></h2>
               <!--p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p-->
-              
+
               <p>장소 : <?=$val->place?><br/>개강 : <?=substr($val->start_date,0,10)?></p>
               <!--p><?=$val->eduoutline?></p-->
-              <a href="/course/course_detail/<?=$val->subj?>" class="item-link">과정 상세 보기 <i class="fa fa-arrow-right"></i></a> </div>
+              <a href="<?=HOSTURL?>/course/course_detail/<?=$val->subj?>" class="item-link">과정 상세 보기 <i class="fa fa-arrow-right"></i></a> </div>
           </div>
         </div>
         <?php endforeach;?>
         <!-- end: Post item-->
         <?php else :?>
         <div class="post-item border">
-            검색된 학교가 없습니다. 
+            검색된 학교가 없습니다.
         </div>
 
         <?php endif;?>

@@ -1,21 +1,21 @@
   <!-- Page title -->
-  <section class="no-padding" data-height-lg="500" data-height-xs="200" data-height-sm="300"> 
-    <!-- Google map sensor --> 
+  <section class="no-padding" data-height-lg="500" data-height-xs="200" data-height-sm="300">
+    <!-- Google map sensor -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm4s3FbBXAFPYUt478kvfmi4DENy7AUAQ&sensor=true&libraries=places"></script>
     <div  data-height-lg="50" class="map" data-map-address="<?=$aData['oCourseInfo']->addr_string?>" data-map-zoom="15" data-map-icon="/skin/images/markers/marker1.png" data-map-type="ROADMAP"></div>
   </section>
-  <!-- end: Page title --> 
-  
+  <!-- end: Page title -->
+
   <!-- School Product info -->
   <section id="product-page" class="product-page p-b-0">
     <div class="container">
       <div class="product">
         <div class="row m-b-40">
           <div class="col-md-5">
-            <div class="product-image"> 
+            <div class="product-image">
               <!-- Carousel slider -->
               <div class="carousel dots-inside dots-dark arrows-visible arrows-only arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay-timeout="2500" data-lightbox="gallery"> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> </div>
-              <!-- Carousel slider --> 
+              <!-- Carousel slider -->
             </div>
           </div>
           <div class="col-md-7">
@@ -28,24 +28,24 @@
               <div class="product-reviews"><a href="#">진행자 - <?=$aData['oTutorInfo']->mb_name?>( <?=$aData['oTutorInfo']->mb_hp?> )</a> </div>
               <div class="seperator m-b-10"></div>
               <p><?=$aData['oCourseInfo']->explain?></p>
-              <div class="product-meta"> 
-                
+              <div class="product-meta">
+
                 <!--p>Tags: <a href="#" rel="tag">학교</a>, <a rel="tag" href="#">캠프</a>
-                                    </p--> 
-                
+                                    </p-->
+
               </div>
               <div class="seperator m-t-20 m-b-10"></div>
             </div>
             <div class="row">
-              <div class="col-md-6"> 
-                <!--h6>참가하기</h6--> 
-                <a href="#" class="btn" data-target="#modal-3" data-toggle="modal"><i class="fa fa-shopping-cart"></i> 참가하기</a> </div>
+              <div class="col-md-6">
+                <!--h6>참가하기</h6-->
+                <a href="#" class="btn" data-target="#modal-3" data-toggle="modal">신청</a> </div>
             </div>
           </div>
         </div>
         <div id="tabs-1" class="tabs simple">
           <ul class="tabs-navigation">
-            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>과정 상세</a> </li>
+            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>과정 상세정보</a> </li>
             <li><a href="#tab2"><i class="fa fa-info"></i>프로그램</a> </li>
           </ul>
           <div class="tabs-content">
@@ -60,8 +60,8 @@
       </div>
     </div>
   </section>
-  <!-- end: School Product info --> 
-  
+  <!-- end: School Product info -->
+
 <!-- School promotion -->
   <!--section class="background-grey p-t-40 p-b-0">
     <div class="container">
@@ -90,7 +90,7 @@
       </div>
     </div>
   </section-->
-  <!-- end: School promotion --> 
+  <!-- end: School promotion -->
 
 
   <!-- end: modal -->
@@ -107,8 +107,8 @@
               <?=$aData['oCourseInfo']->memo?>
               <?=$aData['oCourseInfo']->edupreparation?>
               <div class="seperator m-b-10"></div>
-              <div class="row"> 
-                
+              <div class="row">
+
                 <!--div class="col-md-12" style="margin-bottom: 30px">
                   <h6>기수선택</h6>
                   <label class="sr-only">기수선택</label>
@@ -154,11 +154,11 @@
                   <label for="email">E-mail</label>
                   <input type="email" id="email" aria-required="true" name="widget-contact-form-email" value="<?=$aData['oLoginInfo']->email?>" class="form-control required email" placeholder="Enter your Email">
                 </div>
-                
+
                 <div class="form-group col-md-4">
                     <?php if(isset($aData['oCourseInfo']->class_num) && $aData['oCourseInfo']->class_num) : ?>
                     <div class="radio">
-                    <?php for($i=1 ; $i <= $aData['oCourseInfo']->class_num; $i++ ) :?> 
+                    <?php for($i=1 ; $i <= $aData['oCourseInfo']->class_num; $i++ ) :?>
                         <label>
                         <input type="radio" name="class_idx" id="class_idx<?=$i?>" value="<?=$i?>"> <?=$i?>반
                         </label>
@@ -170,26 +170,26 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-default" type="submit" id="bREQ"><i class="fa fa-paper-plane"></i>&nbsp;신청</button>
-			<button data-dismiss="modal" class="btn btn-light" type="button">Close</button>
+            <button data-dismiss="modal" class="btn btn-default" type="submit" id="bREQ" style="margin-bottom:0;">신청</button>
+            <button data-dismiss="modal" class="btn btn-light" type="button">취소</button>
           </div>
         </div>
       </form>
     </div>
   </div>
-  <!-- modal -->  
+  <!-- modal -->
 <script>
 $(function(){
    $('#bREQ').click(function(){
      $.post(
         "/Course/rpcReqCourse"
         ,{
-             "mb_id"   : $('#mb_id').val() 
-             ,"subj"   : $('#subj').val() 
-             ,"passwd" : $('#passwd').val() 
-             ,"name"   : $('#name').val() 
-             ,"hp"     : $('#hp').val() 
-             ,"email"  : $('#email').val() 
+             "mb_id"   : $('#mb_id').val()
+             ,"subj"   : $('#subj').val()
+             ,"passwd" : $('#passwd').val()
+             ,"name"   : $('#name').val()
+             ,"hp"     : $('#hp').val()
+             ,"email"  : $('#email').val()
              ,"class_idx"  : $("input[type=radio][name=class_idx]:checked").val()
          }
         ,function(data, status) {
@@ -200,7 +200,7 @@ $(function(){
               else
               {
                   alert(data.msg);
-              } 
+              }
         }
       );
     });

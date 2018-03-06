@@ -22,10 +22,10 @@
                   <div class="row">
                     <!--Horizontal tabs default-->
                     <div id="tabs-003" class="tabs simple">
-                      <h3>내 정보</h3>
+                      <h1>내 정보</h1>
                       <p></p>
                       <ul class="tabs-navigation">
-                        <li class="active"><a href="#Class"><i class="fa fa-home"></i>신청 학교</a> </li>
+                        <li class="active"><a href="#Class"><i class="fa fa-home"></i>수강신청내역</a> </li>
                         <li><a href="#Personal"><i class="fa fa-user"></i>개인정보수정</a> </li>
                         <li><a href="#Member"><i class="fa fa-home"></i>회원탈퇴</a> </li>
                       </ul>
