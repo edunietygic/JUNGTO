@@ -6,58 +6,41 @@
     <meta name="author" content="행복학교" />
     <meta name="description" content="법륜스님과 함께하는 행복학교">
     <title>비밀번호발송</title>
-    <style>
-        body{position: relative;padding: 0;margin: 0; background: #eee;}
-        p{font-size: 18px;}
-        .clearfix{*zoom:1}
-        .clearfix:after{content:'';display:block;clear:both;}
-        .mailWrap{width: 100%; margin-top: 30px;}
-        .mailTop{background-color: #00c49f;height: 20px; margin: 0 20%;}
-        .mailCon{padding: 20px 5%; margin: 0 20%;background: #fff;}
-        .mailBottom{padding: 20px 5%; margin: 0 20%;; background: #fff; border-top:2px dotted #959595;}
-        .mailBottom .tit{color: #959595;font-weight: bold;font-size: 18px;text-align: right}
-        .mailBottom .txt{color: #959595;text-align: right; font-size: 14px}
-        .mailBottom .left{float: left; width: 40%;}
-        .mailBottom .left.logo{padding-top:15px;}
-        .mailBottom .left .info{padding-top: 20px;padding-left: 10px;}
-        .mailBottom .left .info p{font-size: 12px;margin: 0px;line-height: 1.5}
-        .mailBottom .right{float: right;width: 60%;}
-    </style>
 </head>
-<body>
-    <div class="mailWrap">
+<body style="position: relative;padding: 0;margin: 0;background: #eee;">
+    <div class="mailWrap" style="width: 100%;margin-top: 30px;">
         <!--topbar-->
-        <div class="mailTop"></div><!--//topbar-->
+        <div class="mailTop" style="background-color: #00c49f;height: 20px;margin: 0 20%;"></div><!--//topbar-->
         <!--mail contents-->
         <div class="mailInner">
-            <div class="mailCon">
-                <p><strong><span class="name"><?=$name?></span>님 안녕하세요,</strong> 행복학교입니다.</p>
+            <div class="mailCon" style="padding: 20px 5%;margin: 0 20%;background: #fff;">
+                <p style="font-size: 18px;"><strong><span class="name"><?=$name?></span>님 안녕하세요,</strong> 행복학교입니다.</p>
                 <p>회원님께서 '비밀번호 찾기'를 통해 요청하신 임시비밀번호를 보내드립니다.</p>
                 <br>
-                <p><strong>임시비밀번호</strong>: <span class="tempPwd"><?=$tmp_password?></span></p>
+                <p><strong>임시비밀번호</strong>: <span class="tempPwd"><?=$tmp_password?></span></strong></p>
                 <br>
-                <p>임시비밀번호로 로그인 하신 후 꼭 비밀번호를 변경해주세요.</p>
-                <p>홈페이지 상단 마이페이지에서 비밀번호를 변경할 수 있습니다.</p>
-                <p>감사합니다.</p>
+                <p style="font-size: 18px;">임시비밀번호로 로그인 하신 후 꼭 비밀번호를 변경해주세요.</p>
+                <p style="font-size: 18px;">홈페이지 상단 마이페이지에서 비밀번호를 변경할 수 있습니다.</p>
+                <p style="font-size: 18px;">감사합니다.</p>
                 <br>
-                <p>홈페이지로 이동하려면 아래의 링크를 방문하시기 바랍니다.<br>
+                <p style="font-size: 18px;">홈페이지로 이동하려면 아래의 링크를 방문하시기 바랍니다.<br>
                 <a href="http://jungto.eduniety.cc:8090/main">http://jungto.eduniety.cc:8090/main</a></p>
-                <p>*본 메일은 발송 전용 메일입니다.</p>
+                <p style="font-size: 18px;">*본 메일은 발송 전용 메일입니다.</p>
             </div>
         </div><!--//mail contents-->
     </div>
     <!--footer-->
-    <div class="mailBottom clearfix">
-        <div class="left logo">
+    <div class="mailBottom clearfix" style="*zoom: 1;padding: 20px 5%;margin: 0 20%;background: #fff;border-top: 2px dotted #959595;">
+        <div class="left logo" style="float: left;width: 40%;padding-top: 15px;">
             <a href="http://jungto.eduniety.cc:8090/main"><img src="<?=SKINURL?>/images/logo-gray.png" alt="행복학교"></a>
-            <div class="info">
-                <p>서울 서초구 서초동 1623-2 우일빌딩 3층</p>
-                <p>P: (02) 567-8080</p>
+            <div class="info" style="padding-top: 20px;padding-left: 10px;">
+                <p style="font-size: 12px;margin: 0px;line-height: 1.5;">서울 서초구 서초동 1623-2 우일빌딩 3층</p>
+                <p style="font-size: 12px;margin: 0px;line-height: 1.5;">P: (02) 567-8080</p>
             </div>
         </div>
-        <div class="right">
-            <p class="tit">"행복도 배울 수 있나요?"</p>
-            <p class="txt">오늘의 행복을 내일로 미루지 않는 법.<br>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p>
+        <div class="right" style="float: right;width: 60%;">
+            <p class="tit" style="font-size: 18px;color: #959595;font-weight: bold;text-align: right;">"행복도 배울 수 있나요?"</p>
+            <p class="txt" style="font-size: 14px;color: #959595;text-align: right;">오늘의 행복을 내일로 미루지 않는 법.<br>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p>
         </div>
     </div>
     <!--//footer-->
