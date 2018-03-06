@@ -145,6 +145,13 @@ class Course extends CI_Controller{
         if($mb_id != $passwd)
         {
             // join process
+            // param chk
+            if(!$mb_id || !$passwd || !$name || !$email || !$hp)
+            {
+                response_json(array('code'=> 99 , 'msg'=>'회원가입에 필요한 정보를 입력해 주세요'));
+                die;
+            }
+            
 
             // is account => pass
             edu_get_instance('AccountClass');
