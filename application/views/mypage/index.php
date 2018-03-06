@@ -26,7 +26,7 @@
                       <p></p>
                       <ul class="tabs-navigation">
                         <li class="active"><a href="#Class"><i class="fa fa-home"></i>신청 학교</a> </li>
-                        <li><a href="#Personal"><i class="fa fa-user"></i>개인정보변경</a> </li>
+                        <li><a href="#Personal"><i class="fa fa-user"></i>개인정보수정</a> </li>
                         <li><a href="#Member"><i class="fa fa-home"></i>회원탈퇴</a> </li>
                       </ul>
                       <div class="tabs-content">
