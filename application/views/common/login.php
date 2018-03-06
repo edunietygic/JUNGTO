@@ -31,7 +31,7 @@
           <p class="small">
 		        <a href="<?=HOSTURL?>/account/find">아이디/패스워드가 기억이 나지 않으신가요?</a>
             <br/>아이디가 없으신가요?
-            <a href="<?=HOSTURL?>/account/signIn">회원가입</a>
+            <a href="<?=HOSTURL?>/account/signin">회원가입</a>
 		      </p>
         </div>
       </div>
