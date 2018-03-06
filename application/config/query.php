@@ -104,8 +104,8 @@ $config['query'] = array(
     )
     ,'course' => array(
         'getCourseList' => array(
-            'query' => 'SELECT place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img
-                          FROM lms_subj
+            'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
+                          FROM lms_subj s
                          WHERE isonoff = ?'
             ,'data' => array('isonoff')
             ,'btype'=> 's'
@@ -120,10 +120,10 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getCourseListAddrcode' => array(
-            'query' => 'SELECT place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, introducefilenamenew3 as img
-                          FROM lms_subj
-                         WHERE isonoff = ?
-                           AND addrcode = ?'
+            'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
+                         FROM lms_subj s
+                         WHERE s.isonoff = ?
+                           AND s.addrcode = ?'
             ,'data' => array('isonoff', 'addrcode')
             ,'btype'=> 's'
             ,'null' => array()

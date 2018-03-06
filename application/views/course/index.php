@@ -112,13 +112,13 @@ function addrChange(){
       <!-- Blog -->
       <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
 
-      <?if(isset($aData['aCourseList']) && count($aData['aCourseList']) >=1 ) :?>
+      <?if(isset($aData['aCourseList']) && count($aData['aCourseList']->oActiveCourse) >=1 ) :?>
         <!-- Post item-->
         <?php foreach($aData['aCourseList']->oActiveCourse as $key=>$val) :?>
         <div class="post-item border">
           <div class="post-item-wrap">
             <div class="post-image"> <a href="javascript:;" data-target="#modal-3" data-toggle="modal"> <img alt="" src="<?=$val->img?>"> </a> <!--span class="post-meta-category">주간</span--> </div>
-            <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($val->open_date,0,4).'.'.substr($val->open_date,5,2).'.'.substr($val->open_date,8,2)?></span> <span class="post-meta-comments"><i class="fa fa-comments-o"></i><?=$val->studentlimit?> People</span>
+            <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i><?=substr($val->open_date,0,4).'.'.substr($val->open_date,5,2).'.'.substr($val->open_date,8,2)?></span> <span class="post-meta-comments"><i class="fa fa-comments-o"></i><?=$val->a_cnt?> 신청</span>
             <h2><!--a href="javascript:;" data-target="#modal-3" data-toggle="modal"--><?=$val->subjnm?><!--/a--></h2>
               <!--p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p-->
               
@@ -129,6 +129,11 @@ function addrChange(){
         </div>
         <?php endforeach;?>
         <!-- end: Post item-->
+        <?php else :?>
+        <div class="post-item border">
+            검색된 학교가 없습니다. 
+        </div>
+
         <?php endif;?>
 
       </div>
