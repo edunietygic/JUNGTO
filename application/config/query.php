@@ -106,7 +106,8 @@ $config['query'] = array(
         'getCourseList' => array(
             'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
                           FROM lms_subj s
-                         WHERE isonoff = ?'
+                         WHERE isonoff = ?
+                         ORDER BY s.subjnm ASC'
             ,'data' => array('isonoff')
             ,'btype'=> 's'
             ,'null' => array()
@@ -114,7 +115,8 @@ $config['query'] = array(
         ,'getDetailCourse' => array(
             'query' => 'SELECT place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img, class_num
                           FROM lms_subj
-                         WHERE subj = ?'
+                         WHERE subj = ?
+                         ORDER BY subjnm ASC'
             ,'data' => array('subj')
             ,'btype'=> 's'
             ,'null' => array()
@@ -123,7 +125,8 @@ $config['query'] = array(
             'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
                          FROM lms_subj s
                          WHERE s.isonoff = ?
-                           AND s.addrcode = ?'
+                           AND s.addrcode = ?
+                         ORDER BY s.subjnm ASC'
             ,'data' => array('isonoff', 'addrcode')
             ,'btype'=> 's'
             ,'null' => array()
@@ -133,7 +136,8 @@ $config['query'] = array(
                                , a.mb_id, a.state, a.regdate
                           FROM lms_subj s, lms_subj_applicant a
                          WHERE s.subj = a.subj
-                           AND a.mb_id = ?'
+                           AND a.mb_id = ?
+                         ORDER BY s.subjnm ASC'
             ,'data' => array('mb_id')
             ,'btype'=> 's'
             ,'null' => array()
