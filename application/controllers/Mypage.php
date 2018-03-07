@@ -69,21 +69,24 @@ class Mypage extends CI_Controller{
         {
             if(!trim($val))
             {
-                response_json(array('code'=> 99 , 'msg'=>'Fail'));
-                die;
+                if($key !='pwd2')
+                {
+                    response_json(array('code'=> 99 , 'msg'=>'Fail'));
+                    die;
+                }    
             }
         }   
         
-        $mb_id = $this->input->post('mb_id');
-        $name  = $this->input->post('name');
-        $hp    = $this->input->post('hp');
-        $email = $this->input->post('email');
+        $mb_id = trim($this->input->post('mb_id'));
+        $name  = trim($this->input->post('name'));
+        $hp    = trim($this->input->post('hp'));
+        $email = trim($this->input->post('email'));
         
-        $pwd1  = $this->input->post('pwd1');
-        $pwd2  = $this->input->post('pwd2');
+        $pwd1  = trim($this->input->post('pwd1'));
+        $pwd2  = trim($this->input->post('pwd2'));
     
         // pwd chk 
-        if($pwd1 != $pwd2)
+        if($pwd2 && $pwd1 != $pwd2)
         {
             response_json(array('code'=> 88 , 'msg'=>'입력한 두 비번이 틀립니다.'));
             die;
@@ -94,10 +97,20 @@ class Mypage extends CI_Controller{
         $oMem = new AccountClass($mb_id); 
         $mkpwd = $oMem->getPwd($mb_id, $pwd1, 'Mypage');
 
-        if($oMem->oMemberInfo->mb_password != $mkpwd)
+        // 일반 정보 업데이트시 기존 비번과 일치 여부확인
+        if($pwd1 && !$pwd2)
         {
-            response_json(array('code'=> 77 , 'msg'=>'비밀번호가 틀립니다'));
-            die;
+            if($oMem->oMemberInfo->mb_password != $mkpwd)
+            {
+                response_json(array('code'=> 77 , 'msg'=>'비밀번호가 틀립니다'));
+                die;
+            }
+        }
+        // 비번 업데이트
+        if(($pwd1 && $pwd2) && ($pwd1 == $pwd2))
+        {
+            $oMem->changePassword(array('mb_id'=>$mb_id, 'tmp_password'=>$mkpwd, 'mb_email'=>$email));
+            
         }
 
         // update member info

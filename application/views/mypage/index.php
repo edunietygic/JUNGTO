@@ -54,7 +54,9 @@
                         </div>
                         <div class="tab-pane" id="Personal">
                           <h4>개인정보수정</h4>
-                          <p>항목을 변경하고 수정 버튼을 눌러주세요. ( 비밀번호는 보안을 위해 입력합니다. )</p>
+                          <p>항목을 변경하고 수정 버튼을 눌러주세요</p>
+                          <p> * 정보 변경 : 패스워드 만 입력</p>
+                          <p> * 패스워드 변경 : 패스워드 , 패스워드 확인 입력</p>
                           <form class="form-transparent-grey">
                             <div class="row">
                               <div class="col-md-6 form-group">
