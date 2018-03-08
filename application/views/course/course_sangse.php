@@ -173,10 +173,8 @@
 
                 <?php if(!$aData['oLoginInfo']->mb_id):?>
                 <div class="alert alert-success alert-sm">
-                     비로그인시 입력하신 정보를 기준으로<br> 
-                    &nbsp;- 회원고객님은 신청,<br>
-                    &nbsp;- 비회원가입 고객님은 회원가입 후 자동 신청이 완료 됩니다.
-                 
+                    수강 신청시 자동으로 회원가입이 진행 됩니다.<br>
+                    &nbsp; - 기존 회원의 경우 입력하신 아이디와 비밀번호를 기준으로 수강신청이 진행됩니다.<br>
                 </div> 
                 <?php endif;?>
 
