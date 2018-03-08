@@ -122,7 +122,7 @@ function addrChange(){
             <h2><!--a href="javascript:;" data-target="#modal-3" data-toggle="modal"--><?=$val->subjnm?><!--/a--></h2>
               <!--p>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법을 만나보세요.</p-->
 
-              <p>장소 : <?=$val->place?><br/>개강 : <?=substr($val->start_date,0,10)?></p>
+              <p>장소 : <?=$val->place?><br/>개강 : <?=$val->start_date?></p>
               <!--p><?=$val->eduoutline?></p-->
               <a href="<?=HOSTURL?>/course/course_detail/<?=$val->subj?>" class="item-link">과정 상세 보기 <i class="fa fa-arrow-right"></i></a> </div>
           </div>

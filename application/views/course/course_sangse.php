@@ -22,7 +22,7 @@
             <div class="product-description">
             <div class="product-category"><?=$aData['oCourseInfo']->addr_string?></div>
               <div class="product-title">
-                <h3><?=$aData['oCourseInfo']->subjnm?> ( <?=$aData['oCourseInfo']->part?> )</h3>
+                <h3><?=$aData['oCourseInfo']->subjnm?> <?php if($aData['oCourseInfo']->part) echo "( ".$aData['oCourseInfo']->part." )"; ?> </h3>
               </div>
               <div class="product-rate"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i> </div>
               <div class="product-reviews"><a href="#">진행자 - <?=$aData['oTutorInfo']->mb_name?>( <?=$aData['oTutorInfo']->mb_hp?> )</a> </div>
@@ -157,9 +157,10 @@
 
                 <div class="form-group col-md-4">
                     <?php if(isset($aData['aClass']) && $aData['aClass']) : ?>
+                    <label for="email">개설 반</label>
                     <div class="radio">
                     <?php foreach($aData['aClass'] as $key=>$val) :  ?>
-                        <label>
+                        <label >
                         <input type="radio" name="class_idx" id="class_idx<?=$key+1?>" value="<?=$key+1?>"> <?=$val?>
                         </label>
                     <?php endforeach;?>
@@ -167,20 +168,21 @@
                     <?php endif;?>
                 </div>
 
+              </div>
+   
+
                 <?php if(!$aData['oLoginInfo']->mb_id):?>
-                <div class="form-group col-md-4">
-                  <label for="sr-only">비로그인신청시</label>
-                  <p>
-                    비로그인시 입력하신 정보를 기준으로<br> 
+                <div class="alert alert-success alert-sm">
+                     비로그인시 입력하신 정보를 기준으로<br> 
                     &nbsp;- 회원고객님은 신청,<br>
                     &nbsp;- 비회원가입 고객님은 회원가입 후 자동 신청이 완료 됩니다.
-                  </p>
-                </div>
+                 
+                </div> 
                 <?php endif;?>
 
-              </div>
             </div>
           </div>
+
           <div class="modal-footer">
             <button data-dismiss="modal" class="btn btn-default" type="submit" id="bREQ" style="margin-bottom:0;">신청</button>
             <button data-dismiss="modal" class="btn btn-light" type="button">취소</button>

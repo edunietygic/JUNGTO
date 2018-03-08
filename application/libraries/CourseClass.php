@@ -53,7 +53,10 @@ class CourseClass {
             foreach($aCourseList as $key=>$val)
             {
                 if($val->open_date <= $today && $today <= $val->close_date)
-                     $aActiveCourseList[] = $val; 
+                {
+                    $val->start_date = substr($val->start_date,0,10)."(".getDayOfTheWeek(substr($val->start_date,0,4), substr($val->start_date,5,2),substr($val->start_date,8,2)).")"; 
+                    $aActiveCourseList[] = $val; 
+                }
             }
         }
         return $aActiveCourseList;  

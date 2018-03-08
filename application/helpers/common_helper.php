@@ -407,3 +407,11 @@ function datetimediff($rtime, $ctime = null, $option = null)
     }
     return $result;
 }
+function getDayOfTheWeek($y,$m,$d)
+{
+    $data = mktime(12,12,12,$m,$d,$y);
+    $week_num = date("w",$data);
+    $week = array('일', '월', '화', '수', '목', '금', '토');
+    //$day = date("Y-m-d ($week[$week_num]) H:i:s",$data);
+    return $week[$week_num];
+}

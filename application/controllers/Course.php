@@ -212,8 +212,6 @@ class Course extends CI_Controller{
         return $oCourse;
     }
     
-    
-     
     public function rpcGetAddrCode($code='')
     {
         if(!$code) $code = $this->input->post('code');
