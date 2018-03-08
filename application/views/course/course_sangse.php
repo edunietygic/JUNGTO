@@ -14,7 +14,7 @@
           <div class="col-md-5">
             <div class="product-image">
               <!-- Carousel slider -->
-              <div class="carousel dots-inside dots-dark arrows-visible arrows-only arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay-timeout="2500" data-lightbox="gallery"> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> </div>
+              <div class="carousel dots-inside dots-dark arrows-visible arrows-only arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay-timeout="2500" data-lightbox="gallery"> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"> <img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> </div>
               <!-- Carousel slider -->
             </div>
           </div>
@@ -22,7 +22,7 @@
             <div class="product-description">
             <div class="product-category"><?=$aData['oCourseInfo']->addr_string?></div>
               <div class="product-title">
-                <h3><a href="#"><?=$aData['oCourseInfo']->subjnm?></a></h3>
+                <h3><?=$aData['oCourseInfo']->subjnm?> ( <?=$aData['oCourseInfo']->part?> )</h3>
               </div>
               <div class="product-rate"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i> </div>
               <div class="product-reviews"><a href="#">진행자 - <?=$aData['oTutorInfo']->mb_name?>( <?=$aData['oTutorInfo']->mb_hp?> )</a> </div>
@@ -156,16 +156,28 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                    <?php if(isset($aData['oCourseInfo']->class_num) && $aData['oCourseInfo']->class_num) : ?>
+                    <?php if(isset($aData['aClass']) && $aData['aClass']) : ?>
                     <div class="radio">
-                    <?php for($i=1 ; $i <= $aData['oCourseInfo']->class_num; $i++ ) :?>
+                    <?php foreach($aData['aClass'] as $key=>$val) :  ?>
                         <label>
-                        <input type="radio" name="class_idx" id="class_idx<?=$i?>" value="<?=$i?>"> <?=$i?>반
+                        <input type="radio" name="class_idx" id="class_idx<?=$key+1?>" value="<?=$key+1?>"> <?=$val?>
                         </label>
-                    <?php endfor;?>
+                    <?php endforeach;?>
                     </div>
                     <?php endif;?>
                 </div>
+
+                <?php if(!$aData['oLoginInfo']->mb_id):?>
+                <div class="form-group col-md-4">
+                  <label for="sr-only">비로그인신청시</label>
+                  <p>
+                    비로그인시 입력하신 정보를 기준으로<br> 
+                    &nbsp;- 회원고객님은 신청,<br>
+                    &nbsp;- 비회원가입 고객님은 회원가입 후 자동 신청이 완료 됩니다.
+                  </p>
+                </div>
+                <?php endif;?>
+
               </div>
             </div>
           </div>

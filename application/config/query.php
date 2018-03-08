@@ -104,7 +104,7 @@ $config['query'] = array(
     )
     ,'course' => array(
         'getCourseList' => array(
-            'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
+            'query' => 'SELECT s.class1, s.class2, s.class3, s.class4, s.class5, s.part, s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
                           FROM lms_subj s
                          WHERE isonoff = ?
                          ORDER BY s.subjnm ASC'
@@ -113,7 +113,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getDetailCourse' => array(
-            'query' => 'SELECT place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img, class_num
+            'query' => 'SELECT class1, class2, class3, class4, class5, part, place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img, class_num
                           FROM lms_subj
                          WHERE subj = ?
                          ORDER BY subjnm ASC'
@@ -122,7 +122,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getCourseListAddrcode' => array(
-            'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
+            'query' => 'SELECT s.class1, s.class2, s.class3, s.class4, s.class5, s.part, s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.eduoutline, s.edupreparation , s.`explain`, s.edumans, s.memo, s.addrcode, s.addrstring, s.introducefilenamenew3 as img, (select count(*) from eduniety.lms_subj_applicant where subj = s.subj) as a_cnt
                          FROM lms_subj s
                          WHERE s.isonoff = ?
                            AND s.addrcode = ?
@@ -132,7 +132,7 @@ $config['query'] = array(
             ,'null' => array()
          )
          ,'getMyCourseList' => array(
-            'query' => 'SELECT s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.tutor, s.addrcode, s.addrstring, introducefilenamenew3 as img
+            'query' => 'SELECT s.class1, s.class2, s.class3, s.class4, s.class5, s.part, s.place, s.subj, s.subjnm, s.subjnm2, s.subjclass, s.upperclass, s.middleclass, s.lowerclass, s.muserid, s.musertel, s.tutor, s.edudays, s.edutimes, s.place, s.studentlimit, s.open_date, s.close_date, s.start_date, s.end_date, s.tutor, s.addrcode, s.addrstring, introducefilenamenew3 as img
                                , a.mb_id, a.state, a.regdate
                           FROM lms_subj s, lms_subj_applicant a
                          WHERE s.subj = a.subj
