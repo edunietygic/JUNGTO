@@ -36,11 +36,11 @@
                             <?php foreach($oMem->myCourseInfo as $key=>$val) :?>
                             <div class="accordion toggle fancy clean">
                               <div class="ac-item">
-                              <h4 class="ac-title"><i class="fa fa-home"></i><?=$val->subjnm?><?=$val->state_string?></h4>
-                                <div class="ac-content"> <i class="fa fa-angle-down"></i> 신청기간 : <?=substr($val->open_date,0,10)?> ~ <?=substr($val->start_date,0,10)?><br/>
-                                  <i class="fa fa-angle-down"></i> 학습기간 : <?=substr($val->start_date,0,10)?> ~ <?=substr($val->end_date,0,10)?> <br/>
+                              <h4 class="ac-title"><i class="fa fa-home"></i><?=$val->subjnm?>&nbsp;&nbsp;<?=$val->state_string?></h4>
+                                <div class="ac-content"> <i class="fa fa-angle-down"></i> 신청기간 : <?=substr($val->open_date,0,10)?> <?php echo "(".getDayOfTheWeek(substr($val->open_date,0,4), substr($val->open_date,5,2),substr($val->open_date,8,2)).")" ?> ~ <?=substr($val->start_date,0,10)?> <?php echo "(".getDayOfTheWeek(substr($val->start_date,0,4), substr($val->start_date,5,2),substr($val->start_date,8,2)).")" ?><br/>
+                                  <i class="fa fa-angle-down"></i> 학습기간 : <?=substr($val->start_date,0,10)?> <?php echo "(".getDayOfTheWeek(substr($val->start_date,0,4), substr($val->start_date,5,2),substr($val->start_date,8,2)).")" ?> ~ <?=substr($val->end_date,0,10)?> <?php echo "(".getDayOfTheWeek(substr($val->end_date,0,4), substr($val->end_date,5,2),substr($val->end_date,8,2)).")" ?><br/>
                                   <i class="fa fa-angle-down"></i> 장소 : <?=$val->addr_string?><br/>
-                                  <i class="fa fa-angle-down"></i> 진행자 : <?=$val->tutor_name?> <br/>
+                                  <i class="fa fa-angle-down"></i> 진행자 : <?=$val->tutor_name?> ( <?=$val->tutor_hp?> )<br/>
                                 </div>
                               </div>
                             </div>
