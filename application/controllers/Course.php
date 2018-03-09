@@ -189,6 +189,8 @@ class Course extends CI_Controller{
             response_json(array('code'=> 99 , 'msg'=>'Fail'));
             die;
         }
+        
+        if(!$class_idx) $class_idx = 1;
 
         edu_get_instance('CourseClass');
         $oCourse = new CourseClass();

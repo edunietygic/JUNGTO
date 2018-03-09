@@ -46,15 +46,15 @@
         <div id="tabs-1" class="tabs simple">
           <ul class="tabs-navigation">
             <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>프로그래</a> </li>
-            <li><a href="#tab2"><i class="fa fa-info"></i> 과정 상세정보</a> </li>
+            <!--li><a href="#tab2"><i class="fa fa-info"></i> 과정 상세정보</a> </li-->
           </ul>
           <div class="tabs-content">
             <div class="tab-pane active" id="tab1">
                 <?=$aData['oCourseInfo']->edupreparation?>
             </div>
-            <div class="tab-pane" id="tab2">
+            <!--div class="tab-pane" id="tab2">
                 <?=$aData['oCourseInfo']->memo?>
-            </div>
+            </div-->
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
           </div>
           <div class="modal-body">
             <div class="col-md-12">
-              <?=$aData['oCourseInfo']->memo?>
+              <?=$aData['oCourseInfo']->explain?><br>
               <?=$aData['oCourseInfo']->edupreparation?>
               <div class="seperator m-b-10"></div>
               <div class="row">
@@ -159,11 +159,14 @@
                     <?php if(isset($aData['aClass']) && $aData['aClass']) : ?>
                     <label for="email">개설 반</label>
                     <div class="radio">
-                    <?php foreach($aData['aClass'] as $key=>$val) :  ?>
+                    <?php $checked = "checked"; 
+                        foreach($aData['aClass'] as $key=>$val) :  ?>
                         <label >
-                        <input type="radio" name="class_idx" id="class_idx<?=$key+1?>" value="<?=$key+1?>"> <?=$val?>
+                        <input type="radio" name="class_idx" id="class_idx<?=$key+1?>" value="<?=$key+1?>" <?=$checked?>> <?=$val?>
                         </label>
-                    <?php endforeach;?>
+                    <?php
+                            $checked = ""; 
+                        endforeach;?>
                     </div>
                     <?php endif;?>
                 </div>
