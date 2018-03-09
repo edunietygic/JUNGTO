@@ -116,9 +116,9 @@ class Course extends CI_Controller{
         $aData['aClass'] = $this->_makeClassInfo($aTemp);
         
         // test code
-         echo "<!--";
-         print_r($aData);
-         echo "-->";
+        // echo "<!--";
+        // print_r($aData);
+        // echo "-->";
  
         $data = array(
             'container' => 'course/course_sangse'

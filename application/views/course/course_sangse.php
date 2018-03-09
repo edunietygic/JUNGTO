@@ -45,15 +45,15 @@
         </div>
         <div id="tabs-1" class="tabs simple">
           <ul class="tabs-navigation">
-            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>과정 상세정보</a> </li>
-            <li><a href="#tab2"><i class="fa fa-info"></i>프로그램</a> </li>
+            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>프로그래</a> </li>
+            <li><a href="#tab2"><i class="fa fa-info"></i> 과정 상세정보</a> </li>
           </ul>
           <div class="tabs-content">
             <div class="tab-pane active" id="tab1">
-                <?=$aData['oCourseInfo']->memo?>
+                <?=$aData['oCourseInfo']->edupreparation?>
             </div>
             <div class="tab-pane" id="tab2">
-                <?=$aData['oCourseInfo']->edupreparation?>
+                <?=$aData['oCourseInfo']->memo?>
             </div>
           </div>
         </div>
