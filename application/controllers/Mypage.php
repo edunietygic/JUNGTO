@@ -22,23 +22,27 @@ class Mypage extends CI_Controller{
             {
                 foreach($oMem->myCourseInfo as $key=>$val)
                 {
-                    $oMem->myCourseInfo[$key]->tutor_name   = $oMem->keyTogglerFromID($val->tutor)->mb_name; 
+                      
+                    $aTutorInfo = $oMem->keyTogglerFromID($val->tutor);
+                    $oMem->myCourseInfo[$key]->tutor_name   = $aTutorInfo->mb_name; 
+                    $oMem->myCourseInfo[$key]->tutor_hp     = $aTutorInfo->mb_hp; 
                     $oMem->myCourseInfo[$key]->addr_string  = getAddrStringFromCode($val->addrcode) . " " . $val->addrstring ;
                     $oMem->myCourseInfo[$key]->state_string = $this->_getStateString($val->state);
                 }
             }
             
 
-            // test code 
-            // echo "<!--";
-            // print_r($oMem);
-            // echo "-->";
         } 
         
         $data = array(
             'container' => 'mypage/index'
             ,'oMem'     => $oMem 
         );
+        
+        // test code 
+        // echo "<!--";
+        // print_r($data);
+        // echo "-->";
 
         $this->load->view('common/container', $data);
     }

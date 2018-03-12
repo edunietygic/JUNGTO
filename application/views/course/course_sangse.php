@@ -14,7 +14,7 @@
           <div class="col-md-5">
             <div class="product-image">
               <!-- Carousel slider -->
-              <div class="carousel dots-inside dots-dark arrows-visible arrows-only arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay-timeout="2500" data-lightbox="gallery"> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> </div>
+              <div class="carousel dots-inside dots-dark arrows-visible arrows-only arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay-timeout="2500" data-lightbox="gallery"> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"> <img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> <a href="<?=$aData['oCourseInfo']->img?>" data-lightbox="" title="happy school"><img alt="happy school" src="<?=$aData['oCourseInfo']->img?>"> </a> </div>
               <!-- Carousel slider -->
             </div>
           </div>
@@ -22,7 +22,7 @@
             <div class="product-description">
             <div class="product-category"><?=$aData['oCourseInfo']->addr_string?></div>
               <div class="product-title">
-                <h3><a href="#"><?=$aData['oCourseInfo']->subjnm?></a></h3>
+                <h3><?=$aData['oCourseInfo']->subjnm?> <?php if($aData['oCourseInfo']->part) echo "( ".$aData['oCourseInfo']->part." )"; ?> </h3>
               </div>
               <div class="product-rate"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i> </div>
               <div class="product-reviews"><a href="#">진행자 - <?=$aData['oTutorInfo']->mb_name?>( <?=$aData['oTutorInfo']->mb_hp?> )</a> </div>
@@ -45,16 +45,16 @@
         </div>
         <div id="tabs-1" class="tabs simple">
           <ul class="tabs-navigation">
-            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>과정 상세정보</a> </li>
-            <li><a href="#tab2"><i class="fa fa-info"></i>프로그램</a> </li>
+            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>프로그래</a> </li>
+            <!--li><a href="#tab2"><i class="fa fa-info"></i> 과정 상세정보</a> </li-->
           </ul>
           <div class="tabs-content">
             <div class="tab-pane active" id="tab1">
-                <?=$aData['oCourseInfo']->memo?>
-            </div>
-            <div class="tab-pane" id="tab2">
                 <?=$aData['oCourseInfo']->edupreparation?>
             </div>
+            <!--div class="tab-pane" id="tab2">
+                <?=$aData['oCourseInfo']->memo?>
+            </div-->
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
           </div>
           <div class="modal-body">
             <div class="col-md-12">
-              <?=$aData['oCourseInfo']->memo?>
+              <?=$aData['oCourseInfo']->explain?><br>
               <?=$aData['oCourseInfo']->edupreparation?>
               <div class="seperator m-b-10"></div>
               <div class="row">
@@ -156,19 +156,34 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                    <?php if(isset($aData['oCourseInfo']->class_num) && $aData['oCourseInfo']->class_num) : ?>
+                    <?php if(isset($aData['aClass']) && $aData['aClass']) : ?>
+                    <label for="email">개설 반</label>
                     <div class="radio">
-                    <?php for($i=1 ; $i <= $aData['oCourseInfo']->class_num; $i++ ) :?>
-                        <label>
-                        <input type="radio" name="class_idx" id="class_idx<?=$i?>" value="<?=$i?>"> <?=$i?>반
+                    <?php $checked = "checked"; 
+                        foreach($aData['aClass'] as $key=>$val) :  ?>
+                        <label >
+                        <input type="radio" name="class_idx" id="class_idx<?=$key+1?>" value="<?=$key+1?>" <?=$checked?>> <?=$val?>
                         </label>
-                    <?php endfor;?>
+                    <?php
+                            $checked = ""; 
+                        endforeach;?>
                     </div>
                     <?php endif;?>
                 </div>
+
               </div>
+   
+
+                <?php if(!$aData['oLoginInfo']->mb_id):?>
+                <div class="alert alert-success alert-sm">
+                    수강 신청시 자동으로 회원가입이 진행 됩니다.<br>
+                    &nbsp; - 기존 회원의 경우 입력하신 아이디와 비밀번호를 기준으로 수강신청이 진행됩니다.<br>
+                </div> 
+                <?php endif;?>
+
             </div>
           </div>
+
           <div class="modal-footer">
             <button data-dismiss="modal" class="btn btn-default" type="submit" id="bREQ" style="margin-bottom:0;">신청</button>
             <button data-dismiss="modal" class="btn btn-light" type="button">취소</button>

@@ -30,15 +30,15 @@
         </div><!--//mail contents-->
     </div>
     <!--footer-->
-    <div class="mailBottom clearfix" style="*zoom: 1;padding: 30px 5% 110px;margin: 0 20%;background: #fff;border-top: 1px dotted #959595;">
-        <div class="left logo" style="float: left;width: 40%;">
+    <div class="mailBottom clearfix" style="*zoom: 1;padding: 30px 5% 20px;margin: 0 20%;background: #fff;border-top: 1px dotted #959595;">
+        <!-- <div class="left logo" style="float: left;width: 40%;">
             <a href="http://jungto.eduniety.cc:8090/main"><img src="<?=SKINURL?>/images/logo-gray.png" alt="행복학교"></a>
             <div class="info">
                 <p style="font-size: 10px;margin: 0px;line-height: 1.5;">서울 서초구 서초동 1623-2 우일빌딩 3층</p>
                 <p style="font-size: 10px;margin: 0px;line-height: 1.5;">P: (02) 567-8080</p>
             </div>
-        </div>
-        <div class="right" style="float: right;width: 60%;">
+        </div> -->
+        <div class="right">
             <p class="tit" style="font-size: 15px;color: #959595;font-weight: bold;text-align: right;">"행복도 배울 수 있나요?"</p>
             <p class="txt" style="font-size: 10px;color: #959595;text-align: right;">오늘의 행복을 내일로 미루지 않는 법.<br>행복학교에서 오늘 내 삶에 만족하고 감사하며 지금 이대로 행복해지는 법<br>을 만나보세요.</p>
         </div>

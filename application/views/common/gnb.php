@@ -6,7 +6,7 @@ $controller = $this->uri->segment(1);
   <div id="header-wrap">
     <div class="container">
       <!--Logo-->
-      <div id="logo"> <a href="<?=HOSTURL?>/main" class="logo" data-dark-logo="<?=SKINURL?>/images/logo-dark.png"> <img src="<?=SKINURL?>/images/logo.png" alt="hihappyschool Logo"> </a> </div>
+      <div id="logo"> <a href="<?=HOSTURL?>/main" class="logo" data-dark-logo="<?=SKINURL?>/images/logo-dark.png"> <img src="<?=SKINURL?>/images/logo-01.png" alt="hihappyschool Logo"> </a> </div>
       <!--End: Logo-->
 
       <!--Top Search Form-->

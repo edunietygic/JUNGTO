@@ -110,23 +110,34 @@ class Course extends CI_Controller{
             $aData['oLoginInfo']= (object)$aMemInfo;
         }
 
+        // set class info
+        $aData['aClass'] = array();
+        $aTemp = array($aData['oCourseInfo']->class1,$aData['oCourseInfo']->class2,$aData['oCourseInfo']->class3,$aData['oCourseInfo']->class4,$aData['oCourseInfo']->class5) ;
+        $aData['aClass'] = $this->_makeClassInfo($aTemp);
+        
         // test code
         // echo "<!--";
         // print_r($aData);
         // echo "-->";
-
+ 
         $data = array(
             'container' => 'course/course_sangse'
             ,'aData'    => $aData
         );
 
-        // test code
-        // echo "<!--";
-        // print_r($data);
-        // echo "-->";
-
         $this->load->view('common/container', $data);
 
+    }
+    private function _makeClassInfo($aClass=array())
+    {
+        if(count($aClass)==0) return false; 
+
+        $aRtn = array(); 
+        foreach($aClass as $key=>$val)
+        {
+            if($val) $aRtn[] = $val; 
+        } 
+        return $aRtn;
     }
     /*
      * 수강신청
@@ -178,6 +189,8 @@ class Course extends CI_Controller{
             response_json(array('code'=> 99 , 'msg'=>'Fail'));
             die;
         }
+        
+        if(!$class_idx) $class_idx = 1;
 
         edu_get_instance('CourseClass');
         $oCourse = new CourseClass();
@@ -201,8 +214,6 @@ class Course extends CI_Controller{
         return $oCourse;
     }
     
-    
-     
     public function rpcGetAddrCode($code='')
     {
         if(!$code) $code = $this->input->post('code');
