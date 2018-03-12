@@ -6,11 +6,11 @@ class Account_dao extends Common_dao
     public function __construct()
     {
         $this->db = $this->load->database('dev', TRUE);
-        
+
         $aQueryInfo = edu_get_config('query', 'query');
         $this->queryInfoAccount = $aQueryInfo['account'];
     }
-    
+
     public function mkpwdquery1($aParam=array())
     {
         $aConfig = $this->queryInfoAccount['mkpwdquery1'];
@@ -68,7 +68,11 @@ class Account_dao extends Common_dao
         $aConfig = $this->queryInfoAccount['deleteSubjApplicant'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-
+    public function chkAccountId($aParam=array())
+    {
+        $aConfig = $this->queryInfoAccount['chkAccountId'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 /*
     public function getEduMemInfo($account_id)
     {

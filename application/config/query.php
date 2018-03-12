@@ -91,6 +91,13 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
+        ,'chkAccountId' => array(
+            'query' => 'SELECT count(*) cnt from edu_member
+                         WHERE mb_id = ?'
+            ,'data' => array('mb_id')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
     )
     ,'auth' => array(
         'getAuthInfo' => array(
@@ -159,7 +166,6 @@ $config['query'] = array(
         )
     )
     ,'board' => array(
-
         'getNoticeListTotalCnt' => array(
             'query' => 'SELECT count(*) cnt
                         FROM lms_notice a
@@ -279,8 +285,8 @@ $config['query'] = array(
             ,'null' => array()
          )
         ,'setBoardReply' => array(
-            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, refseq, seq)
-                        SELECT ?,?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq
+            'query' => 'INSERT INTO lms_board(tabseq, title, userid, name, content, indate, refseq, seq, levels, position)
+                        SELECT ?,?,?,?,?,?,?, IFNULL(max(seq)+1,1) next_seq, 1, 1
                           FROM lms_board WHERE tabseq=? ORDER BY seq DESC LIMIT 1'
             ,'data' => array('tabseq', 'title', 'userid', 'name', 'content', 'indate', 'refseq', 'tabseq')
             ,'btype'=> 'isssssii'

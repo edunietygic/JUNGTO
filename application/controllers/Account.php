@@ -147,4 +147,27 @@ class Account extends CI_Controller{
         die;
     }
 
+    public function rpcChkId()
+    {
+        $aInput = array();
+        $aInput['mb_id']       = trim($this->input->post('mb_id'));
+
+        if(! $this->_chkJoinParam($aInput) )
+        {
+            response_json(array('code'=> 99 , 'msg'=>'Fail'));
+            die;
+        }
+
+        edu_get_instance('AccountClass');
+        $oMem = new AccountClass();
+        if( $oAccInfo = $oMem->chkAccountId($aInput) )
+        {
+            response_json(array('code'=> 99 , 'msg'=>'이미 존재하는 아이디입니다. 다른 아이디를 입력하세요.'));
+            die;
+        }
+
+        response_json(array('code'=> 1 , 'msg'=>'사용 가능한 아이디입니다. 아이디를 사용하시겠습니까?'));
+        die;
+    }
+
 }

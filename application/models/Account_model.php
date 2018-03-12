@@ -18,11 +18,11 @@ class Account_model extends CI_model{
 
         return false;
     }
-    
+
     public function getAccountInfo($account_id)
     {
         if(!$account_id) return false;
-        
+
         $aInput = array('mb_id' => $account_id);
         $aAccountInfo = $this->account_dao->getAccountInfo($aInput);
 
@@ -34,7 +34,7 @@ class Account_model extends CI_model{
     public function getAccountInfoKeyToggler($account_id)
     {
         if(!$account_id) return false;
-        
+
         $aInput = array('mb_id' => $account_id);
         $aAccountInfo = $this->account_dao->getAccountInfoKeyToggler($aInput);
 
@@ -58,12 +58,12 @@ class Account_model extends CI_model{
     }
     public function mkpwdquery1($mid2, $out, $out1)
     {
-        $aInput = array('mid2'=>$mis2, 'out'=>$out, 'out1'=>$out1); 
+        $aInput = array('mid2'=>$mis2, 'out'=>$out, 'out1'=>$out1);
         return $this->account_dao->mkpwdquery1($aInput);
     }
     public function mkpwdquery2($mid2)
     {
-        $aInput = array('mid2'=>$mid2); 
+        $aInput = array('mid2'=>$mid2);
         $aResult = $this->account_dao->mkpwdquery2($aInput);
         return (array)$aResult[0];
     }
@@ -95,4 +95,10 @@ class Account_model extends CI_model{
 
         return true;
     }
+    public function chkAccountId($aInput)
+    {
+        $rtn = $this->account_dao->chkAccountId($aInput);
+        return $rtn[0]->cnt;
+    }
+
 }
