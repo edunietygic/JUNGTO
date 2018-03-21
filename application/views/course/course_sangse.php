@@ -45,7 +45,7 @@
         </div>
         <div id="tabs-1" class="tabs simple">
           <ul class="tabs-navigation">
-            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>프로그래</a> </li>
+            <li class="active"><a href="#tab1"><i class="fa fa-align-justify"></i>프로그램</a> </li>
             <!--li><a href="#tab2"><i class="fa fa-info"></i> 과정 상세정보</a> </li-->
           </ul>
           <div class="tabs-content">
@@ -104,8 +104,7 @@
           </div>
           <div class="modal-body">
             <div class="col-md-12">
-              <?=$aData['oCourseInfo']->explain?><br>
-              <?=$aData['oCourseInfo']->edupreparation?>
+              <?=$aData['oCourseInfo']->explain?>
               <div class="seperator m-b-10"></div>
               <div class="row">
 
