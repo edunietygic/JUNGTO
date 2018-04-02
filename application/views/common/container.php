@@ -13,9 +13,15 @@ if( $sLoginInfo = CookieClass::getCookieInfo() )
     {
         edu_get_instance('AuthClass'); 
         $oAuth = new AuthClass($aLoginInfo['mb_id']);
-        $aLoginInfo['auth'] = $oAuth->oAuthInfo->gadmin;
-        if(! $auth_name = $aLConfig[$oAuth->oAuthInfo->gadmin]) $auth_name = '학생';
-        $aLoginInfo['auth_name'] = $auth_name;
+        
+        $aLoginInfo['auth'] = '';
+        $aLoginInfo['auth_name'] = '학생';
+ 
+        if(isset($oAuth->oAuthInfo->gadmin) && $oAuth->oAuthInfo->gadmin) 
+        {
+            $aLoginInfo['auth'] = $oAuth->oAuthInfo->gadmin;
+            $aLoginInfo['auth_name'] = $aLConfig[$oAuth->oAuthInfo->gadmin];
+        }   
     }
 }
 ?>
