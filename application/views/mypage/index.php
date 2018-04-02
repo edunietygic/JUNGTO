@@ -63,7 +63,7 @@
                             <div class="row">
                               <div class="col-md-6 form-group">
                                 <label class="sr-only">Name</label>
-                                <input type="text" id="name" value="<?=$oMem->oMemberInfo->mb_name?>" placeholder="이름" class="form-control input-lg">
+                                <input type="text" id="name" value="<?=$oMem->oMemberInfo->mb_name?>" placeholder="이름" class="form-control input-lg" readonly>
                               </div>
                               <div class="col-md-6 form-group">
                                 <label class="sr-only">ID</label>
