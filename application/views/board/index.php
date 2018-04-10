@@ -18,7 +18,7 @@
             <h1><?=$aBoardInfo['title']?></h1>
           </div>
           <!-- end: Page title -->
-          <?php if( isset($aMemberInfo['mb_id'])) : ?>
+          <?php if( isset($aMemberInfo['mb_id']) && !strstr($this->uri->uri_string, 'lecture') ) : ?>
           <a href="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/board_write" class="btn btn-light right" style="margin-bottom: 26px;" ><i class="fa fa-pencil"></i> 글쓰기</a>
           <?php else: ?>
           <!-- Portfolio Filter -->
