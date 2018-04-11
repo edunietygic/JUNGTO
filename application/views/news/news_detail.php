@@ -31,7 +31,8 @@
 									<div class="seperator"><span>File Download</span></div>
 									<?php foreach ($aAttachFile as $key => $obj) : ?>
 									<span class="post-meta-comments"><i class="fa fa-link"></i><a href="<?=ATTACHURL?>/<?=$obj->savefile?>" download="<?=$obj->realfile?>"><?=$obj->realfile?></a></span>
-									<?php endforeach; ?>
+                                    <img src="<?=ATTACHURL.'/'.$obj->savefile?>" alt="Smiley face" height="100%" width="100%">
+                                    <?php endforeach; ?>
 									<?php endif; ?>
 								</div>
 								<!-- <div class="post-tags"><a href="#">백제</a><a href="#">서울</a><a href="#">유적</a><a href="#">기원전</a></div> -->

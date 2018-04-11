@@ -38,7 +38,6 @@ class News extends CI_Controller{
         $this->pagination->initialize($config);
 
         $pagination = $this->pagination->create_links();
-
         $data = array(
              'container'    => 'news/index'
             ,'sidebar'      => $sidebar
@@ -54,11 +53,11 @@ class News extends CI_Controller{
 
         BoardClass::updateNoticeCnt($seq);
 
-        $aNoticeDetail = BoardClass::getNoticeDetail($seq);
+        $aNoticeDetail   = BoardClass::getNoticeDetail($seq);
         $aRecentReply    = BoardClass::getRecentReply();
         $aRecentContents = BoardClass::getRecentContents();
         $aHotContents    = BoardClass::getHotContents();
-        $aAttachFile    = BoardClass::getAttachFile($seq);
+        $aAttachFile     = BoardClass::getAttachFile($seq);
 
         $aPreData = $aNextData = (object) array();
         foreach ($aNoticeDetail as $key => $obj) {
