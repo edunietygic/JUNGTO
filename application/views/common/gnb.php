@@ -2,7 +2,7 @@
 $controller = $this->uri->segment(1);
 ?>
 <!-- Header -->
-<header id="header" class="header-fullwidth header-transparent <?=($controller=='main') ? 'header-plain' : '';?>">
+<header id="header" class="header-fullwidth <?=($controller=='main') ? 'header-plain' : '';?>">
   <div id="header-wrap">
     <div class="container">
       <!--Logo-->
