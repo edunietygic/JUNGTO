@@ -49,13 +49,12 @@ $controller = $this->uri->segment(1);
           <nav>
             <ul>
               <?php if($name) :?>
-              <li><a href="<?=HOSTURL?>/mypage">MY PAGE</a></li>
+              <li><a href="<?=HOSTURL?>/mypage">내정보</a></li>
               <?php endif; ?>
               <li class="dropdown"> <a href="<?=HOSTURL?>/happyschool">행복학교</a>
                 <ul class="dropdown-menu">
                   <li><a href="<?=HOSTURL?>/happyschool">행복학교 소개</a></li>
-                  <li><a href="<?=HOSTURL?>/happyschool/valuesystem">가치체계<span class="label label-danger">NEW</span></a></li>
-                  <li><a href="<?=HOSTURL?>/happyschool/program">프로그램 소개</a></li>
+                  <li><a href="<?=HOSTURL?>/happyschool/greeting">인사말</a></li>
                 </ul>
               </li>
               <li><a href="<?=HOSTURL?>/course">수강신청</a></li>

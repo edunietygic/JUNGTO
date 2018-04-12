@@ -15,23 +15,13 @@ class Happyschool extends CI_Controller{
         $this->load->view('common/container', $data);
     }
 
-    public function valuesystem()
+    public function greeting()
     {
         $data = array(
-            'container' => 'happyschool/valuesystem'
+            'container' => 'happyschool/greeting'
         );
 
         $this->load->view('common/container', $data);    
     }
-
-    public function program()
-    {
-        $data = array(
-            'container' => 'happyschool/program'
-        );
-
-        $this->load->view('common/container', $data);
-    }
-
 
 }
