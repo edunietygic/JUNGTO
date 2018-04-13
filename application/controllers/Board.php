@@ -18,15 +18,15 @@ class Board extends CI_Controller{
             $this->index();
         }
     }
-    public function lecture()
-    {
-        if( $this->uri->segment(3) ){
-            $this->{$this->uri->segment(3)}($this->uri->segment(4));
-        }
-        else {
-            $this->index();
-        }
-    }
+    // public function lecture()
+    // {
+    //     if( $this->uri->segment(3) ){
+    //         $this->{$this->uri->segment(3)}($this->uri->segment(4));
+    //     }
+    //     else {
+    //         $this->index();
+    //     }
+    // }
     public function review()
     {
         if( $this->uri->segment(3) ){
