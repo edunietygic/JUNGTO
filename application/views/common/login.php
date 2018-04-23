@@ -40,6 +40,13 @@
 
   <script>
   $(function(){
+     
+     $("input[id=user_pwd]").keydown(function (key) {
+         if(key.keyCode == 13){
+             $('#bSend').click();
+         }
+     });
+
      $('#bSend').click(function(){
         $.post(
           "<?=HOSTURL?>/Loginout/rpcLogin"
