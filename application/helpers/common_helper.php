@@ -194,6 +194,14 @@ function replaceArticleHTML($sText)
     return $sText;
 }
 
+function makePWD($user_pwd, $user_id)
+{
+    $secuStr = "jungto";
+    $mkPWD = md5($secuStr.$user_pwd.$user_id);
+    $aRtn = array($user_id, $mkPWD);
+    return $aRtn; 
+}
+
 function generalizeCMPW($in, $mid, $encode=TRUE, $bound=24, $in_str_auto=false, $in_str_auto_length=12)
 {
 

@@ -76,7 +76,8 @@ class Account extends CI_Controller{
     {
         if(!$user_id || !$user_pwd) return false;
 
-        $aResult = generalizeCMPW($user_pwd, $user_id, false);
+        //$aResult = generalizeCMPW($user_pwd, $user_id, false);
+        $aResult = makePWD($user_pwd, $user_id);
         return $aResult[1];
     }
 
