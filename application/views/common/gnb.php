@@ -60,8 +60,8 @@ $controller = $this->uri->segment(1);
               <li><a href="<?=HOSTURL?>/course">수강신청</a></li>
               <li><a href="<?=HOSTURL?>/news">행복학교 소식</a></li>
               <li><a href="<?=HOSTURL?>/board/camp">행복캠프</a></li>
-              <li><a href="<?=HOSTURL?>/lecture">행복한강연</a></li>
-              <li><a href="<?=HOSTURL?>/board/review">생생후기</a></li>
+              <li><a href="<?=HOSTURL?>/lecture">즉문즉설</a></li>
+              <li><a href="<?=HOSTURL?>/board/review">수강후기</a></li>
             </ul>
           </nav>
         </div>
