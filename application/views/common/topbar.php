@@ -8,7 +8,7 @@
               <a class="title"><i class="fa fa-user">&nbsp;<?=$auth_name?></i></a>
               <?php if($auth) :?>
               <div class="dropdown-list">
-                  <a class="list-entry" href="http://jungtoadmin.eduniety.cc:8090/site_manage/login.php">운영툴 바로가기</a>
+                  <a class="list-entry" href="http://jungtoadmin.eduniety.cc/site_manage/login.php">운영툴 바로가기</a>
               </div>
               <?php endif;?>
           </div>

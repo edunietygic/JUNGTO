@@ -24,7 +24,7 @@
                 <p style="font-size: 15px;">감사합니다.</p>
                 <br>
                 <p style="font-size: 15px;">홈페이지로 이동하려면 아래의 링크를 방문하시기 바랍니다.<br>
-                <a href="http://jungto.eduniety.cc:8090/main" style="font-size: 15px; text-decoration: underline; color: #00c49f">http://jungto.eduniety.cc:8090/main</a></p>
+                <a href="http://jungto.eduniety.cc/main" style="font-size: 15px; text-decoration: underline; color: #00c49f">http://jungto.eduniety.cc/main</a></p>
                 <p style="font-size: 13px; padding-top:20px;">*본 메일은 발송 전용 메일입니다.</p>
             </div>
         </div><!--//mail contents-->
@@ -32,7 +32,7 @@
     <!--footer-->
     <div class="mailBottom clearfix" style="*zoom: 1;padding: 30px 5% 20px;margin: 0 20%;background: #fff;border-top: 1px dotted #959595;">
         <!-- <div class="left logo" style="float: left;width: 40%;">
-            <a href="http://jungto.eduniety.cc:8090/main"><img src="<?=SKINURL?>/images/logo-gray.png" alt="행복학교"></a>
+            <a href="http://jungto.eduniety.cc/main"><img src="<?=SKINURL?>/images/logo-gray.png" alt="행복학교"></a>
             <div class="info">
                 <p style="font-size: 10px;margin: 0px;line-height: 1.5;">서울 서초구 서초동 1623-2 우일빌딩 3층</p>
                 <p style="font-size: 10px;margin: 0px;line-height: 1.5;">P: (02) 567-8080</p>

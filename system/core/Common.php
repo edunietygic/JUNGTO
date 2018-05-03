@@ -45,12 +45,12 @@ if($_SERVER["SERVER_NAME"] == 'localhost')
 }
 else
 {
-	$sHostURL   = 'http://jungto.eduniety.cc:8090';
+	$sHostURL   = 'http://jungto.eduniety.cc';
 }
 
-$sSkinURL   = 'http://jungto.eduniety.cc:8090/skin';
-$sImgURL   = 'http://jungto.eduniety.cc:8090/static/img';
-$sAttachURL   = 'http://jungtoadmin.eduniety.cc:8090/dp/bulletin';
+$sSkinURL   = 'http://jungto.eduniety.cc/skin';
+$sImgURL   = 'http://jungto.eduniety.cc/static/img';
+$sAttachURL   = 'http://jungtoadmin.eduniety.cc/dp/bulletin';
 
 $sCookieDomain = "eduniety.cc";
 
