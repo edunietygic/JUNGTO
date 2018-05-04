@@ -90,7 +90,8 @@ class Course extends CI_Controller{
         // tutol info
         edu_get_instance('AccountClass');
         $oAccount = new AccountClass();
-        $aData['oTutorInfo'] = $oAccount->keyTogglerFromID($aData['oCourseInfo']->tutor);
+        if( !$aData['oTutorInfo'] = $oAccount->keyTogglerFromID($aData['oCourseInfo']->tutor) )
+            $aData['oTutorInfo'] = (object)array('mb_name'=>'미지정', 'mb_hp'=>'미지정');
 
         // login info
         edu_get_instance('CookieClass');
