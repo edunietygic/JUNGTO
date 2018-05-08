@@ -2,7 +2,7 @@
   $aBbsTabseq = edu_get_config('bbs_tabseq', 'jungto');
 ?>
         <div class="sidebar col-md-3">
-          <div class="pinOnScroll">
+          <div class="_pinOnScroll_">
             <!--Tabs with Posts-->
             <div class="widget">
               <!--h4 class="widget-title">최근게시글</h4-->

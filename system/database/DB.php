@@ -89,7 +89,7 @@ function &DB($params = '', $query_builder_override = NULL)
 
 		if ($params !== '')
 		{
-			$active_group = $params;
+            $active_group = $params;
 		}
 
 		if ( ! isset($active_group))

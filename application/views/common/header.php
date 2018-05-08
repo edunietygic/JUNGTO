@@ -13,7 +13,8 @@
 <link href="<?=SKINURL?>/css/style.css" rel="stylesheet">
 <link href="<?=SKINURL?>/css/responsive.css" rel="stylesheet">
 <link href="<?=SKINURL?>/css/custom.css" rel="stylesheet">
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!--script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script-->
+<script src="<?=SKINURL?>/js/jquery.js"></script>
 </head>
 <body>
 <!-- Wrapper -->
