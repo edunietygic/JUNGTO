@@ -19,20 +19,8 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$this->load->view('welcome_message');
-
-	}
-
-
-    public function mypdf()
     {
-
-        $this->load->library('pdf');
-
-        $this->pdf->load_view('mypdf');
-        $this->pdf->render();
-        $this->pdf->stream("welcome.pdf");
-    }
+        header('Location: http://hihappyschool.com/main');
+	}
 
 }

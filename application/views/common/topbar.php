@@ -8,7 +8,7 @@
               <a class="title"><i class="fa fa-user">&nbsp;<?=$auth_name?></i></a>
               <?php if($auth) :?>
               <div class="dropdown-list">
-                  <a class="list-entry" href="http://jungtoadmin.eduniety.cc/site_manage/login.php">운영툴 바로가기</a>
+                  <a class="list-entry" href="http://admin.hihappyschool.com/site_manage/login.php">운영툴 바로가기</a>
               </div>
               <?php endif;?>
           </div>
@@ -52,7 +52,7 @@
 $(function(){
   $('#bLogout').click(function(){
       $.post(
-        "<?=HOSTURL?>/Loginout/rpcLogout"
+        "/Loginout/rpcLogout"
         ,{
          }
         ,function(data, status) {

@@ -45,14 +45,14 @@ if($_SERVER["SERVER_NAME"] == 'localhost')
 }
 else
 {
-	$sHostURL   = 'http://jungto.eduniety.cc';
+	$sHostURL   = 'http://hihappyschool.com';
 }
 
-$sSkinURL   = 'http://jungto.eduniety.cc/skin';
-$sImgURL   = 'http://jungto.eduniety.cc/static/img';
-$sAttachURL   = 'http://jungtoadmin.eduniety.cc/dp/bulletin';
+$sSkinURL   = 'http://hihappyschool.com/skin';
+$sImgURL   = 'http://hihappyschool.com/static/img';
+$sAttachURL   = ' http://hihappyschool.com/dp/bulletin';
 
-$sCookieDomain = "eduniety.cc";
+$sCookieDomain = "hihappyschool.com";
 
 $sIBricksURL = 'http://210.91.70.136:11000';
 

@@ -35,7 +35,7 @@ class CourseClass {
             foreach($rtn as $key=>$val)
             {
                 if(isset($val->img) && $val->img) 
-                    $val->img = "http://jungtoadmin.eduniety.cc/dp/subject/".$val->img;
+                    $val->img = "http://admin.hihappyschool.com/dp/subject/".$val->img;
                 else
                     $val->img = "/skin/images/school/thum-school-03.png";
 
@@ -89,7 +89,7 @@ class CourseClass {
         $rtn = $course_model->getDetailCourse($subj); 
 
         if(isset($rtn->img) && $rtn->img) 
-            $rtn->img = "http://jungtoadmin.eduniety.cc/dp/subject/".$rtn->img;
+            $rtn->img = "http://admin.hihappyschool.com/dp/subject/".$rtn->img;
         else
             $rtn->img = "/skin/images/school/thum-school-03.png";
         

@@ -37,7 +37,7 @@ class CookieClass {
             'value'  => json_encode($aMemberInfo),
             'expire' => '86500',
             'prefix' => 'jungto_',
-            'domain' => 'eduniety.cc',
+            'domain' => 'hihappyschool.com',
         );
 
         set_cookie($cookie);
@@ -49,7 +49,7 @@ class CookieClass {
         $CI = & get_instance();
         $CI->load->helper('cookie');
          
-        delete_cookie($name, 'eduniety.cc', '/', 'jungto_');
+        delete_cookie($name, 'hihappyschool.com', '/', 'jungto_');
 
         return;
     }

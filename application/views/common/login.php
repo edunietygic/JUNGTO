@@ -49,7 +49,7 @@
 
      $('#bSend').click(function(){
         $.post(
-          "<?=HOSTURL?>/Loginout/rpcLogin"
+          "/Loginout/rpcLogin"
           ,{
                "user_id" :  $('#user_id').val()
                ,"user_pwd" : $('#user_pwd').val()
@@ -57,7 +57,7 @@
           ,function(data, status) {
                 if (status == "success" && data.code == 1)
                 {
-                    location.href = "<?=HOSTURL?>/main";
+                    location.href = "/main";
                 }
                 else
                 {
