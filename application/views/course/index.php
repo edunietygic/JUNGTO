@@ -231,12 +231,3 @@ function addrChange(){
 
 <!-- Go to top button -->
 <a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a>
-
-
-
-<?php
-echo "<!--";
-print_r($aData['addr1']);
-print_r($aData['aCourseList']);
-echo "-->";
-?>
