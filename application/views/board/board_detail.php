@@ -53,7 +53,7 @@
 								    <?php if( is_array($aReplyDetail) ) : ?>
 								    <?php foreach ($aReplyDetail as $key => $obj) : ?>
 								    <div class="comment" id="comment-1">
-								      <div class="image"><img alt="" src="<?=HOSTURL?>/static/image/author.jpg" class="avatar"></div>
+								      <!--div class="image"><img alt="" src="<?=HOSTURL?>/static/image/author.jpg" class="avatar"></div-->
 								      <div class="text">
 								        <h5 class="name"><?=$obj->name?></h5>
 								        <span class="comment_date"><?=substr($obj->indate,0,4).'-'.substr($obj->indate,4,2).'-'.substr($obj->indate,6,2).' '.substr($obj->indate,8,2).':'.substr($obj->indate,10,2)?></span>

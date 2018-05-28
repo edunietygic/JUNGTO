@@ -1,7 +1,7 @@
 <?php 
 $aData = array();
 $aLoginInfo = array('name'=>'');
-$aLConfig = array('A1'=>'총괄관리자','A2'=>'운영자','B1'=>'선생님');
+$aLConfig = array('A1'=>'총괄관리자','A2'=>'운영자','B1'=>'진행자');
 $auth_name = '';
 
 edu_get_instance('CookieClass'); 

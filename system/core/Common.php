@@ -50,7 +50,7 @@ else
 
 $sSkinURL   = 'http://hihappyschool.com/skin';
 $sImgURL   = 'http://hihappyschool.com/static/img';
-$sAttachURL   = ' http://hihappyschool.com/dp/bulletin';
+$sAttachURL   = 'http://hihappyschool.com/dp/bulletin';
 
 $sCookieDomain = "hihappyschool.com";
 

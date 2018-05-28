@@ -3,6 +3,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="naver-site-verification" content="0c0148a6b019dd522822bed80422c0bb130de517"/>
+<link rel="canonical" href="http://hihappyschool.com">
 <meta name="author" content="행복학교" />
 <meta name="description" content="법륜스님과 함께하는 행복학교">
 <!-- Document title -->

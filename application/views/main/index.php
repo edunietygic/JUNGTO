@@ -9,7 +9,7 @@
           </h2>
           <!-- <p class="lead hidden-xs" style="color: #000000">행복학교에서 오늘 내 삶에 만족하고 감사하며 <br>
             지금 이대로 행복해지는 법을 만나보세요.</p> -->
-          <a class="btn btn-dark btn-outline" style="font-size: 16px; padding: 16px 32px;" href="<?=HOSTURL?>/course">행복학교 신청하기</a> </div>
+          <a class="btn btn-dark btn-outline" style="font-size: 16px; padding: 16px 32px;" href="<?=HOSTURL?>/course">행복학교 둘러보기</a> </div>
       </div>
     </div>
   </section>
