@@ -14,3 +14,12 @@
     </div>
   </section>
   <!-- end: SECTION IMAGE FULLSCREEN -->  
+ 
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(window).load(function() {
+        $('#mainBg').data('vide').getVideoObject().play();
+      });
+    });  
+  </script> 
+  
