@@ -39,18 +39,19 @@ date_default_timezone_set('Asia/Seoul');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // dev hostname setting ----------------------------------//
+$bv_protocol = (!isset($_SERVER['HTTPS'])||empty($_SERVER['HTTPS']))?'http':'https'; // with@ at 18-05-29 ( $bv_protocol 추가 )
 if($_SERVER["SERVER_NAME"] == 'localhost')
 {
-	$sHostURL    = 'http://localhost'.$_SERVER['CONTEXT_PREFIX'].'/jungto';
+	$sHostURL  = $bv_protocol.'://localhost'.$_SERVER['CONTEXT_PREFIX'].'/jungto';
 }
 else
 {
-	$sHostURL   = 'http://hihappyschool.com';
+	$sHostURL  = $bv_protocol.'://hihappyschool.com';
 }
 
-$sSkinURL   = 'http://hihappyschool.com/skin';
-$sImgURL   = 'http://hihappyschool.com/static/img';
-$sAttachURL   = 'http://hihappyschool.com/dp/bulletin';
+$sSkinURL      = $bv_protocol.'://hihappyschool.com/skin';
+$sImgURL       = $bv_protocol.'://hihappyschool.com/static/img';
+$sAttachURL    = $bv_protocol.'://hihappyschool.com/dp/bulletin';
 
 $sCookieDomain = "hihappyschool.com";
 

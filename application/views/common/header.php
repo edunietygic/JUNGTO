@@ -10,7 +10,7 @@
 <!-- Document title -->
 <title>법륜스님과 함께하는 행복학교</title>
 <!-- Stylesheets & Fonts -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css" />
 <link href="<?=SKINURL?>/css/plugins.css" rel="stylesheet">
 <link href="<?=SKINURL?>/css/style.css" rel="stylesheet">
 <link href="<?=SKINURL?>/css/responsive.css" rel="stylesheet">
@@ -18,6 +18,17 @@
 <!--script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script-->
 <script src="<?=SKINURL?>/js/jquery.js"></script>
 </head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120283329-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120283329-1');
+</script>
+
 <body>
 <!-- Wrapper -->
 <div id="wrapper"> 

@@ -153,6 +153,8 @@ class Course extends CI_Controller{
         $hp     = trim($this->input->post('hp'));
         $class_idx = trim($this->input->post('class_idx'));
 
+        $bJoin = true;
+
         // is Loginin
         if($mb_id != $passwd)
         {
@@ -180,30 +182,37 @@ class Course extends CI_Controller{
                     ,'mb_hp'        => substr($hp,0,3).'-'.substr($hp,3,4).'-'.substr($hp,7,4)
                     ,'mb_join_date' => date('Y-m-d h:i:s')
                 );
-                $oAccount->joinMember($aJoinInfo);
+                if( ! $oAccount->joinMember($aJoinInfo) )
+                {
+                    $bJoin = false;
+                }
             }
         }
 
-        // req process
-        if(!$mb_id || !$subj)
+        if($bJoin)
         {
-            response_json(array('code'=> 99 , 'msg'=>'Fail'));
+            // req process
+            if(!$mb_id || !$subj)
+            {
+                response_json(array('code'=> 99 , 'msg'=>'Fail'));
+                die;
+            }
+            
+            if(!$class_idx) $class_idx = 1;
+
+            edu_get_instance('CourseClass');
+            $oCourse = new CourseClass();
+            if(!$oCourse->setCourseReqUser($mb_id, $subj, $class_idx) )
+            {
+                response_json(array('code'=> 2 , 'msg'=>'이미 신청 되어 있습니다.'));
+                die;
+            }
+
+            response_json(array('code'=> 1 , 'msg'=>'OK'));
             die;
         }
-        
-        if(!$class_idx) $class_idx = 1;
-
-        edu_get_instance('CourseClass');
-        $oCourse = new CourseClass();
-        if(!$oCourse->setCourseReqUser($mb_id, $subj, $class_idx) )
-        {
-            response_json(array('code'=> 2 , 'msg'=>'이미 신청 되어 있습니다.'));
-            die;
-        }
-
-        response_json(array('code'=> 1 , 'msg'=>'OK'));
+        response_json(array('code'=> 99 , 'msg'=>'Fail'));
         die;
-
     }
     private function _getCourseList($addrcode='')
     {
