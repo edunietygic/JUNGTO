@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Course extends CI_Controller{
+class CourseTest extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
     }
-    
+
     public function addList($url='0')
     {
         if($url != '0')
@@ -89,7 +89,7 @@ class Course extends CI_Controller{
         }
 
         $data = array(
-            'container' => 'course/index'
+            'container' => 'course/index2'
             ,'aData'    => $aData
         );
 

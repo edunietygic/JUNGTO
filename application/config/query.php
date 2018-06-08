@@ -119,6 +119,16 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
+        ,'getCourseSUBJInfo' => array(
+            'query' => 'SELECT subj, subjnm
+                          FROM lms_subj 
+                         WHERE open_date <= ?
+                           AND close_date >= ?
+                         ORDER BY subjnm ASC'
+            ,'data' => array('open_date', 'close_date')
+            ,'btype'=> 'ss'
+            ,'null' => array()
+        )
         ,'getDetailCourse' => array(
             'query' => 'SELECT class1, class2, class3, class4, class5, part, place, subj, subjnm, subjnm2, subjclass, upperclass, middleclass, lowerclass, muserid, musertel, tutor, edudays, edutimes, place, studentlimit, open_date, close_date, start_date, end_date, eduoutline, edupreparation , `explain`, edumans, memo, addrcode, addrstring, introducefilenamenew3 as img, class_num
                           FROM lms_subj

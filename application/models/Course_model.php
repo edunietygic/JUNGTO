@@ -6,7 +6,49 @@ class Course_model extends CI_model{
         $this->course_dao = edu_get_instance('Course_dao', 'model');
     }
 
-    
+
+
+    public function getCouseSUBJInfo()
+    {  
+        $today =  date('Y-m-d')." 00:00:00";
+        $aInput = array(
+             'open_date'  => $today
+            ,'close_date' => $today
+        );
+        $aResult = $this->course_dao->getCourseSUBJInfo($aInput) ;
+        $aSUBJInfo = array();
+        $cnt=0;
+        $default = 6;
+        
+        // echo "<pre>";
+        // print_r($aResult);
+        
+        foreach($aResult as $key=>$val)
+        {
+            $aTemp[$cnt] = $val->subj;
+            
+            if($cnt > $default)
+            {
+                $cnt=0;
+                $aSUBJInfo[] = $aTemp;
+                $aTemp = array();
+            }
+            else
+                $cnt++;
+        }
+        $aSUBJInfo[] = $aTemp;
+        // print_r($aSUBJInfo); 
+        
+        return $aSUBJInfo;
+    }
+
+
+    public function getCourseListAdd($aInput)
+    {
+        $aCourseList = $this->course_dao->getCourseListAdd($aInput);
+
+        return $aCourseList; 
+    }
     public function getCourseList()
     {
         $aInput = array('isonoff' => 'OFF');

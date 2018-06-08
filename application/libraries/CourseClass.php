@@ -43,6 +43,31 @@ class CourseClass {
         }
         return $rtn;
     }
+    public function getCourseListAdd($sequence)
+    {
+        $course_model = edu_get_instance('Course_model', 'model');
+         
+        $rtn = ''; 
+        $aSUBJ = $course_model->getCouseSUBJInfo();
+
+        if(isset($aSUBJ[$sequence]))
+        {
+            $rtn = $course_model->getCourseListAdd($aSUBJ[$sequence]); 
+        }
+
+        if(isset($rtn) && $rtn)
+        {
+            foreach($rtn as $key=>$val)
+            {
+                if(isset($val->img) && $val->img) 
+                    $val->img = "http://admin.hihappyschool.com/dp/subject/".$val->img;
+                else
+                    $val->img = "/skin/images/school/thum-school-03.png";
+
+            }
+        }
+        return $rtn;
+    }
     private function _makeCourseList($aCourseList)
     {
         $aActiveCourseList = array();
@@ -66,6 +91,13 @@ class CourseClass {
         if(!$addrcode) return false;
 
         $aCourseList = $this->getCourseList($addrcode); 
+        $aActiveCourseList = $this->_makeCourseList($aCourseList);;
+        $this->oActiveCourse = $aActiveCourseList;
+        return $aActiveCourseList;
+    }
+    public function searchCourseListAdd($sequence)
+    {
+        $aCourseList = $this->getCourseListAdd($sequence); 
         $aActiveCourseList = $this->_makeCourseList($aCourseList);;
         $this->oActiveCourse = $aActiveCourseList;
         return $aActiveCourseList;

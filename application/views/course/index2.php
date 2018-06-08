@@ -12,7 +12,7 @@
           <div class="order-select">
             <!--h6>Sort by city</h6-->
             <p></p>
-            <form name="fo" action='/Course' method="post">
+            <form name="fo" action='/CourseTest' method="post">
               <select name="p_addr1" id="addr1" onchange="addrChange()">
                 <option value="">시도검색</option>
                 <?php foreach($aData['addr1'] as $key=>$val) :?>
@@ -140,7 +140,9 @@ function addrChange(){
       <!-- end: Blog -->
 
       <!-- Load next portfolio items -->
-      <div id="pagination" class="infinite-scroll"> <a href="<?=HOSTURL?>/course/addList/infinite-scroll-2"></a> </div>
+      <?php if(! $aData['select_addr2']) : ?>
+      <div id="pagination" class="infinite-scroll"> <a href="<?=HOSTURL?>/courseTest/test/infinite-scroll-2"></a> </div>
+      <?php endif;?>
       <!-- end:Load next portfolio items -->
 
     </div>
