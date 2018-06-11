@@ -13,7 +13,7 @@
           <div class="page-title">
             <h1><?=$aBoardInfo['title']?></h1>
           </div>
-          <!-- navi path ->
+          <!-- navi path -->
           <div class="breadcrumb float-right hidden-xs">
             <ul>
               <li><a href="#">Home</a> </li>
@@ -22,7 +22,7 @@
           </div>
           <!-- end: navi path -->
 
-          <form action="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/rpcSaveBoard" id="writeBoard" name="writeBoard" method="post">
+          <form action="<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/rpcSaveBoard" id="writeBoard" name="writeBoard" method="post" enctype="multipart/form-data" >
           <div id="blog" class="single-post">
             <!-- Post single item-->
             <div class="post-item">
@@ -114,7 +114,7 @@
                     document.getElementById('files').addEventListener('change', handleFileSelect, false);
                   </script>
                   <div style="text-align: center;">
-                  	<a href="javascript:save();" id="bRegister" class="btn btn-primary"><i class="fa fa-pencil"></i> 등록</a>
+                    <button class="btn btn-primary"><i class="fa fa-pencil"></i> 등록</button>
                   	<a href="<?=HOSTURL?>/camp" id="bCancle" class="btn btn-light"><i class="fa fa-undo"></i> 취소</a>
               	  </div>
                 </div>
@@ -137,21 +137,18 @@
   <!-- end: Article write Content -->
 
   <script>
-  $(function(){
-    // $('#bRegister').click(function(){
-    //   alert('등록하기');
-    // });
-  });
 
   //등록하기
-  function save() {
-    var params = jQuery("#writeBoard").serialize();
-
-    $.ajax({
-        type: 'POST',
-        url: '<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/rpcSaveBoard',
-        data: params,
-        success: function (data) {
+  $(function(){
+      $("form#writeBoard").submit(function(e) {
+          e.preventDefault();    
+          var formData = new FormData(this);
+          
+          $.ajax({
+              url: '<?=HOSTURL?>/board/<?=$this->uri->segment(2)?>/rpcSaveBoard',
+              type: 'POST',
+              data: formData,
+              success: function (data) {
                   console.log(data);
                   if(data.code == 1)
                   {
@@ -164,8 +161,13 @@
                     return false;
                      // location.href = “register/“+data.c_idx;
                   }
-              }
+              },
+              cache: false,
+              contentType: false,
+              processData: false
           });
-     }
+      }); 
+  
+  });
 
   </script>

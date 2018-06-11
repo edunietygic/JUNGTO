@@ -91,9 +91,8 @@ class Board_dao extends Common_dao
         $this->db->order_by('a.seq', 'DESC');
 
         $this->db->limit($limit, $offset);
-
-        $query = $this->db->get();
         // echo $this->db->last_query();
+        $query = $this->db->get();
 
         return $query->result();
     }
