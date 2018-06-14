@@ -140,7 +140,9 @@ function addrChange(){
       <!-- end: Blog -->
 
       <!-- Load next portfolio items -->
+      <?php if(! $aData['select_addr2']) : ?>
       <div id="pagination" class="infinite-scroll"> <a href="<?=HOSTURL?>/course/addList/infinite-scroll-2"></a> </div>
+      <?php endif;?>
       <!-- end:Load next portfolio items -->
 
     </div>
