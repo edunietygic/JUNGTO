@@ -45,6 +45,14 @@ class Board_model extends CI_model{
 
         return $aAttachFile;
     }
+    public function getAttachFileBoard($tabseq=0,$seq=0)
+    {
+        if(!$tabseq|| !$seq) return false;
+    	$aInput = array('tabseq' => $tabseq,'seq' => $seq);
+        $aAttachFile = $this->board_dao->getAttachFileBoard($aInput);
+
+        return $aAttachFile;
+    }
     public function getRecentReply()
     {
         $aRecentReply = $this->board_dao->getRecentReply();
@@ -139,5 +147,16 @@ class Board_model extends CI_model{
         if(!$tabseq || !$seq) return false;
         $aInput = array('tabseq' => $tabseq, 'seq' => $seq);
         return $this->board_dao->updateBoardCnt($aInput);
+    }
+    public function getSEQ($idx=0)
+    {
+        if(!$idx) return false;
+        $aInput = array('idx' => $idx);
+        $aResult = $this->board_dao->getSEQ($aInput);
+        return $aResult[0]->seq;
+    }
+    public function saveBoardFile($aInput)
+    {
+        return $this->board_dao->saveBoardFile($aInput);
     }
 }

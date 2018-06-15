@@ -25,10 +25,11 @@
 										<span class="post-meta-comments"><i class="fa fa-link"></i>첨부파일 <?=$aDetailData->filecnt?></span>
 									</div>
 									<?=nl2br($aDetailData->content)?>
-									<?php if( is_array($aAttachFile) && count($aAttachFile) > 0 ) : ?>
+                                    <?php if( is_array($aAttachFile) && count($aAttachFile) > 0 ) : ?>
 									<div class="seperator"><span>File Download</span></div>
 									<?php foreach ($aAttachFile as $key => $obj) : ?>
 									<span class="post-meta-comments"><i class="fa fa-link"></i><a href="<?=ATTACHURL?>/<?=$obj->savefile?>" download="<?=$obj->realfile?>"><?=$obj->realfile?></a></span>
+                                    <img src="<?=ATTACHURL.'/'.$obj->savefile?>" alt="Smiley face" height="100%" width="100%">
 									<?php endforeach; ?>
 									<?php endif; ?>
 								</div>

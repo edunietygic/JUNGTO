@@ -212,6 +212,15 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
          )
+         ,'getAttachFileBoard' => array(
+            'query' => 'SELECT fileseq, realfile, savefile
+                        FROM lms_boardfile
+                        WHERE tabseq = ? 
+                          AND seq = ?'
+            ,'data' => array('tabseq','seq')
+            ,'btype'=> 'ii'
+            ,'null' => array()
+         )
         ,'getRecentReply' => array(
             'query' => 'SELECT idx, tabseq, seq, title, userid, name, content, indate, refseq, refidx, levels, position, upfile, cnt, luserid, ldate, cpseq, gadmin, isopen, sangdam_gubun, isimport, recomcnt, email, origin_userid, edustart, eduend, prov, goodcnt, headnotice, except
                           FROM lms_board
@@ -318,6 +327,22 @@ $config['query'] = array(
             ,'data' => array('tabseq', 'seq')
             ,'btype'=> 'ii'
             ,'null' => array()
+        )
+        ,'getSEQ' => array(
+            'query' => 'SELECT seq 
+                          FROM lms_board 
+                         WHERE idx = ?'
+            ,'data' => array('idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'saveBoardFile' => array(
+            'query' => 'INSERT INTO lms_boardfile(tabseq, seq, fileseq, realfile, savefile, luserid, ldate)
+                          VALUES (?,?,?,?,?,?,?)'
+            ,'data' => array('tabseq', 'seq', 'fileseq', 'realfile', 'savefile', 'luserid', 'ldate')
+            ,'btype'=> 'iiissss'
+            ,'null' => array()
          )
+
     )
 );

@@ -41,6 +41,11 @@ class Board_dao extends Common_dao
         $aConfig = $this->queryInfoBoard['getAttachFile'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function getAttachFileBoard($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['getAttachFileBoard'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
     public function getRecentReply($aParam=array())
     {
         $aConfig = $this->queryInfoBoard['getRecentReply'];
@@ -59,7 +64,7 @@ class Board_dao extends Common_dao
     public function setBoardInfo($aParam=array())
     {
         $aConfig = $this->queryInfoBoard['setBoardInfo'];
-        return $this->actModelFuc($aConfig, $aParam);
+        return $this->actModelFuc($aConfig, $aParam, 'object', true);
     }
     public function setBoardReply($aParam=array())
     {
@@ -114,6 +119,16 @@ class Board_dao extends Common_dao
     public function updateBoardCnt($aParam=array())
     {
         $aConfig = $this->queryInfoBoard['updateBoardCnt'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getSEQ($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['getSEQ'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function saveBoardFile($aParam=array())
+    {
+        $aConfig = $this->queryInfoBoard['saveBoardFile'];
         return $this->actModelFuc($aConfig, $aParam);
     }
 }

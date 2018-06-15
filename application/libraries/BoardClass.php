@@ -25,6 +25,14 @@ class BoardClass {
 
         return $board_model->getNoticeDetail($seq);
     }
+    public static function getAttachFileBoard($tabseq=0,$seq=0)
+    {
+        if(!$tabseq|| !$seq) return false;
+
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getAttachFileBoard($tabseq,$seq);
+    }
     public static function getAttachFile($seq=0)
     {
         if(!$seq) return false;
@@ -110,5 +118,18 @@ class BoardClass {
         $board_model = edu_get_instance('Board_model', 'model');
 
         return $board_model->updateBoardCnt($tabseq, $seq);
+    }
+    public static function getSEQ($idx=0)
+    {
+        if(!$idx) return false;
+
+        $board_model = edu_get_instance('Board_model', 'model');
+
+        return $board_model->getSEQ($idx);
+    }
+    public static function saveBoardFile($aInput)
+    {
+        $board_model = edu_get_instance('Board_model', 'model');
+        return $board_model->saveBoardFile($aInput);
     }
 }
