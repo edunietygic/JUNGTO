@@ -61,6 +61,13 @@ class Account extends CI_Controller{
     }
     private function _chkJoinParam($aInput)
     {
+        // 핸드폰 번호 가비지 체크
+        $hp2 = str_replace('-' , '', $aInput['mb_hp']);
+        if( strlen(trim($hp2)) < 10 )
+        {
+            return false;
+        }
+
         foreach($aInput as $key=>$val)
             if(!$val) return false;
 

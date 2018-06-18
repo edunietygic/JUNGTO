@@ -192,7 +192,14 @@ class Course extends CI_Controller{
                 response_json(array('code'=> 99 , 'msg'=>'회원가입에 필요한 정보를 입력해 주세요'));
                 die;
             }
-            
+
+            // 핸드폰 번호 가비지 체크
+            $hp2 = str_replace('-' , '', $hp);
+            if( strlen(trim($hp2)) < 10 )
+            {
+                response_json(array('code'=> 98 , 'msg'=>'핸드폰 번호를 정상적으로 입력 해 주세요'));
+                die;
+            }
 
             // is account => pass
             edu_get_instance('AccountClass');

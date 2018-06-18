@@ -147,7 +147,7 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label for="email">전화번호</label>
-                  <input type="text" id="hp" class="form-control required" name="phone" value="<?=$aData['oLoginInfo']->mb_hp?>" placeholder="Enter phone" id="phone" aria-required="true">
+                  <input type="text" id="hp" class="form-control required" name="phone" value="<?=$aData['oLoginInfo']->mb_hp?>" placeholder="01012341234 (-) 빼고 입력해주세요" id="phone" aria-required="true">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="email">E-mail</label>
