@@ -7,6 +7,7 @@
         <div class="col-md-6 p-t-10 m-b-20">
           <h1 class="m-b-20">수강신청</h1>
           <p>우리동네 행복학교를 찾아보세요.</p>
+          <p>대표문의 : 010-9653-0090</p>
         </div>
         <div class="col-md-3">
           <div class="order-select">
