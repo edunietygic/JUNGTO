@@ -123,10 +123,15 @@ function getAddrCode($code='')
 {
     // 행정동 코드를 리턴 합니다.
     if(!$code)
-        $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/top.json.txt";
+    {
+        $jAddrCode = '[{"code":"11","value":"서울특별시"},{"code":"26","value":"부산광역시"},{"code":"27","value":"대구광역시"},{"code":"28","value":"인천광역시"},{"code":"29","value":"광주광역시"},{"code":"30","value":"대전광역시"},{"code":"31","value":"울산광역시"},{"code":"41","value":"경기도"},{"code":"42","value":"강원도"},{"code":"43","value":"충청북도"},{"code":"44","value":"충청남도"},{"code":"45","value":"전라북도"},{"code":"46","value":"전라남도"},{"code":"47","value":"경상북도"},{"code":"48","value":"경상남도"},{"code":"50","value":"제주특별자치도"}]';
+        //$url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/top.json.txt";
+    }
     else
+    {
         $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/mdl.".$code.".json.txt";
-    $jAddrCode = sendCURLGet($url, array());
+        $jAddrCode = sendCURLGet($url, array());
+    }
 
     $aAddrCode = json_decode($jAddrCode);
     return $aAddrCode;
@@ -138,8 +143,9 @@ function getAddrStringFromCode($addrcode)
 function getAddrStringFromCode1($addrcode)
 {
     $code = substr($addrcode, 0, 2);
-    $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/top.json.txt";
-    $jAddrCode = sendCURLGet($url, array());
+    // $url = "http://www.kma.go.kr/DFSROOT/POINT/DATA/top.json.txt";
+    // $jAddrCode = sendCURLGet($url, array());
+    $jAddrCode = '[{"code":"11","value":"서울특별시"},{"code":"26","value":"부산광역시"},{"code":"27","value":"대구광역시"},{"code":"28","value":"인천광역시"},{"code":"29","value":"광주광역시"},{"code":"30","value":"대전광역시"},{"code":"31","value":"울산광역시"},{"code":"41","value":"경기도"},{"code":"42","value":"강원도"},{"code":"43","value":"충청북도"},{"code":"44","value":"충청남도"},{"code":"45","value":"전라북도"},{"code":"46","value":"전라남도"},{"code":"47","value":"경상북도"},{"code":"48","value":"경상남도"},{"code":"50","value":"제주특별자치도"}]';
     $aAddrCode = json_decode($jAddrCode);
 
     foreach($aAddrCode as $key=>$val)

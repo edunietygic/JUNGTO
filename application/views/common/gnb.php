@@ -3,6 +3,7 @@ $controller = $this->uri->segment(1);
 ?>
 <!-- Header -->
 <header id="header" class="header-fullwidth">
+<!--header id="header" class="header-transparent dark"-->
   <div id="header-wrap">
     <div class="container">
       <!--Logo-->
