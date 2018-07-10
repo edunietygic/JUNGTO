@@ -205,7 +205,7 @@ class Course extends CI_Controller{
             edu_get_instance('AccountClass');
             $oAccount = new AccountClass($mb_id) ;
 
-            if(!$oAccount->oMemberInfo)
+            if(!$oAccount->oMemberInfo || !isset($oAccount->oMemberInfo->mb_id))
             {
                 $mkpwd = $oAccount->getPwd($mb_id, $passwd, 'reqCourse');
                 $aJoinInfo = array(
@@ -223,7 +223,9 @@ class Course extends CI_Controller{
             }
         }
 
-        if($bJoin)
+        $oNewAccount = new AccountClass($mb_id);
+
+        if($bJoin && isset($oNewAccount->oMemberInfo->mb_id))
         {
             // req process
             if(!$mb_id || !$subj)
